@@ -50,6 +50,7 @@ def build():
         shutil.copy2(font,OUTPUT/'assets/fonts'/font.name)
     for asset in (ROOT/'assets-src').iterdir():
         if asset.is_file():shutil.copy2(asset,OUTPUT/'assets'/asset.name)
+        elif asset.is_dir():shutil.copytree(asset,OUTPUT/'assets'/asset.name,dirs_exist_ok=True)
     home=(ROOT/'templates/index.html').read_text().replace('{{HEADER}}',header()).replace('{{EXPERIMENTS}}',experiments())
     home=home.replace('{{EXPERIMENT_COUNT}}',fa(len(CATALOG['experiments']))).replace('{{DOCUMENT_COUNT}}',fa(len(DOCS)))
     (OUTPUT/'index.html').write_text(home)

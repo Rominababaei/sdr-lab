@@ -10,6 +10,8 @@
   <link rel="preload" href="assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/hub.css">
   <script src="assets/hub.js" defer></script>
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.js"}}</script>
+  <script type="module" src="assets/radio-scene.js"></script>
 </head>
 <body class="hub-home">
   <a class="hub-skip" href="#archive">رفتن به آرشیو آزمایش‌ها</a>
@@ -23,20 +25,16 @@
         <div class="hub-hero-actions"><a class="hub-button hub-button-primary" href="#archive">مشاهدهٔ آزمایش‌ها</a><a class="hub-text-link" href="#team">آشنایی با اعضای گروه</a></div>
         <div class="hub-meta"><span><b>{{EXPERIMENT_COUNT}}</b> آزمایش</span><span><b>{{DOCUMENT_COUNT}}</b> گزارش و پیش‌گزارش</span><span dir="ltr">SDR / RF</span></div>
       </div>
-      <figure class="hub-instrument" aria-labelledby="instrument-title">
-        <div class="hub-instrument-top"><span id="instrument-title">نمای سیگنال</span><span class="hub-instrument-tag" lang="en" dir="ltr">I + jQ</span></div>
-        <div class="hub-scope-label"><span lang="en">SPECTRUM</span><span>توان نسبی</span></div>
-        <svg class="hub-spectrum" viewBox="0 0 540 186" role="img" aria-label="نمای مفهومی طیف فرکانسی با چند قلهٔ سیگنال">
-          <defs><linearGradient id="spectrum-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#48c3bb" stop-opacity=".28"/><stop offset="1" stop-color="#48c3bb" stop-opacity="0"/></linearGradient><pattern id="scope-grid" width="54" height="36" patternUnits="userSpaceOnUse"><path d="M54 0H0V36" fill="none" stroke="#7898ae" stroke-opacity=".15" stroke-width="1"/></pattern></defs>
-          <rect width="540" height="180" fill="url(#scope-grid)"/>
-          <path id="spectrum-area" fill="url(#spectrum-fill)"/>
-          <path id="spectrum-line" fill="none" stroke="#57c7bf" stroke-width="1.7" stroke-linejoin="round"/>
-          <path d="M270 0V180" stroke="#c0d3df" stroke-opacity=".25" stroke-dasharray="3 6"/>
-        </svg>
-        <div class="hub-axis" dir="ltr"><span>−fₛ/2</span><span>0</span><span>+fₛ/2</span></div>
-        <div class="hub-scope-label hub-waterfall-label"><span lang="en">WATERFALL</span><span>زمان</span></div>
-        <div class="hub-waterfall"><canvas id="waterfall" width="810" height="162" role="img" aria-label="نمای مفهومی آبشاری تغییرات طیف در زمان"></canvas><span class="hub-time-line" aria-hidden="true"></span></div>
-        <figcaption class="hub-instrument-caption"><span>نمای مفهومی طیف و نمایش آبشاری</span><button id="signal-toggle" type="button" aria-pressed="false" aria-label="توقف پویانمایی سیگنال"><span class="hub-pause-icon" aria-hidden="true"></span><span id="signal-toggle-label">توقف</span></button></figcaption>
+      <figure class="hub-radio" aria-labelledby="radio-title">
+        <div class="hub-radio-heading"><div><span class="hub-radio-kicker">از موج تا داده</span><h2 id="radio-title">رادیو، در سه بُعد</h2></div><span class="hub-radio-badge" lang="en" dir="ltr">SDR / 3D</span></div>
+        <div class="hub-radio-stage" id="radio-stage" aria-busy="true">
+          <canvas id="radio-canvas" tabindex="0" role="img" aria-label="مدل سه‌بعدی تعاملی برد رادیوی نرم‌افزار، آنتن‌ها و امواج متحرک" aria-describedby="radio-help radio-keyboard-help"></canvas>
+          <div id="radio-loading" class="hub-radio-loading"><span class="hub-radio-loader" aria-hidden="true"></span><span>در حال آماده‌سازی نمای سه‌بعدی…</span></div>
+          <div class="hub-radio-legend" aria-hidden="true"><span><i></i>امواج رادیویی</span><span><i></i><bdi>I / Q</bdi></span></div>
+          <div class="hub-radio-gesture" id="radio-gesture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-5a1.5 1.5 0 0 1 3 0v6-3a1.5 1.5 0 0 1 3 0v6c0 4-3 6-6 6h-1c-2 0-3-1-5-3l-4-5a1.5 1.5 0 0 1 2-2l2 2"/></svg>بکشید و بچرخانید</div>
+        </div>
+        <figcaption class="hub-radio-caption"><p id="radio-help">با ماوس یا لمس بچرخانید؛ با اسکرول یا دو انگشت بزرگ‌نمایی کنید.</p><div class="hub-radio-controls"><button type="button" id="radio-pause" aria-pressed="false" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path class="radio-pause-symbol" d="M7 5v10m6-10v10"/></svg><span>توقف حرکت</span></button><button type="button" id="radio-reset" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1 0 6M4 3v4h4"/></svg>نمای اولیه</button><span class="hub-radio-note">نمای مفهومی</span></div></figcaption>
+        <span id="radio-keyboard-help" class="hub-sr">با کلیدهای جهت بچرخانید، با مثبت و منفی بزرگ‌نمایی کنید و با فاصله حرکت را متوقف یا پخش کنید.</span>
       </figure>
     </section>
 
