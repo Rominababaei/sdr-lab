@@ -2,6 +2,7 @@
 from pathlib import Path
 from bs4 import BeautifulSoup
 import html
+import hashlib
 import json
 import posixpath
 import shutil
@@ -53,6 +54,9 @@ def build():
         elif asset.is_dir():shutil.copytree(asset,OUTPUT/'assets'/asset.name,dirs_exist_ok=True)
     home=(ROOT/'templates/index.html').read_text().replace('{{HEADER}}',header()).replace('{{EXPERIMENTS}}',experiments())
     home=home.replace('{{EXPERIMENT_COUNT}}',fa(len(CATALOG['experiments']))).replace('{{DOCUMENT_COUNT}}',fa(len(DOCS)))
+    for filename,key in [('hub.css','HUB_CSS_VERSION'),('hub.js','HUB_JS_VERSION'),('radio-scene.js','RADIO_SCENE_VERSION')]:
+        version=hashlib.sha256((ROOT/'assets-src'/filename).read_bytes()).hexdigest()[:12]
+        home=home.replace('{{'+key+'}}',version)
     (OUTPUT/'index.html').write_text(home)
     for key,docinfo in DOCS.items():
         source=ROOT/'sources'/key
