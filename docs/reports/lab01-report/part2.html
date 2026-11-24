@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="تن‌های مثبت و منفی، آزمون جابه‌جایی LO، تصحیح DC و بررسی حجم فایل ضبط." name="description"/>
+<meta content="#f7f8f4" name="theme-color"/>
+<meta content="noindex" name="robots"/>
+<link href="https://rominababaei.github.io/sdr-lab/reports/lab01-report/part2.html" rel="canonical"/>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/report.css" rel="stylesheet"/>
+<script defer="" src="assets/report.js"></script>
+<title>بخش دوم | گزارش آزمایش ۱، پایش طیف</title>
+<link href="../../assets/hub.css" rel="stylesheet"/><link href="../../assets/report-theme.css" rel="stylesheet"/><script defer="" src="../../assets/hub.js"></script></head>
+<body data-report="lab01-report" id="top"><header class="hub-header" data-hub-shell="">
+<div class="hub-header-inner"><a class="hub-brand" href="../../index.html"><img alt="" height="42" src="../../assets/mark.svg" width="42"/><span>آزمایشگاه رادیوی نرم‌افزار<small dir="ltr" lang="en">SOFTWARE DEFINED RADIO</small></span></a>
+<nav aria-label="پیمایش آزمایشگاه" class="hub-top-nav"><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><a href="../../index.html#team">اعضای گروه</a><details class="hub-switch"><summary>گزارش‌ها</summary><ul><li><a href="../../reports/lab00-report/index.html">گزارش آزمایش آزمایش ۰</a></li><li><a href="../../reports/lab01-prelab/index.html">پیش‌گزارش آزمایش ۱</a></li><li><a aria-current="page" href="../../reports/lab01-report/index.html">گزارش آزمایش آزمایش ۱</a></li><li><a href="../../reports/lab02-prelab/index.html">پیش‌گزارش آزمایش ۲</a></li><li><a href="../../reports/lab02-report/index.html">گزارش آزمایش آزمایش ۲</a></li></ul></details></nav></div></header><nav aria-label="مسیر صفحه" class="hub-crumbs" data-hub-shell=""><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><span aria-hidden="true" class="hub-crumb-divider"></span><span>آزمایش ۱</span><span aria-hidden="true" class="hub-crumb-divider"></span><span>گزارش آزمایش</span></nav><div class="original-report">
+<a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+<header class="site-header">
+<div class="wrap nav-shell">
+<a class="brand" href="index.html"><span class="brand-icon"><svg aria-hidden="true" fill="none" viewbox="0 0 28 28"><path d="M2 14h4l3-6 4 13 4-16 3 9h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></span><span>آزمایشگاه رادیو نرم‌افزار</span></a>
+<nav aria-label="بخش‌های گزارش" class="primary-nav"><a href="index.html">نمای کلی</a><a href="part1.html">بخش ۱</a><a aria-current="page" href="part2.html">بخش ۲</a><a href="part3.html">بخش ۳</a></nav>
+<a class="manual-link" href="assets/lab_01_spectrum_final_v2.pdf" rel="noopener" target="_blank">دستورکار <bdi dir="ltr">PDF</bdi></a>
+</div>
+</header>
+<main class="wrap part-page" id="main">
+<nav aria-label="مسیر صفحه" class="breadcrumb"><a href="index.html">گزارش آزمایش ۱</a><span aria-hidden="true">/</span><span>بخش دوم</span></nav>
+<header class="part-banner">
+<div><p class="eyebrow">آزمایش ۰۱ <span class="divider"></span> بخش دوم</p><h1>سیگنال معلوم از راه کابل حلقه</h1><p>تن‌های مثبت و منفی، آزمون جابه‌جایی LO، تصحیح DC و بررسی حجم فایل ضبط.</p><div aria-label="دسترسی سریع" class="quick-links"><a href="#p2-question-3">پرسش ۳</a><a href="#p2-question-4">پرسش ۴</a><a href="#p2-question-5">پرسش ۵</a><a href="#resources">پیوست‌ها</a></div></div>
+<span aria-hidden="true" class="part-ordinal">۰۲</span>
+</header>
+<div class="reading-grid">
+<aside aria-label="فهرست مطالب" class="contents-panel">
+<div class="contents-desktop"><p>فهرست این بخش</p><nav><a href="#p2-heading-1"><bdi>۱</bdi><span>آماده‌سازی فلوگراف و اتصال حلقه؛ بندهای ۱ و ۲</span></a><a href="#p2-heading-2"><bdi>۲</bdi><span>اجرای پایه و مقایسه با فرکانس نظری؛ بند ۳</span></a><a href="#p2-heading-4"><bdi>۳</bdi><span>فرکانس منفی؛ بند ۴</span></a><a href="#p2-heading-6"><bdi>۴</bdi><span>آزمون <span dir="ltr" lang="en">LO</span>؛ بند ۵</span></a><a href="#p2-heading-11"><bdi>۵</bdi><span>آزمون اختیاری تصحیح <span dir="ltr" lang="en">DC</span>؛ بند ۶</span></a><a href="#p2-heading-13"><bdi>۶</bdi><span>ضبط <span dir="ltr" lang="en">I/Q</span> و مقایسهٔ حجم فایل</span></a><a href="#p2-question-3"><bdi>۷</bdi><span>پاسخ پرسش ۳: چرا فرکانس مثبت و منفی قابل تشخیص‌اند؟</span></a><a href="#p2-question-4"><bdi>۸</bdi><span>پاسخ پرسش ۴: دسته‌بندی قله‌ها با شیب آزمون <span dir="ltr" lang="en">LO</span></span></a><a href="#p2-question-5"><bdi>۹</bdi><span>پاسخ پرسش ۵: چرا حلقه با وجود خطای مرجع درست دیده می‌شود؟</span></a><a href="#p2-heading-25"><bdi>۱۰</bdi><span>پایان کار، جمع‌بندی اجرا و مستندات</span></a><a href="#resources"><bdi>↳</bdi><span>داده‌ها و پیوست‌ها</span></a></nav></div>
+<details class="contents-mobile"><summary>فهرست این بخش</summary><nav><a href="#p2-heading-1"><bdi>۱</bdi><span>آماده‌سازی فلوگراف و اتصال حلقه؛ بندهای ۱ و ۲</span></a><a href="#p2-heading-2"><bdi>۲</bdi><span>اجرای پایه و مقایسه با فرکانس نظری؛ بند ۳</span></a><a href="#p2-heading-4"><bdi>۳</bdi><span>فرکانس منفی؛ بند ۴</span></a><a href="#p2-heading-6"><bdi>۴</bdi><span>آزمون <span dir="ltr" lang="en">LO</span>؛ بند ۵</span></a><a href="#p2-heading-11"><bdi>۵</bdi><span>آزمون اختیاری تصحیح <span dir="ltr" lang="en">DC</span>؛ بند ۶</span></a><a href="#p2-heading-13"><bdi>۶</bdi><span>ضبط <span dir="ltr" lang="en">I/Q</span> و مقایسهٔ حجم فایل</span></a><a href="#p2-question-3"><bdi>۷</bdi><span>پاسخ پرسش ۳: چرا فرکانس مثبت و منفی قابل تشخیص‌اند؟</span></a><a href="#p2-question-4"><bdi>۸</bdi><span>پاسخ پرسش ۴: دسته‌بندی قله‌ها با شیب آزمون <span dir="ltr" lang="en">LO</span></span></a><a href="#p2-question-5"><bdi>۹</bdi><span>پاسخ پرسش ۵: چرا حلقه با وجود خطای مرجع درست دیده می‌شود؟</span></a><a href="#p2-heading-25"><bdi>۱۰</bdi><span>پایان کار، جمع‌بندی اجرا و مستندات</span></a><a href="#resources"><bdi>↳</bdi><span>داده‌ها و پیوست‌ها</span></a></nav></details>
+</aside>
+<article aria-label="متن بخش دوم" class="report-body">
+<p><strong>هدف.</strong> با فرستادن یک تن مختلط معلوم از <span class="unit-text" dir="ltr" lang="en">TX1</span> به <span class="unit-text" dir="ltr" lang="en">RX1</span>، محور فرکانس، تمایز فرکانس مثبت و منفی، رفتار قله‌ها هنگام تغییر <span dir="ltr" lang="en">LO</span> و اثر تصحیح <span dir="ltr" lang="en">DC</span> را بررسی کردیم. گزارش حاضر مستقل از بخش اول است و مراحل ۱ تا ۷ بخش دوم و پاسخ پرسش‌های ۳، ۴ و ۵ را پوشش می‌دهد. تن‌های مثبت و منفی، سه حالت آزمون <span dir="ltr" lang="en">LO</span> و آزمون اختیاری <span dir="ltr" lang="en">DC</span> با همان هشت تصویر ثبت‌شده مستند شده‌اند.</p>
+<h2 class="chapter-title" id="p2-heading-1"><span aria-hidden="true" class="chapter-number">۱</span> آماده‌سازی فلوگراف و اتصال حلقه؛ بندهای ۱ و ۲</h2>
+<p>فلوگراف پایش را متوقف و نسخهٔ حلقه را با نام <code dir="ltr">lab01_loopback.grc</code> تنظیم کردیم. شاخهٔ <span dir="ltr" lang="en">Signal Source</span> با خروجی مختلط به <span dir="ltr" lang="en">PlutoSDR Sink</span> متصل شد؛ شاخه‌های دریافت، نمایش و ضبط حفظ شدند. تفاوت مهم این است که فرستنده روی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>c</mi></msub><annotation encoding="application/x-tex">f_c</annotation></semantics></math></span> ثابت است، ولی گیرنده و مرکز نمایش روی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi></mrow><annotation encoding="application/x-tex">L=f_c+\delta</annotation></semantics></math></span> قرار می‌گیرند؛ در این گزارش <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">_</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi></mrow></mrow><annotation encoding="application/x-tex">\delta=\mathrm{lo\_shift}</annotation></semantics></math></span> است.</p>
+<div class="table-block" id="p2-table-1">
+<div class="table-caption" id="p2-table-1-caption"><span class="evidence-number">جدول ۱</span><span>تنظیمات مبنای اجرای حلقه و حدود تعیین‌شده در دستورکار</span></div><div aria-labelledby="p2-table-1-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-1-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 68%"/>
+<col style="width: 27%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>مقدار و نحوهٔ تنظیم</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>پارامتر</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">همان دستگاه بخش اول: <code dir="ltr">PUZHI PZSDR P201PRO</code>، تراشهٔ گزارش‌شدهٔ <code dir="ltr">ad9361</code></td>
+<td data-align="right" dir="rtl">سخت‌افزار</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><code dir="ltr">ip:192.168.1.10</code>؛ انتقال داده با <span dir="ltr" lang="en">LAN</span></td>
+<td data-align="right" dir="rtl">نشانی اتصال</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl"><span class="unit-text" dir="ltr" lang="en">434 MHz</span>؛ <span dir="ltr" lang="en">TX LO = int(fc)</span></td>
+<td data-align="right" dir="rtl">مرکز فرستنده</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> در منبع، فرستنده و نمایشگرها</td>
+<td data-align="right" dir="rtl">نرخ نمونه‌برداری</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl"><span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mo>int</mo><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">L=\operatorname{int}(f_c+\delta)</annotation></semantics></math></span>؛ مرکز هر دو نمایشگر برابر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math></span></td>
+<td data-align="right" dir="rtl">تنظیم گیرنده</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><span dir="ltr" lang="en">Complex / Cosine</span>؛ دامنهٔ دیجیتال <span class="unit-text" dir="ltr" lang="en">0.5</span>؛ فرکانس <code dir="ltr">f_tx</code></td>
+<td data-align="right" dir="rtl">منبع تن</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">از <span class="unit-text" dir="ltr" lang="en">-1 MHz</span> تا <span class="unit-text" dir="ltr" lang="en">+1 MHz</span>؛ گام <span class="unit-text" dir="ltr" lang="en">50 kHz</span>؛ مقدار آغازین <span class="unit-text" dir="ltr" lang="en">+250 kHz</span></td>
+<td data-align="right" dir="rtl">کنترل <code dir="ltr">f_tx</code></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">شروع <span class="unit-text" dir="ltr" lang="en">60 dB</span>؛ بازهٔ مجاز <span class="unit-text" dir="ltr" lang="en">40–89 dB</span>؛ پارامتر بلوک متصل به <code dir="ltr">tx_att</code></td>
+<td data-align="right" dir="rtl">تضعیف فرستنده</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">حالت دستی؛ مقدار آغازین <span class="unit-text" dir="ltr" lang="en">10 dB</span>؛ محدود به <span class="unit-text" dir="ltr" lang="en">0–10 dB</span></td>
+<td data-align="right" dir="rtl">بهرهٔ <span class="unit-text" dir="ltr" lang="en">RX1</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><span dir="ltr" lang="en">Filter Configuration = Off</span>؛ پهنای باند <span class="unit-text" dir="ltr" lang="en">RF = 20 MHz</span>؛ <span dir="ltr" lang="en">Cyclic = False</span> در فرستنده</td>
+<td data-align="right" dir="rtl">فیلتر و جریان</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl"><span class="unit-text" dir="ltr" lang="en">FFT = 1024</span>؛ پنجرهٔ <span dir="ltr" lang="en">Blackman–Harris</span> در تصاویر</td>
+<td data-align="right" dir="rtl">نمایش طیف</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">تصحیح <span dir="ltr" lang="en">Quadrature</span> فعال؛ هر دو تصحیح <span dir="ltr" lang="en">RF/BB DC</span> در آغاز فعال</td>
+<td data-align="right" dir="rtl">تصحیح‌های گیرنده</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><strong>اتصال و ایمنی.</strong> برای حالت حلقه، پس از توقف فلوگراف آنتن از <span class="unit-text" dir="ltr" lang="en">RX1</span> جدا و کابل بین <span class="unit-text" dir="ltr" lang="en">TX1</span> و <span class="unit-text" dir="ltr" lang="en">RX1</span> بسته شد. ارسال فقط در کابل انجام می‌شود. با بیشینهٔ تقریبی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>7</mn><mspace width="0.167em"></mspace><mi>d</mi><mi>B</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">+7\,dBm</annotation></semantics></math></span> در دستورکار، کران محافظه‌کارانهٔ ورودی در تضعیف <span class="unit-text" dir="ltr" lang="en">60 dB</span> حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>53</mn><mspace width="0.167em"></mspace><mi>d</mi><mi>B</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">-53\,dBm</annotation></semantics></math></span> است؛ یعنی <span class="unit-text" dir="ltr" lang="en">43 dB</span> پایین‌تر از سقف <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>10</mn><mspace width="0.167em"></mspace><mi>d</mi><mi>B</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">-10\,dBm</annotation></semantics></math></span>. حتی در حداقل تضعیف مجاز <span class="unit-text" dir="ltr" lang="en">40 dB</span>، این کران <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>33</mn><mspace width="0.167em"></mspace><mi>d</mi><mi>B</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">-33\,dBm</annotation></semantics></math></span> است. این محاسبه جای اندازه‌گیری توان کالیبره‌شده را نمی‌گیرد.</p>
+<h2 class="chapter-title" id="p2-heading-2"><span aria-hidden="true" class="chapter-number">۲</span> اجرای پایه و مقایسه با فرکانس نظری؛ بند ۳</h2>
+<p>با <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo>=</mo><mn>434</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_c=434\,\mathrm{MHz}</annotation></semantics></math></span>، <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>s</mi></msub><mo>=</mo><mn>2.6</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">f_s=2.6\,\mathrm{MS/s}</annotation></semantics></math></span>، <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo>=</mo><mi>+</mi><mn>250</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_{\mathrm{tx}}=+250\,\mathrm{kHz}</annotation></semantics></math></span> و جابه‌جایی <span dir="ltr" lang="en">LO</span> صفر، فلوگراف حلقه را اجرا کردیم. مقایسهٔ صریح خواسته‌شده در دستورکار چنین است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo>=</mo><mn>434</mn><mo>+</mo><mn>0.250</mn><mo>=</mo><mn>434.250</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{tone,theory}}=f_c+f_{\mathrm{tx}}
+=434+0.250=434.250\ \mathrm{MHz}.</annotation></semantics></math></span></p>
+<figure id="p2-figure-1">
+<a aria-label="بزرگ‌نمایی شکل ۱" class="figure-image" data-zoom="" href="assets/p2/figures/1picture.jpg" rel="noopener" target="_blank"><img alt="اجرای تن مثبت با f_tx = 250000 و lo_shift = 0. نشانگر، 434.252 MHz و سطح نسبی -54.41 dB را نشان می‌دهد. منبع: 1picture.jpg." decoding="async" height="1464" loading="lazy" src="assets/p2/figures/1picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۱</span><span class="figure-caption">اجرای تن مثبت با <code dir="ltr">f_tx = 250000</code> و <code dir="ltr">lo_shift = 0</code>. نشانگر، <span class="unit-text" dir="ltr" lang="en">434.252 MHz</span> و سطح نسبی <span class="unit-text" dir="ltr" lang="en">-54.41 dB</span> را نشان می‌دهد. منبع: <code dir="ltr">1picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۱" class="figure-zoom" data-zoom="" href="assets/p2/figures/1picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p2-table-2">
+<div class="table-caption" id="p2-table-2-caption"><span class="evidence-number">جدول ۲</span><span>مقایسهٔ نتیجهٔ تصویر اول با رابطهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_c+f_{\mathrm{tx}}</annotation></semantics></math></span></span></div><div aria-labelledby="p2-table-2-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-2-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 43%"/>
+<col style="width: 52%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>مقدار</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="right" dir="rtl">فرکانس مورد انتظار</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">434.252 MHz</td>
+<td data-align="right" dir="rtl">عدد خوانده‌شده از نشانگر</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">+2.000 kHz</td>
+<td data-align="right" dir="rtl">اختلاف <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mrow></msub><mo>−</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{\mathrm{cursor}}-f_{\mathrm{theory}}</annotation></semantics></math></span></td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">-54.41 dB</td>
+<td data-align="right" dir="rtl">سطح نشانگر؛ نسبی و غیرکالیبره</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p2-heading-3">دقت خواندن و سطح تن</h3>
+<p>برای تنظیم ثبت‌شده، فاصلهٔ خانه‌های <span dir="ltr" lang="en">FFT</span> برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>f</mi><mo>=</mo><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mn>600</mn><mspace width="0.167em"></mspace><mn>000</mn></mrow><mn>1024</mn></mfrac><mo>=</mo><mn>2539.0625</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>=</mo><mn>2.5390625</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>T</mi><mi>N</mi></msub><mo>=</mo><mn>393.846</mn><mspace width="0.222em"></mspace><mi>μ</mi><mi mathvariant="normal">s</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\Delta f=\frac{2\,600\,000}{1024}=2539.0625\ \mathrm{Hz}
+=2.5390625\ \mathrm{kHz},\qquad T_N=393.846\ \mu\mathrm{s}.</annotation></semantics></math></span> اختلاف <span class="unit-text" dir="ltr" lang="en">2 kHz</span> برابر حدود <span class="unit-text" dir="ltr" lang="en">0.79</span> خانه است. علاوه بر شبکهٔ <span dir="ltr" lang="en">FFT</span>، جای نشانگر ماوس و گردکردن برچسب روی قرائت اثر دارند؛ بنابراین این اختلاف به‌تنهایی خطای نوسان‌ساز نیست. کف نزدیک تن در این قاب حدود <span class="unit-text" dir="ltr" lang="en">-100</span> تا <span class="unit-text" dir="ltr" lang="en">-110 dB</span> است؛ تن تقریباً <span class="unit-text" dir="ltr" lang="en">45–55 dB</span> بالاتر از آن دیده می‌شود. این فاصله، برآورد بصری ارتفاع قله نسبت به کف است، نه اندازه‌گیری نسبت سیگنال به نویز انتگرالی یا توان ورودی بر حسب <span dir="ltr" lang="en">dBm</span>.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> تن در سمت راست مرکز و نزدیک <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span> ظاهر شد؛ نتیجه با <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_c+f_{\mathrm{tx}}</annotation></semantics></math></span> در دقت قرائت این نما سازگار است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p2-heading-4"><span aria-hidden="true" class="chapter-number">۳</span> فرکانس منفی؛ بند ۴</h2>
+<p>فرکانس تن را به <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>250</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">-250\,\mathrm{kHz}</annotation></semantics></math></span> تغییر دادیم و سایر تنظیمات مبنا را حفظ کردیم. در نتیجه، پیش‌بینی می‌شود تن از سمت راست مرکز به سمت چپ منتقل شود: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi></mrow></msub><mo>=</mo><mn>434</mn><mo>−</mo><mn>0.250</mn><mo>=</mo><mn>433.750</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{tone,theory}}=434-0.250=433.750\ \mathrm{MHz}.</annotation></semantics></math></span></p>
+<figure id="p2-figure-2">
+<a aria-label="بزرگ‌نمایی شکل ۲" class="figure-image" data-zoom="" href="assets/p2/figures/2picture.jpg" rel="noopener" target="_blank"><img alt="تن منفی با f_tx = -250000 و مرکز 434 MHz. نشانگر 433.747 MHz و -54.99 dB را ثبت کرده است. منبع: 2picture.jpg." decoding="async" height="1477" loading="lazy" src="assets/p2/figures/2picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۲</span><span class="figure-caption">تن منفی با <code dir="ltr">f_tx = -250000</code> و مرکز <span class="unit-text" dir="ltr" lang="en">434 MHz</span>. نشانگر <span class="unit-text" dir="ltr" lang="en">433.747 MHz</span> و <span class="unit-text" dir="ltr" lang="en">-54.99 dB</span> را ثبت کرده است. منبع: <code dir="ltr">2picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۲" class="figure-zoom" data-zoom="" href="assets/p2/figures/2picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p2-table-3">
+<div class="table-caption" id="p2-table-3-caption"><span class="evidence-number">جدول ۳</span><span>مقایسهٔ دو علامت فرکانس باند پایه</span></div><div aria-labelledby="p2-table-3-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-3-caption" data-cols="5" dir="ltr">
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 15%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>اختلاف</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>نشانگر</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>نظری</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>تن</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>جای تن</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">+2 kHz</td>
+<td data-align="left" dir="ltr">434.252 MHz</td>
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="left" dir="ltr">+250 kHz</td>
+<td data-align="right" dir="rtl">راست مرکز</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">-3 kHz</td>
+<td data-align="left" dir="ltr">433.747 MHz</td>
+<td data-align="left" dir="ltr">433.750 MHz</td>
+<td data-align="left" dir="ltr">-250 kHz</td>
+<td data-align="right" dir="rtl">چپ مرکز</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<h3 id="p2-heading-5">تفسیر عددی و آزمون علامت</h3>
+<p>با تغییر علامت، جابه‌جایی نظری تن <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>500</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">-500\,\mathrm{kHz}</annotation></semantics></math></span> است. تفاضل دو نشانگر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>505</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">-505\,\mathrm{kHz}</annotation></semantics></math></span> است؛ اختلاف <span class="unit-text" dir="ltr" lang="en">5 kHz</span> این تفاضل حاصل دو قرائت مستقل است و نباید به‌عنوان اندازه‌گیری دقیق فرکانس تعبیر شود. قرائت منفی <span class="unit-text" dir="ltr" lang="en">3 kHz</span> پایین‌تر از مقدار نظری است، یعنی حدود <span class="unit-text" dir="ltr" lang="en">1.18</span> خانهٔ <span dir="ltr" lang="en">FFT</span>. با توجه به انتخاب دستی نشانگر، برای تخمین دقیق‌تر باید از نمونه‌های خام استفاده کرد.</p>
+<p>اختلاف دو سطح نشانگر برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo form="prefix" stretchy="true">(</mo><mi>−</mi><mn>54.99</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>−</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>−</mi><mn>54.41</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mi>−</mi><mn>0.58</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">(-54.99)-(-54.41)=-0.58\ \mathrm{dB}.</annotation></semantics></math></span> این نزدیکی سطح با ثابت‌ماندن دامنهٔ منبع سازگار است؛ از دو قاب لحظه‌ای نمی‌توان تختی دقیق پاسخ دامنه را استنتاج کرد. آبشار نیز جابه‌جایی خط روشن به سمت چپ مرکز را تأیید می‌کند.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> آزمون فرکانس منفی انجام شد و گیرندهٔ مختلط دو علامت فرکانس را از هم تفکیک کرد. دلیل نظری آن در پاسخ پرسش ۳ آمده است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p2-heading-6"><span aria-hidden="true" class="chapter-number">۴</span> آزمون <span dir="ltr" lang="en">LO</span>؛ بند ۵</h2>
+<h3 id="p2-heading-7">حالت اول: جابه‌جایی <span class="unit-text" dir="ltr" lang="en">+100 kHz</span></h3>
+<p>ابتدا <code dir="ltr">f_tx</code> را به <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>250</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">+250\,\mathrm{kHz}</annotation></semantics></math></span> برگرداندیم. سپس فقط جابه‌جایی گیرنده را به <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>100</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">+100\,\mathrm{kHz}</annotation></semantics></math></span> تغییر دادیم؛ فرکانس فرستنده باید روی <span class="unit-text" dir="ltr" lang="en">434 MHz</span> ثابت بماند. <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>434.100</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo>=</mo><mn>434.250</mn><mo>−</mo><mn>434.100</mn><mo>=</mo><mi>+</mi><mn>150</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">L=434.100\ \mathrm{MHz},\qquad
+f_{\mathrm{bb,main}}=434.250-434.100=+150\ \mathrm{kHz}.</annotation></semantics></math></span></p>
+<figure id="p2-figure-3">
+<a aria-label="بزرگ‌نمایی شکل ۳" class="figure-image" data-zoom="" href="assets/p2/figures/3picture.jpg" rel="noopener" target="_blank"><img alt="آزمون lo_shift = 100000 با تن مثبت. قلهٔ اصلی نزدیک 434.25 MHz ثابت است. منبع: 3picture.jpg." decoding="async" height="1462" loading="lazy" src="assets/p2/figures/3picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۳</span><span class="figure-caption">آزمون <code dir="ltr">lo_shift = 100000</code> با تن مثبت. قلهٔ اصلی نزدیک <span class="unit-text" dir="ltr" lang="en">434.25 MHz</span> ثابت است. منبع: <code dir="ltr">3picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۳" class="figure-zoom" data-zoom="" href="assets/p2/figures/3picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<h3 id="p2-heading-8">مشاهده و مقایسه</h3>
+<p>قلهٔ اصلی همچنان نزدیک <span class="unit-text" dir="ltr" lang="en">434.25 MHz</span> دیده می‌شود، ولی نسبت به مرکز جدید در فاصلهٔ <span class="unit-text" dir="ltr" lang="en">150 kHz</span> سمت راست قرار دارد. بنابراین جابه‌جایی مختصات باند پایه، به معنی تغییر فرکانس <span dir="ltr" lang="en">RF</span> تن نیست: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mi>L</mi><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><mo>=</mo><mn>434.100</mn><mo>+</mo><mn>0.150</mn><mo>=</mo><mn>434.250</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{label}}=L+f_{\mathrm{bb}}=434.100+0.150=434.250\ \mathrm{MHz}.</annotation></semantics></math></span> دو قلهٔ جانبی متمایز نیز تقریباً در <span class="unit-text" dir="ltr" lang="en">433.85 MHz</span> و <span class="unit-text" dir="ltr" lang="en">434.65 MHz</span> دیده می‌شوند؛ یک ویژگی ضعیف نزدیک <span class="unit-text" dir="ltr" lang="en">434.00 MHz</span> نیز با نشت فرستنده سازگار است. این مقدارها قرائت تقریبی از محورند و دقت نشانگر عددی ندارند.</p>
+<p><strong>نکتهٔ خواندن تصویر.</strong> متن قرمز <span class="unit-text" dir="ltr" lang="en">434.865 MHz, -48.90 dB</span> در این عکس روی قلهٔ اصلی قرار نگرفته است؛ پس آن را فرکانس یا سطح قلهٔ تن در نظر نمی‌گیریم. ملاک، مکان خود قله روی محور است. برای یک تصویر سادهٔ <span dir="ltr" lang="en">I/Q</span> در گیرنده، انتظار <span class="unit-text" dir="ltr" lang="en">433.950 MHz</span> و برای <span dir="ltr" lang="en">DC</span> انتظار <span class="unit-text" dir="ltr" lang="en">434.100 MHz</span> داریم؛ قلهٔ جانبی <span class="unit-text" dir="ltr" lang="en">434.65 MHz</span> را بدون بررسی شیب نمی‌توان «تصویر سادهٔ گیرنده» نامید.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> حالت <span class="unit-text" dir="ltr" lang="en">+100 kHz</span> اجرا و با رابطهٔ برچسب فرکانس مقایسه شد. تن اصلی مکان <span dir="ltr" lang="en">RF</span> خود را حفظ کرد؛ قله‌های فرعی جداگانه ثبت و تحلیل شدند.</p>
+</blockquote>
+<h3 id="p2-heading-9">حالت دوم: جابه‌جایی <span class="unit-text" dir="ltr" lang="en">+200 kHz</span></h3>
+<p>در گام بعد، <code dir="ltr">lo_shift</code> را به <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>200</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">+200\,\mathrm{kHz}</annotation></semantics></math></span> رساندیم: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>434.200</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo>=</mo><mn>434.250</mn><mo>−</mo><mn>434.200</mn><mo>=</mo><mi>+</mi><mn>50</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">L=434.200\ \mathrm{MHz},\qquad
+f_{\mathrm{bb,main}}=434.250-434.200=+50\ \mathrm{kHz}.</annotation></semantics></math></span></p>
+<figure id="p2-figure-4">
+<a aria-label="بزرگ‌نمایی شکل ۴" class="figure-image" data-zoom="" href="assets/p2/figures/4picture.jpg" rel="noopener" target="_blank"><img alt="آزمون lo_shift = 200000. نشانگر قلهٔ اصلی 434.250 MHz و -54.27 dB است. منبع: 4picture.jpg." decoding="async" height="1470" loading="lazy" src="assets/p2/figures/4picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۴</span><span class="figure-caption">آزمون <code dir="ltr">lo_shift = 200000</code>. نشانگر قلهٔ اصلی <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span> و <span class="unit-text" dir="ltr" lang="en">-54.27 dB</span> است. منبع: <code dir="ltr">4picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۴" class="figure-zoom" data-zoom="" href="assets/p2/figures/4picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p2-table-4">
+<div class="table-caption" id="p2-table-4-caption"><span class="evidence-number">جدول ۴</span><span>مقایسهٔ خواسته‌شده در حالت <span class="unit-text" dir="ltr" lang="en">+200 kHz</span></span></div><div aria-labelledby="p2-table-4-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-4-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 43%"/>
+<col style="width: 52%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>مقدار</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">434.200 MHz</td>
+<td data-align="right" dir="rtl">مرکز گیرنده و نمایش</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">+50 kHz</td>
+<td data-align="right" dir="rtl">فاصلهٔ نظری تن از مرکز جدید</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="right" dir="rtl">فرکانس نظری تن در محور <span dir="ltr" lang="en">RF</span></td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="right" dir="rtl">نشانگر قلهٔ اصلی</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">0 kHz</td>
+<td data-align="right" dir="rtl">اختلافِ مقدارِ نمایش‌داده‌شده با نظری</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p>دو قلهٔ جانبی تقریباً در <span class="unit-text" dir="ltr" lang="en">433.45 MHz</span> و <span class="unit-text" dir="ltr" lang="en">435.05 MHz</span> قرار دارند. نسبت به حالت <span class="unit-text" dir="ltr" lang="en">+100 kHz</span>، این دو تقریباً <span class="unit-text" dir="ltr" lang="en">-400</span> و <span class="unit-text" dir="ltr" lang="en">+400 kHz</span> جابه‌جا شده‌اند، در حالی که تغییر تنظیم <span dir="ltr" lang="en">LO</span> تنها <span class="unit-text" dir="ltr" lang="en">100 kHz</span> بوده است. بنابراین این جفت، رفتار سادهٔ قلهٔ مرکزی با شیب یک را ندارد؛ رفتار آن‌ها در جدول تجمیعی و پاسخ پرسش ۴ بررسی شده است.</p>
+<p><strong>معنی صفر بودن اختلاف.</strong> تطابق <span class="unit-text" dir="ltr" lang="en">434.250</span> با مقدار نظری به دقت برچسب و نمایشگر محدود است. این نتیجه، اندازه‌گیری فرکانس مطلق با خطای صفر نیست؛ کلاک مشترک حلقه و تفکیک محدود <span dir="ltr" lang="en">FFT</span> باید در تفسیر آن لحاظ شوند.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> حالت <span class="unit-text" dir="ltr" lang="en">+200 kHz</span> اجرا شد و تن اصلی، با وجود تغییر مرکز گیرنده، همان برچسب مورد انتظار <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span> را داشت.</p>
+</blockquote>
+<h3 id="p2-heading-10">حالت سوم: جابه‌جایی <span class="unit-text" dir="ltr" lang="en">-100 kHz</span></h3>
+<p>در سومین حالت، جابه‌جایی گیرنده را منفی کردیم: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>433.900</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo>=</mo><mn>434.250</mn><mo>−</mo><mn>433.900</mn><mo>=</mo><mi>+</mi><mn>350</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">L=433.900\ \mathrm{MHz},\qquad
+f_{\mathrm{bb,main}}=434.250-433.900=+350\ \mathrm{kHz}.</annotation></semantics></math></span></p>
+<figure id="p2-figure-5">
+<a aria-label="بزرگ‌نمایی شکل ۵" class="figure-image" data-zoom="" href="assets/p2/figures/5picture.jpg" rel="noopener" target="_blank"><img alt="آزمون lo_shift = -100000. قلهٔ اصلی نزدیک 434.25 MHz است؛ نشانگر 433.849 MHz, -68.78 dB روی یک قلهٔ جانبی قرار دارد. منبع: 5picture.jpg." decoding="async" height="1473" loading="lazy" src="assets/p2/figures/5picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۵</span><span class="figure-caption">آزمون <code dir="ltr">lo_shift = -100000</code>. قلهٔ اصلی نزدیک <span class="unit-text" dir="ltr" lang="en">434.25 MHz</span> است؛ نشانگر <span class="unit-text" dir="ltr" lang="en">433.849 MHz, -68.78 dB</span> روی یک قلهٔ جانبی قرار دارد. منبع: <code dir="ltr">5picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۵" class="figure-zoom" data-zoom="" href="assets/p2/figures/5picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<p>قلهٔ اصلی در محور <span dir="ltr" lang="en">RF</span> تقریباً ثابت است و اکنون <span class="unit-text" dir="ltr" lang="en">350 kHz</span> سمت راست مرکز قرار دارد. قله‌های جانبی متمایز تقریباً در <span class="unit-text" dir="ltr" lang="en">433.85 MHz</span> و <span class="unit-text" dir="ltr" lang="en">434.65 MHz</span> دیده می‌شوند؛ عدد <span class="unit-text" dir="ltr" lang="en">433.849 MHz</span> متعلق به قلهٔ جانبی چپ است، نه تن اصلی.</p>
+<div class="table-block" id="p2-table-5">
+<div class="table-caption" id="p2-table-5-caption"><span class="evidence-number">جدول ۵</span><span>پیش‌بینی محل تن اصلی برای سه مقدار جابه‌جایی گیرنده</span></div><div aria-labelledby="p2-table-5-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-5-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+<col style="width: 21%"/>
+<col style="width: 22%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>برچسب تن</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>باند پایه</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>مرکز گیرنده</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>جابه‌جایی</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="left" dir="ltr">+150 kHz</td>
+<td data-align="left" dir="ltr">434.100 MHz</td>
+<td data-align="left" dir="ltr">+100 kHz</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="left" dir="ltr">+50 kHz</td>
+<td data-align="left" dir="ltr">434.200 MHz</td>
+<td data-align="left" dir="ltr">+200 kHz</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">434.250 MHz</td>
+<td data-align="left" dir="ltr">+350 kHz</td>
+<td data-align="left" dir="ltr">433.900 MHz</td>
+<td data-align="left" dir="ltr">-100 kHz</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<p>هر سه تصویر با ثابت‌ماندن برچسب تن اصلی سازگارند. تفاوت‌های ارتفاع قله و کف در قاب‌های مختلف، ملاک تشخیص واقعی یا مصنوعی بودن قله نیستند؛ ملاک این آزمون، <strong>تغییر مکان فرکانسی</strong> با <span dir="ltr" lang="en">LO</span> است. جدول عددی قله‌های فرعی و شیب‌های به‌دست‌آمده در بخش <a href="#p2-question-4">۸</a> آمده است.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> هر سه مقدار <span class="unit-text" dir="ltr" lang="en">+100</span>، <span class="unit-text" dir="ltr" lang="en">+200</span> و <span class="unit-text" dir="ltr" lang="en">-100 kHz</span> آزموده شدند؛ نتیجهٔ تن اصلی با رفتار یک سیگنال واقعی ثابت در ورودی گیرنده تطبیق دارد.</p>
+</blockquote>
+<h2 class="chapter-title" id="p2-heading-11"><span aria-hidden="true" class="chapter-number">۵</span> آزمون اختیاری تصحیح <span dir="ltr" lang="en">DC</span>؛ بند ۶</h2>
+<p>علاوه بر مراحل اصلی، آزمون اختیاری <span dir="ltr" lang="en">DC</span> را نیز انجام دادیم. روش آزمون، توقف فلوگراف، غیرفعال‌کردن <span dir="ltr" lang="en">RF DC Correction</span> و <span dir="ltr" lang="en">BB DC Correction</span>، اجرای مجدد و سپس بازگرداندن تصحیح‌ها به <span dir="ltr" lang="en">True</span> است. تصاویر زیر دو قرائت از قاب‌های همین آزمون با <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mo>=</mo><mi>+</mi><mn>100</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">\delta=+100\,\mathrm{kHz}</annotation></semantics></math></span> و تن <span class="unit-text" dir="ltr" lang="en">+250 kHz</span> هستند.</p>
+<figure id="p2-figure-6">
+<a aria-label="بزرگ‌نمایی شکل ۶" class="figure-image" data-zoom="" href="assets/p2/figures/6picture.jpg" rel="noopener" target="_blank"><img alt="آزمون DC: یک قلهٔ قوی نزدیک مرکز گیرنده، با نشانگر 434.101 MHz, -52.82 dB. مرکز نظری 434.100 MHz است. منبع: 6picture.jpg." decoding="async" height="1445" loading="lazy" src="assets/p2/figures/6picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۶</span><span class="figure-caption">آزمون <span dir="ltr" lang="en">DC</span>: یک قلهٔ قوی نزدیک مرکز گیرنده، با نشانگر <span class="unit-text" dir="ltr" lang="en">434.101 MHz, -52.82 dB</span>. مرکز نظری <span class="unit-text" dir="ltr" lang="en">434.100 MHz</span> است. منبع: <code dir="ltr">6picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۶" class="figure-zoom" data-zoom="" href="assets/p2/figures/6picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<figure id="p2-figure-7">
+<a aria-label="بزرگ‌نمایی شکل ۷" class="figure-image" data-zoom="" href="assets/p2/figures/7picture.jpg" rel="noopener" target="_blank"><img alt="در قاب دوم آزمون DC، نشانگر روی تن اصلی است: 434.247 MHz, -53.40 dB. قلهٔ مرکزی از تن اصلی جدا دیده می‌شود. منبع: 7picture.jpg." decoding="async" height="1448" loading="lazy" src="assets/p2/figures/7picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۷</span><span class="figure-caption">در قاب دوم آزمون <span dir="ltr" lang="en">DC</span>، نشانگر روی تن اصلی است: <span class="unit-text" dir="ltr" lang="en">434.247 MHz, -53.40 dB</span>. قلهٔ مرکزی از تن اصلی جدا دیده می‌شود. منبع: <code dir="ltr">7picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۷" class="figure-zoom" data-zoom="" href="assets/p2/figures/7picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<p>این دو قله یکی نیستند: تن اصلی نزدیک <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span> و مؤلفهٔ نزدیک <span dir="ltr" lang="en">DC</span> در مرکز <span class="unit-text" dir="ltr" lang="en">434.100 MHz</span> قرار دارد. فاصلهٔ نظری آن‌ها <span class="unit-text" dir="ltr" lang="en">150 kHz</span> است؛ این جابه‌جایی عمدی، تفکیک آن‌ها را ممکن کرده است.</p>
+<h3 id="p2-heading-12">تغییر مرکز نمایش و نتیجهٔ آزمون امتیازی</h3>
+<figure id="p2-figure-8">
+<a aria-label="بزرگ‌نمایی شکل ۸" class="figure-image" data-zoom="" href="assets/p2/figures/8picture.jpg" rel="noopener" target="_blank"><img alt="قاب سوم آزمون DC: قرائت نزدیک مرکز 434.105 MHz, -59.06 dB است. قلهٔ تن در سمت راست مرکز باقی مانده است. منبع: 8picture.jpg." decoding="async" height="1452" loading="lazy" src="assets/p2/figures/8picture.jpg" width="2560"/>
+</a><figcaption><span class="evidence-number">شکل ۸</span><span class="figure-caption">قاب سوم آزمون <span dir="ltr" lang="en">DC</span>: قرائت نزدیک مرکز <span class="unit-text" dir="ltr" lang="en">434.105 MHz, -59.06 dB</span> است. قلهٔ تن در سمت راست مرکز باقی مانده است. منبع: <code dir="ltr">8picture.jpg</code>.</span><a aria-label="بزرگ‌نمایی شکل ۸" class="figure-zoom" data-zoom="" href="assets/p2/figures/8picture.jpg" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p2-table-6">
+<div class="table-caption" id="p2-table-6-caption"><span class="evidence-number">جدول ۶</span><span>قرائت‌های مستند در سه تصویر آزمون <span dir="ltr" lang="en">DC</span></span></div><div aria-labelledby="p2-table-6-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-6-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 26%"/>
+<col style="width: 20%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>سطح نسبی</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>فرکانس نشانگر</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>تصویر</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>ویژگی قرائت‌شده</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">-52.82 dB</td>
+<td data-align="left" dir="ltr">434.101 MHz</td>
+<td data-align="left" dir="ltr">6picture</td>
+<td data-align="right" dir="rtl">قلهٔ نزدیک مرکز</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">-53.40 dB</td>
+<td data-align="left" dir="ltr">434.247 MHz</td>
+<td data-align="left" dir="ltr">7picture</td>
+<td data-align="right" dir="rtl">تن اصلی</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">-59.06 dB</td>
+<td data-align="left" dir="ltr">434.105 MHz</td>
+<td data-align="left" dir="ltr">8picture</td>
+<td data-align="right" dir="rtl">قلهٔ نزدیک مرکز</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<p><strong>پاسخ به «مرکز نمایش چه تغییری کرد؟».</strong> در قاب‌های آزمون، قله‌ای برجسته نزدیک مرکز گیرنده ظاهر است که از تن اصلی جدا می‌شود؛ این رفتار با باقی‌ماندن آفست <span dir="ltr" lang="en">DC</span> هنگام قطع تصحیح سازگار است. در قاب سوم، سطح قرائت‌شدهٔ نزدیک مرکز نسبت به قاب اول کمتر است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><msub><mi>P</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi></mrow></msub><mo>=</mo><mi>−</mi><mn>59.06</mn><mo>−</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>−</mi><mn>52.82</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mi>−</mi><mn>6.24</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\Delta P_{\mathrm{center}}=-59.06-(-52.82)=-6.24\ \mathrm{dB}.</annotation></semantics></math></span> فرکانس خود مرکز از رابطهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>434.100</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">L=434.100\,\mathrm{MHz}</annotation></semantics></math></span> تعیین می‌شود؛ تفاوت کوچک نشانگرهای <span class="unit-text" dir="ltr" lang="en">434.101</span> و <span class="unit-text" dir="ltr" lang="en">434.105</span> را تغییر واقعی فرکانس <span dir="ltr" lang="en">DC</span> تلقی نمی‌کنیم.</p>
+<p><strong>حد تفسیر این مقایسه.</strong> عکس‌ها پنجرهٔ تنظیم <span dir="ltr" lang="en">True/False</span> را نشان نمی‌دهند و سطح تن اصلی نیز در قاب سوم کمتر دیده می‌شود. پس <span class="unit-text" dir="ltr" lang="en">6.24 dB</span>، اختلاف دو قرائت مستند است؛ آن را میزان خالص حذف <span dir="ltr" lang="en">DC</span> در شرایط کاملاً یکسان نمی‌نامیم. برای اندازه‌گیری خالص، بهره، تضعیف، میانگین‌گیری و سایر تنظیمات باید ثابت و وضعیت تصحیح‌ها هم‌زمان ثبت شوند. تغییر دو تصحیح با هم، سهم جداگانهٔ تصحیح آنالوگ و دیجیتال را مشخص نمی‌کند.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> مرحلهٔ اختیاری <span dir="ltr" lang="en">DC</span> نیز اجرا و با سه تصویر و تحلیل تغییر مرکز مستند شد. خواهشمندیم انجام این مرحلهٔ تکمیلی در ارزیابی و امتیاز مربوط به فعالیت اختیاری لحاظ شود.</p>
+</blockquote>
+<h2 class="chapter-title" id="p2-heading-13"><span aria-hidden="true" class="chapter-number">۶</span> ضبط <span dir="ltr" lang="en">I/Q</span> و مقایسهٔ حجم فایل</h2>
+<p>ضبط بخش دوم انجام شد و حجم گزارش‌شدهٔ فایل <span class="unit-text" dir="ltr" lang="en">42.2 MB</span> بود. برای ضبط مقرر، تن <span class="unit-text" dir="ltr" lang="en">+250 kHz</span> و جابه‌جایی <span dir="ltr" lang="en">LO</span> برابر <span class="unit-text" dir="ltr" lang="en">+100 kHz</span> انتخاب می‌شود؛ در این حالت، تن اصلی در باند پایهٔ <span class="unit-text" dir="ltr" lang="en">+150 kHz</span> از مؤلفهٔ <span dir="ltr" lang="en">DC</span> جدا است.</p>
+<h3 id="p2-heading-14">محاسبهٔ تئوری و پاسخ به سازگاری حجم</h3>
+<p>در قالب <code dir="ltr">cf32</code>، هر نمونهٔ مختلط از دو عدد <span class="unit-text" dir="ltr" lang="en">float32</span> تشکیل می‌شود: <span class="unit-text" dir="ltr" lang="en">4 byte</span> برای <span dir="ltr" lang="en">I</span> و <span class="unit-text" dir="ltr" lang="en">4 byte</span> برای <span dir="ltr" lang="en">Q</span>، یعنی <span class="unit-text" dir="ltr" lang="en">8 byte</span> به ازای هر نمونه. پس نرخ نوشتن و حجم نظری عبارت‌اند از <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mo>=</mo><mn>8</mn><mo>×</mo><mn>2.6</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>=</mo><mn>20.8</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">s</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>V</mi><mo>=</mo><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mi>T</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">R=8f_s=8\times2.6\times10^6=20.8\times10^6\ \mathrm{byte/s},
+\qquad V=8f_sT.</annotation></semantics></math></span> اگر مدت ضبط را حدود <span class="unit-text" dir="ltr" lang="en">2 s</span> در نظر بگیریم، مرجع مقایسه چنین است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mn>2</mn><mi>s</mi></mrow></msub><mo>=</mo><mn>8</mn><mo>×</mo><mn>2.6</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>×</mo><mn>2</mn><mo>=</mo><mn>41</mn><mspace width="0.167em"></mspace><mn>600</mn><mspace width="0.167em"></mspace><mn>000</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi></mrow><mo>=</mo><mn>41.6</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">B</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">V_{2s}=8\times2.6\times10^6\times2=41\,600\,000\ \mathrm{byte}=41.6\ \mathrm{MB}.</annotation></semantics></math></span> <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>V</mi><mo>=</mo><mn>42.2</mn><mo>−</mo><mn>41.6</mn><mo>=</mo><mn>0.6</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">B</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mrow><mi>Δ</mi><mi>V</mi></mrow><msub><mi>V</mi><mrow><mn>2</mn><mi>s</mi></mrow></msub></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mn>1.4423</mn><mi>%</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\Delta V=42.2-41.6=0.6\ \mathrm{MB},\qquad
+\frac{\Delta V}{V_{2s}}\times100=1.4423\%.</annotation></semantics></math></span></p>
+<div class="table-block" id="p2-table-7">
+<div class="table-caption" id="p2-table-7-caption"><span class="evidence-number">جدول ۷</span><span>مقایسهٔ حجم گزارش‌شده با مرجع دوثانیه‌ای؛ <span dir="ltr" lang="en">MB</span> ده‌دهی فرض شده است</span></div><div aria-labelledby="p2-table-7-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-7-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 44%"/>
+<col style="width: 51%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>مقدار</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">41.6 MB = 39.6729 MiB</td>
+<td data-align="right" dir="rtl">نظری برای دقیقاً دو ثانیه</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">42.2 MB <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≃</mo><annotation encoding="application/x-tex">\simeq</annotation></semantics></math> 40.2451 MiB</td>
+<td data-align="right" dir="rtl">حجم گزارش‌شدهٔ ضبط</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">0.6 MB / 1.4423%</td>
+<td data-align="right" dir="rtl">اختلاف با مرجع دوثانیه‌ای</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>5</mn><mspace width="0.167em"></mspace><mn>275</mn><mspace width="0.167em"></mspace><mn>000</mn></mrow><annotation encoding="application/x-tex">\simeq5\,275\,000</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">تعداد نمونهٔ مختلط معادل حجم گرد‌شده</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>2.028846</mn></mrow><annotation encoding="application/x-tex">\simeq2.028846</annotation></semantics></math> s</td>
+<td data-align="right" dir="rtl">زمان معادل <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>/</mi><mrow><mo form="prefix" stretchy="true">(</mo><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mo form="postfix" stretchy="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">V/(8f_s)</annotation></semantics></math></span></td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>28.846</mn></mrow><annotation encoding="application/x-tex">\simeq28.846</annotation></semantics></math> ms</td>
+<td data-align="right" dir="rtl">اختلاف زمان معادل با دو ثانیه</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><strong>نتیجه.</strong> بله؛ <span class="unit-text" dir="ltr" lang="en">42.2 MB</span> برای ضبط <strong>حدود</strong> دو ثانیه، به مقدار نظری نزدیک است. حجم یادشده با حدود <span class="unit-text" dir="ltr" lang="en">2.029 s</span> داده سازگار است. این مدت از حجم محاسبه شده و اندازه‌گیری مستقل زمان نیست. توقف دستی، مرز بافرها و گردکردن نمایش حجم می‌توانند در اختلاف با زمان اسمی نقش داشته باشند. قالب خام سرآیند ندارد؛ اختلاف را به «حجم هدر» نسبت نمی‌دهیم. اگر برنامه در واقع <span dir="ltr" lang="en">MiB</span> نشان داده باشد، باید ابتدا واحد تصحیح شود؛ <span class="unit-text" dir="ltr" lang="en">42.2 MiB</span> به جای <span class="unit-text" dir="ltr" lang="en">42.2 MB</span> معادل حدود <span class="unit-text" dir="ltr" lang="en">2.1274 s</span> است.</p>
+<h3 id="p2-heading-15">تحلیل قابل تکرار فایل خام</h3>
+<p>کد <a href="assets/p2/analysis/analyze_loopback.py"><code dir="ltr">analysis/analyze_loopback.py</code></a> همراه گزارش، تعداد نمونه و زمان واقعی را از اندازهٔ بایتی فایل می‌خواند، طیف میانگین با روش <span dir="ltr" lang="en">Welch</span> می‌سازد و فرکانس تن را با درون‌یابی قله محاسبه می‌کند. نتایج عددی این گزارش از تصاویر و حجم اعلام‌شده‌اند؛ عدد زیرخانه‌ایِ محاسبه‌شده از فایل خام برای آن‌ها ادعا نشده است. اندازهٔ فایل به‌تنهایی پیوستگی زمانی دریافت یا نبود نمونه‌های ازدست‌رفته را اثبات نمی‌کند.</p>
+<h2 class="chapter-title" id="p2-question-3"><span aria-hidden="true" class="chapter-number">۷</span> پاسخ پرسش ۳: چرا فرکانس مثبت و منفی قابل تشخیص‌اند؟</h2>
+<p><strong>پرسش.</strong> چرا گیرندهٔ مختلط تن‌های <span class="unit-text" dir="ltr" lang="en">+250 kHz</span> و <span class="unit-text" dir="ltr" lang="en">-250 kHz</span> را تفکیک می‌کند؟ اگر تنها <span dir="ltr" lang="en">I</span> نمونه‌برداری می‌شد چه اتفاقی می‌افتاد؟</p>
+<h3 id="p2-heading-17">اطلاعات علامت در زوج <span dir="ltr" lang="en">I/Q</span></h3>
+<p>نمونه‌های گیرنده مختلط‌اند: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>I</mi><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>+</mo><mi>j</mi><mi>Q</mi><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">x[n]=I[n]+jQ[n].</annotation></semantics></math></span> برای دو تن با دامنهٔ یکسان و فاز اولیهٔ صفر داریم <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mo>+</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>A</mi><mo>exp</mo><mspace width="-0.167em"></mspace><mrow><mo form="prefix" stretchy="true">(</mo><mi>j</mi><mn>2</mn><mi>π</mi><mfrac><msub><mi>f</mi><mn>0</mn></msub><msub><mi>f</mi><mi>s</mi></msub></mfrac><mi>n</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>x</mi><mo>−</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>A</mi><mo>exp</mo><mspace width="-0.167em"></mspace><mrow><mo form="prefix" stretchy="true">(</mo><mi>−</mi><mi>j</mi><mn>2</mn><mi>π</mi><mfrac><msub><mi>f</mi><mn>0</mn></msub><msub><mi>f</mi><mi>s</mi></msub></mfrac><mi>n</mi><mo form="postfix" stretchy="true">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">x_+[n]=A\exp\!\left(j2\pi\frac{f_0}{f_s}n\right),\qquad
+x_-[n]=A\exp\!\left(-j2\pi\frac{f_0}{f_s}n\right).</annotation></semantics></math></span> <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mo>+</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><msub><mi>I</mi><mo>−</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>A</mi><mo>cos</mo><mspace width="-0.167em"></mspace><mrow><mo form="prefix" stretchy="true">(</mo><mn>2</mn><mi>π</mi><mfrac><msub><mi>f</mi><mn>0</mn></msub><msub><mi>f</mi><mi>s</mi></msub></mfrac><mi>n</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Q</mi><mo>+</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>−</mi><msub><mi>Q</mi><mo>−</mo></msub><mrow><mo form="prefix" stretchy="true">[</mo><mi>n</mi><mo form="postfix" stretchy="true">]</mo></mrow><mo>=</mo><mi>A</mi><mo>sin</mo><mspace width="-0.167em"></mspace><mrow><mo form="prefix" stretchy="true">(</mo><mn>2</mn><mi>π</mi><mfrac><msub><mi>f</mi><mn>0</mn></msub><msub><mi>f</mi><mi>s</mi></msub></mfrac><mi>n</mi><mo form="postfix" stretchy="true">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">I_+[n]=I_-[n]=A\cos\!\left(2\pi\frac{f_0}{f_s}n\right),\qquad
+Q_+[n]=-Q_-[n]=A\sin\!\left(2\pi\frac{f_0}{f_s}n\right).</annotation></semantics></math></span> مؤلفهٔ <span dir="ltr" lang="en">Q</span> جهت چرخش بردار مختلط را مشخص می‌کند؛ جهت چرخش دو تن مخالف است. بنابراین تبدیل فوریهٔ مختلط، تن مثبت و منفی را در دو سوی صفر باند پایه قرار می‌دهد. در این آزمایش، <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>0</mn></msub><mo>=</mo><mn>250</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_0=250\,\mathrm{kHz}</annotation></semantics></math></span> و مرکز <span class="unit-text" dir="ltr" lang="en">434 MHz</span> بود؛ پس برچسب‌های نظری <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span> و <span class="unit-text" dir="ltr" lang="en">433.750 MHz</span> به دست می‌آیند. تصاویر <a href="#p2-figure-1">۱</a> و <a href="#p2-figure-2">۲</a> همین تغییر سمت را نشان می‌دهند.</p>
+<h3 id="p2-heading-18">اگر فقط شاخهٔ <span dir="ltr" lang="en">I</span> در اختیار بود</h3>
+<p>خروجی حقیقی کسینوسی برای دو علامت یکسان است و طیف دوطرفهٔ آن دو مؤلفهٔ قرینه دارد: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>cos</mo><mrow><mo form="prefix" stretchy="true">(</mo><mn>2</mn><mi>π</mi><msub><mi>f</mi><mn>0</mn></msub><mi>t</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mfrac><mi>A</mi><mn>2</mn></mfrac><mo>exp</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>j</mi><mn>2</mn><mi>π</mi><msub><mi>f</mi><mn>0</mn></msub><mi>t</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mfrac><mi>A</mi><mn>2</mn></mfrac><mo>exp</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>−</mi><mi>j</mi><mn>2</mn><mi>π</mi><msub><mi>f</mi><mn>0</mn></msub><mi>t</mi><mo form="postfix" stretchy="true">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">A\cos(2\pi f_0t)=\frac{A}{2}\exp(j2\pi f_0t)
++\frac{A}{2}\exp(-j2\pi f_0t).</annotation></semantics></math></span> در نتیجه، با گرفتن فقط <span dir="ltr" lang="en">I</span>، از روی این تن نمی‌توان تعیین کرد فرکانس ورودی بالاتر از <span dir="ltr" lang="en">LO</span> بوده یا پایین‌تر. اگر برای این دادهٔ حقیقی محور دوطرفه رسم شود، هر دو طرف مرکز ظاهر می‌شوند؛ اگر طیف یک‌طرفه رسم شود، فقط اندازهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="true">|</mo><msub><mi>f</mi><mn>0</mn></msub><mo form="postfix" stretchy="true">|</mo></mrow><annotation encoding="application/x-tex">|f_0|</annotation></semantics></math></span> باقی می‌ماند و علامت همچنان از دست می‌رود. برای فاز اولیهٔ دلخواه نیز دو علامت با انتخاب فاز متناظر، قابل تمایز یکتا نیستند.</p>
+<h3 id="p2-heading-19">تفاوت تقارن حقیقی با تصویر ناشی از خطا</h3>
+<p>در دادهٔ حقیقی، تقارن مزدوج خاصیت ریاضی اجباری است؛ در گیرندهٔ مختلط ایده‌آل چنین تقارنی اجباری نیست. با این حال، عدم توازن بهره یا فاز دو مسیر <span dir="ltr" lang="en">I/Q</span> می‌تواند یک تصویر ضعیف ایجاد کند. وجود تصویر ضعیف، به معنی ازدست‌رفتن اصل قابلیت تفکیک دو علامت نیست؛ بلکه محدودیت رد تصویرِ سخت‌افزار را نشان می‌دهد. همچنین تعویض قرارداد <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>+</mo><mi>j</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">I+jQ</annotation></semantics></math></span> با <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>−</mo><mi>j</mi><mi>Q</mi></mrow><annotation encoding="application/x-tex">I-jQ</annotation></semantics></math></span> علامت محور را برعکس می‌کند؛ آزمون تن مثبت و منفی، قرارداد درست محور را به‌صورت تجربی کنترل می‌کند.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> گیرندهٔ مورد استفاده علامت فرکانس باند پایه را حفظ می‌کند. با تنها یک مؤلفهٔ حقیقی، این تمایز برای تن آزمون از بین می‌رود.</p>
+</blockquote>
+<h2 class="chapter-title" id="p2-question-4"><span aria-hidden="true" class="chapter-number">۸</span> پاسخ پرسش ۴: دسته‌بندی قله‌ها با شیب آزمون <span dir="ltr" lang="en">LO</span></h2>
+<p><strong>پرسش.</strong> قله‌های مشاهده‌شده را به «سیگنال واقعی در ورودی <span class="unit-text" dir="ltr" lang="en">RX1</span>» یا «ساختهٔ گیرنده» نسبت دهید و از شیب تغییر برچسب استفاده کنید. اگر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi></mrow><annotation encoding="application/x-tex">L=f_c+\delta</annotation></semantics></math></span> و فرستنده ثابت باشد، تعریف شیب چنین است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mfrac><mrow><mi>Δ</mi><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow><mrow><mi>Δ</mi><mi>L</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>Δ</mi><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub></mrow><mrow><mi>Δ</mi><mi>δ</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">s=\frac{\Delta f_{\mathrm{label}}}{\Delta L}
+=\frac{\Delta f_{\mathrm{label}}}{\Delta\delta}.</annotation></semantics></math></span></p>
+<div class="table-block" id="p2-table-8">
+<div class="table-caption" id="p2-table-8-caption"><span class="evidence-number">جدول ۸</span><span>جدول ثبت قله‌های متمایز در تصاویر ۳ تا ۵؛ اعداد بدون نشانگر، تقریبی‌اند</span></div><div aria-labelledby="p2-table-8-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-8-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 39%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="ltr" scope="col">-100 kHz</th>
+<th data-align="left" dir="ltr" scope="col">+200 kHz</th>
+<th data-align="left" dir="ltr" scope="col">+100 kHz</th>
+<th data-align="right" dir="rtl" scope="col"><strong>تنظیم <span dir="ltr" lang="en">LO</span>؛ ویژگی</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.25</mn></mrow><annotation encoding="application/x-tex">\simeq434.25</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">434.250</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.25</mn></mrow><annotation encoding="application/x-tex">\simeq434.25</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">تن اصلی؛ واحد این سه ستون <span dir="ltr" lang="en">MHz</span> است</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.00</mn></mrow><annotation encoding="application/x-tex">\simeq434.00</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.00</mn></mrow><annotation encoding="application/x-tex">\simeq434.00</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.00</mn></mrow><annotation encoding="application/x-tex">\simeq434.00</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">ویژگی ضعیف نزدیک <span dir="ltr" lang="en">TX LO</span></td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">433.849</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>435.05</mn></mrow><annotation encoding="application/x-tex">\simeq435.05</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.65</mn></mrow><annotation encoding="application/x-tex">\simeq434.65</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">شاخهٔ جانبی <span dir="ltr" lang="en">A</span> با ردیابی شیب مثبت</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>434.65</mn></mrow><annotation encoding="application/x-tex">\simeq434.65</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>433.45</mn></mrow><annotation encoding="application/x-tex">\simeq433.45</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≃</mo><mn>433.85</mn></mrow><annotation encoding="application/x-tex">\simeq433.85</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">شاخهٔ جانبی <span dir="ltr" lang="en">B</span> با ردیابی شیب منفی</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="rtl">ضعیف</td>
+<td data-align="left" dir="rtl">ضعیف</td>
+<td data-align="left" dir="rtl">ضعیف</td>
+<td data-align="right" dir="rtl">مؤلفهٔ مرکزی در تصاویر ۳ تا ۵؛ در آزمون <span dir="ltr" lang="en">DC</span> برجسته می‌شود</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<h3 id="p2-heading-21">مدل نظری و منشأ قله‌ها</h3>
+<p><strong>۱. سیگنال ثابت ورودی.</strong> برای هر مؤلفهٔ واقعی با فرکانس <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></span>، باند پایه <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>−</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">F-L</annotation></semantics></math></span> است و <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mi>L</mi><mo>+</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>F</mi><mo>−</mo><mi>L</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{label}}=L+(F-L)=F</annotation></semantics></math></span>؛ پس <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s=0</annotation></semantics></math></span>. تن اصلی این رفتار را دارد. نشت <span dir="ltr" lang="en">TX LO</span> در <span class="unit-text" dir="ltr" lang="en">434.000 MHz</span> و تصویر <strong>فرستنده</strong> در <span class="unit-text" dir="ltr" lang="en">433.750 MHz</span> نیز اگر آشکار شوند، سیگنال فیزیکی ورودی‌اند و <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">s=0</annotation></semantics></math></span> دارند؛ ضعیف یا ناخواسته بودن، آن‌ها را به مصنوع گیرنده تبدیل نمی‌کند. تصویر فرستنده در این قاب‌ها تفکیک عددی مطمئنی ندارد.</p>
+<p><strong>۲. آفست گیرنده.</strong> مؤلفهٔ ثابت باند پایه در صفر، با برچسب <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">D</mi><mi mathvariant="normal">C</mi></mrow></msub><mo>=</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{DC}}=L</annotation></semantics></math></span> نمایش داده می‌شود؛ بنابراین <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">s=1</annotation></semantics></math></span>. قلهٔ نزدیک <span class="unit-text" dir="ltr" lang="en">434.100 MHz</span> در آزمون <span dir="ltr" lang="en">DC</span> با این منشأ سازگار است.</p>
+<p><strong>۳. تصویر سادهٔ <span dir="ltr" lang="en">I/Q</span> گیرنده.</strong> اگر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mi>α</mi><mi>u</mi><mo>+</mo><mi>β</mi><msup><mi>u</mi><mo>*</mo></msup><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">z=\alpha u+\beta u^*+d</annotation></semantics></math></span>، تصویر تن <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></span> در باند پایهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mrow><mo form="prefix" stretchy="true">(</mo><mi>F</mi><mo>−</mo><mi>L</mi><mo form="postfix" stretchy="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">-(F-L)</annotation></semantics></math></span> ایجاد می‌شود؛ پس <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">e</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">R</mi><mi mathvariant="normal">X</mi></mrow></msub><mo>=</mo><mi>L</mi><mo>−</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>F</mi><mo>−</mo><mi>L</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mn>2</mn><mi>L</mi><mo>−</mo><mi>F</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>s</mi><mo>=</mo><mn>2</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{image,RX}}=L-(F-L)=2L-F,\qquad s=2.</annotation></semantics></math></span> برای تن اصلی، پیش‌بینی این تصویر در حالت‌های <span class="unit-text" dir="ltr" lang="en">+100</span>، <span class="unit-text" dir="ltr" lang="en">+200</span> و <span class="unit-text" dir="ltr" lang="en">-100 kHz</span> به‌ترتیب <span class="unit-text" dir="ltr" lang="en">433.950</span>، <span class="unit-text" dir="ltr" lang="en">434.150</span> و <span class="unit-text" dir="ltr" lang="en">433.550 MHz</span> است. این‌ها <strong>پیش‌بینی مدل‌اند</strong> و جای قله‌های جانبی واقعی جدول نوشته نشده‌اند.</p>
+<p><strong>۴. قله‌های جانبی مشاهده‌شده.</strong> ردیابی دو شاخهٔ جدول با تقریب <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>A</mi></msub><mo>≃</mo><mn>434.25</mn><mo>+</mo><mn>4</mn><mi>δ</mi></mrow><annotation encoding="application/x-tex">f_A\simeq434.25+4\delta</annotation></semantics></math></span> و <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>B</mi></msub><mo>≃</mo><mn>434.25</mn><mo>−</mo><mn>4</mn><mi>δ</mi></mrow><annotation encoding="application/x-tex">f_B\simeq434.25-4\delta</annotation></semantics></math></span>، با واحد <span dir="ltr" lang="en">MHz</span> برای <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>δ</mi><annotation encoding="application/x-tex">\delta</annotation></semantics></math></span>، سازگار است؛ مثلاً <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo form="prefix" stretchy="true">(</mo><mn>435.05</mn><mo>−</mo><mn>434.65</mn><mo form="postfix" stretchy="true">)</mo></mrow><mi>/</mi><mrow><mo form="prefix" stretchy="true">(</mo><mn>0.2</mn><mo>−</mo><mn>0.1</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>≃</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">(435.05-434.65)/(0.2-0.1)\simeq4</annotation></semantics></math></span> و برای شاخهٔ دیگر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≃</mo><mi>−</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">s\simeq-4</annotation></semantics></math></span>. با فرض ثابت‌بودن فرستنده، در دستهٔ مصنوعات وابسته به گیرنده یا پردازش قرار می‌گیرند؛ اما <strong>تصویر ساده با شیب دو نیستند</strong>. تعیین سازوکار دقیق به بازخوانی <span dir="ltr" lang="en">LO</span>ها، فایل <span dir="ltr" lang="en">GRC</span> و تحلیل خام نیاز دارد. این ردیابی، تطبیق سه قاب است و اثبات قطعی منشأ سخت‌افزاری یک محصول مرتبهٔ بالاتر نیست.</p>
+<h2 class="chapter-title" id="p2-question-5"><span aria-hidden="true" class="chapter-number">۹</span> پاسخ پرسش ۵: چرا حلقه با وجود خطای مرجع درست دیده می‌شود؟</h2>
+<p><strong>پرسش.</strong> مرجع دستگاه ممکن است حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>25</mn><mspace width="0.167em"></mspace><mi>p</mi><mi>p</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\pm25\,ppm</annotation></semantics></math></span> خطا داشته باشد؛ چرا تن حلقه با مقدار مورد انتظار تطبیق دارد، ولی حامل‌های <span dir="ltr" lang="en">GSM</span> در بخش اول با شبکهٔ استاندارد اختلاف داشتند؟</p>
+<h3 id="p2-heading-23">مرجع مشترک در فرستنده، گیرنده و نرخ نمونه‌برداری</h3>
+<p>در معماری <span class="unit-text" dir="ltr" lang="en">AD9361</span>، فرکانس‌های <span dir="ltr" lang="en">LO</span> و کلاک‌های نمونه‌برداری از مرجع مشترک ساخته می‌شوند. این اشتراک به معنی یکی‌بودن فاز دو نوسان‌ساز نیست؛ نکتهٔ اصلی، مشترک‌بودن خطای مقیاس فرکانس است. فرض کنیم ضریب خطای واقعی کلاک <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn><mo>+</mo><mi>ε</mi></mrow><annotation encoding="application/x-tex">a=1+\varepsilon</annotation></semantics></math></span> باشد و تنظیم‌های اسمی مطابق جدول گزارش باشند. در مدل ایده‌آل مقیاس مشترک: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">X</mi></mrow></msub><mo>=</mo><mi>a</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo form="postfix" stretchy="true">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>L</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">X</mi></mrow></msub><mo>=</mo><mi>a</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mi>a</mi><msub><mi>f</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">F_{\mathrm{TX}}=a(f_c+f_{\mathrm{tx}}),\qquad
+L_{\mathrm{RX}}=a(f_c+\delta),\qquad F_s=af_s.</annotation></semantics></math></span> فرکانس واقعی باند پایه برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><mo>=</mo><msub><mi>F</mi><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">X</mi></mrow></msub><mo>−</mo><msub><mi>L</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">X</mi></mrow></msub><mo>=</mo><mi>a</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo>−</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">F_{\mathrm{bb}}=F_{\mathrm{TX}}-L_{\mathrm{RX}}=a(f_{\mathrm{tx}}-\delta).</annotation></semantics></math></span> نمایشگر از نرخ اسمی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>s</mi></msub><annotation encoding="application/x-tex">f_s</annotation></semantics></math></span> برای تبدیل فرکانس نرمال‌شده به هرتز استفاده می‌کند؛ پس <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><msub><mi>F</mi><mi>s</mi></msub></mfrac><msub><mi>f</mi><mi>s</mi></msub><mo>=</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo>−</mo><mi>δ</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">f_{\mathrm{bb,label}}=\frac{F_{\mathrm{bb}}}{F_s}f_s
+=f_{\mathrm{tx}}-\delta,</annotation></semantics></math></span> <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mo>−</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">x</mi></mrow></msub><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">\boxed{f_{\mathrm{label}}=(f_c+\delta)+(f_{\mathrm{tx}}-\delta)=f_c+f_{\mathrm{tx}}.}</annotation></semantics></math></span> بنابراین عامل <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math></span> در اندازه‌گیری حلقه حذف می‌شود؛ دستگاه سیگنال ساخته‌شده با مرجع خودش را با همان مرجع می‌سنجد. این استدلال، نتیجهٔ فرکانسی را توضیح می‌دهد و وجود نویز فاز، خطای سنتز یا خطای قرائت را نفی نمی‌کند.</p>
+<h3 id="p2-heading-24">مقایسه با یک حامل مستقل <span dir="ltr" lang="en">GSM</span></h3>
+<p>فرکانس فیزیکی حامل بیرونی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math></span> از مرجع دستگاه ما پیروی نمی‌کند. برای همان مدل داریم <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>=</mo><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow><mo>+</mo><mfrac><mrow><mi>F</mi><mo>−</mo><mi>a</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mi>δ</mi><mo form="postfix" stretchy="true">)</mo></mrow></mrow><mi>a</mi></mfrac><mo>=</mo><mfrac><mi>F</mi><mi>a</mi></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">f_{\mathrm{label,ext}}
+=(f_c+\delta)+\frac{F-a(f_c+\delta)}{a}=\frac{F}{a},</annotation></semantics></math></span> <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi><mo mathvariant="normal">,</mo><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>−</mo><mi>F</mi><mo>≃</mo><mi>−</mi><mi>ε</mi><mi>F</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{label,ext}}-F\simeq-\varepsilon F.</annotation></semantics></math></span> در اینجا علامت طبق تعریف <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span> به‌عنوان خطای مثبت کلاک واقعی است؛ تعریف خطای برچسب می‌تواند قرارداد علامت معکوس داشته باشد. به‌عنوان مقیاس نظری، <span class="unit-text" dir="ltr" lang="en">25 ppm</span> در <span class="unit-text" dir="ltr" lang="en">954 MHz</span> معادل <span class="unit-text" dir="ltr" lang="en">23.85 kHz</span> است؛ در <span class="unit-text" dir="ltr" lang="en">434.25 MHz</span> نیز فرکانس فیزیکی سیگنال تولیدی می‌تواند حدود <span class="unit-text" dir="ltr" lang="en">10.856 kHz</span> از مقدار اسمی فاصله داشته باشد، در حالی که همان دستگاه در حلقه همچنان برچسب اسمی را نشان دهد.</p>
+<p><strong>نتیجه.</strong> تطابق تن حلقه، آزمون سازگاری زنجیره و محور فرکانس است و <strong>کالیبراسیون مستقل فرکانس مطلق نیست</strong>. برای برآورد خطای مرجع باید از سیگنال مستقل شناخته‌شده استفاده کرد؛ در بررسی <span dir="ltr" lang="en">GSM</span> نیز عدم قطعیت خواندن مرکز حامل، تفکیک <span dir="ltr" lang="en">FFT</span> و احتمال انتخاب محل نامناسب نشانگر باید لحاظ شود.</p>
+<h2 class="chapter-title" id="p2-heading-25"><span aria-hidden="true" class="chapter-number">۱۰</span> پایان کار، جمع‌بندی اجرا و مستندات</h2>
+<h3 id="p2-heading-26">بند ۷: بازگشت از حالت حلقه</h3>
+<p>روش پایان کار مطابق دستورکار این است که ابتدا فلوگراف متوقف شود، سپس کابل حلقه باز و آنتن دوباره به <span class="unit-text" dir="ltr" lang="en">RX1</span> وصل شود و فایل <code dir="ltr">lab01_monitor.grc</code> برای ادامهٔ پایش باز شود. قطع یا وصل کابل هنگام اجرای فرستنده نباید انجام شود. تنظیمات تصحیح <span dir="ltr" lang="en">DC</span> برای ادامهٔ پایش باید به حالت <span dir="ltr" lang="en">True</span> برگردند.</p>
+<div class="table-block" id="p2-table-9">
+<div class="table-caption" id="p2-table-9-caption"><span class="evidence-number">جدول ۹</span><span>پوشش مراحل و پرسش‌های بخش دوم در این گزارش</span></div><div aria-labelledby="p2-table-9-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p2-table-9-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 62%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>شرح و مستند گزارش</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>خواستهٔ دستورکار</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">معماری شاخهٔ ارسال، جدول تنظیمات، اتصال و محاسبهٔ کران توان</td>
+<td data-align="right" dir="rtl">بندهای ۱ و ۲</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">شکل <a href="#p2-figure-1">۱</a>؛ مقایسهٔ <span class="unit-text" dir="ltr" lang="en">434.252</span> با <span class="unit-text" dir="ltr" lang="en">434.250 MHz</span></td>
+<td data-align="right" dir="rtl">بند ۳؛ تن مثبت</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">شکل <a href="#p2-figure-2">۲</a>؛ مقایسهٔ <span class="unit-text" dir="ltr" lang="en">433.747</span> با <span class="unit-text" dir="ltr" lang="en">433.750 MHz</span></td>
+<td data-align="right" dir="rtl">بند ۴؛ تن منفی</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">شکل‌های <a href="#p2-figure-3">۳</a> تا <a href="#p2-figure-5">۵</a>؛ جدول قله‌ها و شیب‌ها</td>
+<td data-align="right" dir="rtl">بند ۵؛ آزمون <span dir="ltr" lang="en">LO</span></td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">شکل‌های <a href="#p2-figure-6">۶</a> تا <a href="#p2-figure-8">۸</a>؛ تغییر مرکز و تحلیل <span class="unit-text" dir="ltr" lang="en">6.24 dB</span></td>
+<td data-align="right" dir="rtl">بند ۶؛ آزمون اختیاری <span dir="ltr" lang="en">DC</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">روش توقف، بازکردن حلقه و بازگشت به پایش</td>
+<td data-align="right" dir="rtl">بند ۷</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">حجم <span class="unit-text" dir="ltr" lang="en">42.2 MB</span>، رابطهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mi>T</mi></mrow><annotation encoding="application/x-tex">8f_sT</annotation></semantics></math></span> و زمان معادل</td>
+<td data-align="right" dir="rtl">ثبت <span dir="ltr" lang="en">I/Q</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">استدلال مختلط، شیب‌های <span class="unit-text" dir="ltr" lang="en">0,1,2</span> و رفتار واقعی قله‌ها، مدل کلاک مشترک</td>
+<td data-align="right" dir="rtl">پرسش‌های ۳، ۴ و ۵</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p2-heading-27">آنچه اگر دوباره انجام می‌دادیم تغییر می‌دادیم</h3>
+<ul>
+<li><p>برای خواندن فرکانس، طول <span dir="ltr" lang="en">FFT</span> را دست‌کم به <span class="unit-text" dir="ltr" lang="en">8192</span> افزایش می‌دادیم؛ در <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> فاصلهٔ خانه‌ها <span class="unit-text" dir="ltr" lang="en">317.3828 Hz</span> می‌شود. نشانگر را دقیقاً روی قله قرار می‌دادیم و نتیجه را از دادهٔ خام درون‌یابی می‌کردیم.</p></li>
+<li><p>در هر حالت <span dir="ltr" lang="en">LO</span>، فرکانس واقعی گیرنده و فرستنده را با <code dir="ltr">iio_attr</code> بازمی‌خواندیم و تمام پنجرهٔ تنظیمات را ثبت می‌کردیم تا ردیابی قله‌های جانبیِ با شیب غیرمعمول مستقل از فرض ثابت‌بودن <span dir="ltr" lang="en">TX</span> باشد.</p></li>
+<li><p>در آزمون <span dir="ltr" lang="en">DC</span>، وضعیت هر دو تصحیح، بهره، تضعیف و میانگین‌گیری را در یک قاب مستند و سطح مرکز را نسبت به تن اصلی نیز مقایسه می‌کردیم. برای حجم ضبط، تعداد دقیق بایت و نمونه و زمان آغاز و پایان را ثبت می‌کردیم.</p></li>
+</ul>
+<h3 id="p2-heading-28">منابع و مبنای عددها</h3>
+<ol>
+<li><p>دستورکار آزمایش ۱، نسخهٔ دوم <a href="assets/lab_01_spectrum_final_v2.pdf"><code dir="ltr">lab_01_spectrum_final_v2.pdf</code></a>: صفحهٔ ۲ ایمنی؛ صفحهٔ ۸ جدول ۵؛ صفحه‌های ۱۱ و ۱۲ مراحل و پرسش‌های بخش دوم؛ صفحهٔ ۱۶ تحلیل حلقه.</p></li>
+<li><p>هشت تصویر اصلی <code dir="ltr">1picture.jpg</code> تا <code dir="ltr">8picture.jpg</code> و حجم <span class="unit-text" dir="ltr" lang="en">42.2 MB</span> اعلام‌شده برای ضبط تیم.</p></li>
+<li><p><span dir="ltr" lang="en">Analog Devices, AD9361 Data Sheet, Rev. G, pp. 35–36.</span></p>
+<p><span dir="ltr" lang="en"><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/AD9361.pdf">Clock input options and synthesizers</a>.</span></p></li>
+<li><p><span dir="ltr" lang="en">Analog Devices, “Mirror Mirror on the Wall” (Analog Dialogue).</span></p>
+<p><span dir="ltr" lang="en"><a href="https://www.analog.com/en/resources/analog-dialogue/articles/mirror-mirror-on-the-wall-understanding-image-rejection-and-its-impact-on-desired-signals.html">IQ imbalance and image rejection</a>.</span></p></li>
+</ol>
+<section aria-labelledby="resources" class="resources"><h2 id="resources">داده‌ها و پیوست‌ها</h2><div class="file-list"><a class="file-row" download="" href="assets/p2/data/cursor-readings.csv"><span>قرائت‌های نشانگر طیف</span><bdi dir="ltr">CSV</bdi></a><a class="file-row" download="" href="assets/p2/data/lo-peak-readings.csv"><span>قرائت قله‌ها در آزمون LO</span><bdi dir="ltr">CSV</bdi></a><a class="file-row" download="" href="assets/p2/data/lo-model-predictions.csv"><span>پیش‌بینی‌های مدل LO</span><bdi dir="ltr">CSV</bdi></a><a class="file-row" download="" href="assets/p2/data/recording-check.csv"><span>محاسبات حجم ضبط بخش دوم</span><bdi dir="ltr">CSV</bdi></a><a class="file-row" download="" href="assets/p2/data/image-sha256.json"><span>شناسهٔ بررسی اصالت تصاویر</span><bdi dir="ltr">JSON</bdi></a><a class="file-row" download="" href="assets/p2/analysis/analyze_loopback.py"><span>کد تحلیل فایل خام حلقه</span><bdi dir="ltr">PY</bdi></a><a class="file-row" download="" href="assets/p2/analysis/requirements.txt"><span>وابستگی‌های کد تحلیل حلقه</span><bdi dir="ltr">TXT</bdi></a></div></section>
+<nav aria-label="بخش قبل و بعد" class="part-pagination"><a class="previous-link" href="part1.html">بخش قبل <span>راه‌اندازی و دریافت</span></a><a class="next-link" href="part3.html"><span><small>بخش بعد</small><strong>پویش باندها</strong></span><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M16 10H4m0 0 5 5m-5-5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></a></nav>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner">
+<p>آزمایشگاه رادیو نرم‌افزار <span aria-hidden="true">·</span> آزمایش ۱، پایش طیف</p>
+<a href="#top">بازگشت به بالا <span aria-hidden="true">↑</span></a>
+</div></footer>
+<dialog aria-labelledby="image-caption" class="image-dialog" id="image-dialog">
+<div class="dialog-bar"><p id="image-caption"></p><button aria-label="بستن تصویر" autofocus="" id="close-image" type="button">×</button></div>
+<img alt="" id="dialog-image"/>
+<a href="index.html" id="original-image" rel="noopener" target="_blank">بازکردن تصویر اصلی</a>
+</dialog>
+</div></body>
+</html>

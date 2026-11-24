@@ -1,0 +1,163 @@
+{
+  "id": "lab02-prelab",
+  "origin": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/",
+  "files": [
+    {
+      "path": "assets/figures/task04_clip_curves.pdf",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_clip_curves.pdf",
+      "bytes": 23194,
+      "sha256": "15eebf07ff084093ce627169213f59021c52704962b81faf1cb7b106f5966815"
+    },
+    {
+      "path": "assets/figures/task04_clip_curves.svg",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_clip_curves.svg",
+      "bytes": 138379,
+      "sha256": "2de280796fcb3f9c4a31a686ef6d6f6fb97f4dbe637c75875d790e2fa177b101"
+    },
+    {
+      "path": "assets/figures/task04_clip_gain40_off.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_clip_gain40_off.png",
+      "bytes": 289905,
+      "sha256": "e20b961e2c6a6a2db59ddb55f620f732ec2c2e156677c019c59afa0ed6e570c2"
+    },
+    {
+      "path": "assets/figures/task04_clip_gain40_pin72.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_clip_gain40_pin72.png",
+      "bytes": 293728,
+      "sha256": "4f5b315c66315b2e9547f6614a880ee5c09805e3a5f76e5630256b9ccaf7d487"
+    },
+    {
+      "path": "assets/figures/task04_clip_gain40_pin78.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_clip_gain40_pin78.png",
+      "bytes": 287271,
+      "sha256": "516c2c8c8aa04c1c4c942310598ef09ccafb6d4dc980db3fbbad2b1ee3f93b6b"
+    },
+    {
+      "path": "assets/figures/task04_iip3_curves.pdf",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_iip3_curves.pdf",
+      "bytes": 27200,
+      "sha256": "96f6f11634a2615cd7d949d1933ebd7fa6bc167939100221750ce9cb4486f288"
+    },
+    {
+      "path": "assets/figures/task04_iip3_curves.svg",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_iip3_curves.svg",
+      "bytes": 139473,
+      "sha256": "eb0838645b5b75d3a731b33d7ad4c40a51210e5de6e4ba4400d080ea2652e21a"
+    },
+    {
+      "path": "assets/figures/task04_iip3_gain0_pin43.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_iip3_gain0_pin43.png",
+      "bytes": 281193,
+      "sha256": "ded649ed0ee92c1bbcb28bf5f0c7b85877e0b914aed465084a5cb165c3a86a1f"
+    },
+    {
+      "path": "assets/figures/task04_nf_gain10_off.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_nf_gain10_off.png",
+      "bytes": 287903,
+      "sha256": "20d3775f54b272e61603c0d80c21d112b6e769823a272af4bb152206b4fc1e0d"
+    },
+    {
+      "path": "assets/figures/task04_nf_gain10_on.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_nf_gain10_on.png",
+      "bytes": 296395,
+      "sha256": "f5f766bbf360a5591735fc52d9bf39974a7a1eaeaf3fb2863cb233c5db53291e"
+    },
+    {
+      "path": "assets/figures/task04_nf_gain40_off.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_nf_gain40_off.png",
+      "bytes": 287543,
+      "sha256": "a3df8d30e73cc540b9bab95689965f31eded50fe46a7d2ec35b1267cf73d45e3"
+    },
+    {
+      "path": "assets/figures/task04_nf_gain40_on.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_nf_gain40_on.png",
+      "bytes": 283949,
+      "sha256": "2e220e39159cc93f097a65f40a2d1c3c7b92a259feedc04233b2f7bd59ebc4a1"
+    },
+    {
+      "path": "assets/figures/task04_p1db_curves.pdf",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_p1db_curves.pdf",
+      "bytes": 24112,
+      "sha256": "83ad37967247eb7a3dbb22bc78b972c046306fc471b4f147d25fc50c8dad1e6f"
+    },
+    {
+      "path": "assets/figures/task04_p1db_curves.svg",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_p1db_curves.svg",
+      "bytes": 184954,
+      "sha256": "74e8496d8b69f38b6395083060328d54e27648a0990a2d99a3a4a623c1e3ed5f"
+    },
+    {
+      "path": "assets/figures/task04_p1db_gain0.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_p1db_gain0.png",
+      "bytes": 282497,
+      "sha256": "985c3d3394dc133b47adcc74b83f5674f7dcf6301bd5b404015d08e869ef25b0"
+    },
+    {
+      "path": "assets/figures/task04_p1db_gain40.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task04_p1db_gain40.png",
+      "bytes": 289723,
+      "sha256": "3442fe84db5e215e758b59ebff050bfa2b9c11599d32c2d9a496d973cad31aa4"
+    },
+    {
+      "path": "assets/figures/task05_antenna_sweep.png",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/figures/task05_antenna_sweep.png",
+      "bytes": 259277,
+      "sha256": "30c08b748f73170cbf868cc109ea6415b568e0befeaef6f987523885bb2d76b3"
+    },
+    {
+      "path": "assets/fonts/naskh-bold.woff",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/fonts/naskh-bold.woff",
+      "bytes": 86500,
+      "sha256": "3d74898cbc3e623de1193b005faccef770c24962dc439973689b8d80c657cd5e"
+    },
+    {
+      "path": "assets/fonts/naskh-regular.woff",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/fonts/naskh-regular.woff",
+      "bytes": 83956,
+      "sha256": "c016a59518ad5d6134bb3cf37529f706c7b09ac520fc68348db83602f165b368"
+    },
+    {
+      "path": "assets/fonts/sans-bold.woff",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/fonts/sans-bold.woff",
+      "bytes": 110160,
+      "sha256": "0b80f0ffe02a21d57a49a10ca8ac6dbea40d34a871524a58956017ba938e1d2f"
+    },
+    {
+      "path": "assets/fonts/sans-regular.woff",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/fonts/sans-regular.woff",
+      "bytes": 106740,
+      "sha256": "298c985a0515c3628255e403bd4690d52b0e5543cbe9f1331a4553778219d8e9"
+    },
+    {
+      "path": "assets/mark.svg",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/mark.svg",
+      "bytes": 318,
+      "sha256": "3c51f01f2c46f8ede6fe088d9b59fbf11d1d534aabe64ca9be6167631b9303b7"
+    },
+    {
+      "path": "assets/prelab2.pdf",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/assets/prelab2.pdf",
+      "bytes": 2347635,
+      "sha256": "bb839ceccc49a060ca4fe86c6c11faa7c2dc92157fa60336f3c92b5a1e78a1ca"
+    },
+    {
+      "path": "index.html",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/",
+      "bytes": 348386,
+      "sha256": "da2aa3dcba84af5787a108fb153439c26f9bd20fed607a88781c01c1d8e83ac0"
+    },
+    {
+      "path": "report.js",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/report.js",
+      "bytes": 961,
+      "sha256": "81c5d3db196dd5429c599e78abe15f0493e26588489be67764ab792280d87cc3"
+    },
+    {
+      "path": "styles.css",
+      "url": "https://sdr-lab2-prelab-romina.goofy-dream-4386.chatgpt.site/styles.css",
+      "bytes": 11868,
+      "sha256": "fd1b4c7722f8ae97a9a59224ed6281453f16615230bc2f27a2b3850bebdc2e79"
+    }
+  ],
+  "errors": []
+}

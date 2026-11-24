@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="گزارش آزمایش ۲ آزمایشگاه رادیوی نرم‌افزار همراه با روش، داده‌ها و تحلیل نتایج" name="description"/>
+<meta content="noindex, nofollow" name="robots"/>
+<meta content="#f3f5f7" name="theme-color"/>
+<title>پاسخ فرکانسی لینک | آزمایشگاه رادیوی نرم‌افزار</title>
+<link href="../../assets/site.css" rel="stylesheet"/>
+<link href="../../../../assets/hub.css" rel="stylesheet"/><link href="../../../../assets/report-theme.css" rel="stylesheet"/><script defer="" src="../../../../assets/hub.js"></script></head>
+<body data-report="lab02-report"><header class="hub-header" data-hub-shell="">
+<div class="hub-header-inner"><a class="hub-brand" href="../../../../index.html"><img alt="" height="42" src="../../../../assets/mark.svg" width="42"/><span>آزمایشگاه رادیوی نرم‌افزار<small dir="ltr" lang="en">SOFTWARE DEFINED RADIO</small></span></a>
+<nav aria-label="پیمایش آزمایشگاه" class="hub-top-nav"><a href="../../../../index.html#archive">آرشیو آزمایش‌ها</a><a href="../../../../index.html#team">اعضای گروه</a><details class="hub-switch"><summary>گزارش‌ها</summary><ul><li><a href="../../../../reports/lab00-report/index.html">گزارش آزمایش آزمایش ۰</a></li><li><a href="../../../../reports/lab01-prelab/index.html">پیش‌گزارش آزمایش ۱</a></li><li><a href="../../../../reports/lab01-report/index.html">گزارش آزمایش آزمایش ۱</a></li><li><a href="../../../../reports/lab02-prelab/index.html">پیش‌گزارش آزمایش ۲</a></li><li><a aria-current="page" href="../../../../reports/lab02-report/index.html">گزارش آزمایش آزمایش ۲</a></li></ul></details></nav></div></header><nav aria-label="مسیر صفحه" class="hub-crumbs" data-hub-shell=""><a href="../../../../index.html#archive">آرشیو آزمایش‌ها</a><span aria-hidden="true" class="hub-crumb-divider"></span><span>آزمایش ۲</span><span aria-hidden="true" class="hub-crumb-divider"></span><span>گزارش آزمایش</span></nav><div class="original-report">
+<a class="skip" href="#main">رفتن به محتوای اصلی</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="../../index.html">آزمایشگاه رادیوی نرم‌افزار</a>
+<nav aria-label="منوی اصلی"><a href="../../index.html">خانه</a> <a class="is-current" href="../../lab02/report.html">گزارش کامل</a> <a href="../../lab02/report.html#analysis">تحلیل نتایج</a></nav>
+</div>
+</header>
+<main class="wrap report" id="main">
+<div class="report-intro">
+<div>
+<p class="breadcrumb"><a href="../report.html">گزارش آزمایش ۲</a></p>
+<h1>پاسخ فرکانسی لینک</h1>
+<p class="report-subtitle">آزمایش ۲ · بخش ۵</p>
+</div>
+<a class="button primary" href="antenna-response.pdf">PDF این بخش</a>
+</div>
+<div class="report-grid">
+<nav aria-label="فهرست این بخش" class="toc">
+<h2>فهرست این بخش</h2>
+<ul role="list"><li><a href="#antenna-response-1">روش انجام آزمایش</a></li><li><a href="#antenna-response-2">فرکانس‌های قطع و پهنای باند سه‌دسی‌بل</a></li><li><a href="#antenna-response-3">تفسیر پاسخ اندازه‌گیری‌شده</a></li><li><a href="#antenna-response-4">ثبت اجرای مراحل</a></li></ul>
+</nav>
+<article aria-label="متن پاسخ فرکانسی لینک" class="report-body">
+<h2 id="antenna-response-1">روش انجام آزمایش</h2>
+<p>آنتن‌ها به درگاه‌های فرستنده و گیرنده متصل شدند و چیدمان آن‌ها در طول جاروب ثابت ماند.</p>
+<p>برنامهٔ <code dir="ltr">lab02_antenna_response_gui.py</code> در محیط <span dir="ltr" lang="en">RadioConda</span> اجرا شد. با انتخاب <span dir="ltr" lang="en">Start automatic sweep</span>، فرکانس واقعی تن به‌صورت خودکار از <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>400</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">400\,\mathrm{MHz}</annotation></semantics></math> تا <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3000</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">3000\,\mathrm{MHz}</annotation></semantics></math> تغییر کرد و توان دریافتی تن در هر فرکانس ثبت شد.</p>
+<p>برنامه برای تولید تن از آفست <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">100\,\mathrm{kHz}</annotation></semantics></math> در باند پایه استفاده می‌کند و فرکانس نوسان‌ساز را متناسب با فرکانس آزمون تغییر می‌دهد. در هر گام، پس از <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mspace width="0.167em"></mspace><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">2\,\mathrm{s}</annotation></semantics></math> برای پایدارشدن، میانگین توان نمونه‌های مختلط فیلترشده در پنجرهٔ <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn><mspace width="0.167em"></mspace><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">0.5\,\mathrm{s}</annotation></semantics></math> محاسبه می‌شود. نرم‌افزار توان را با <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><msub><mo>log</mo><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">10\log_{10}</annotation></semantics></math> به دسی‌بل نسبی تبدیل می‌کند و در صورت تکرار خواندن در یک فرکانس، بیشترین خواندن را در حالت <span dir="ltr" lang="en">Max Hold</span> نگه می‌دارد.</p>
+<div class="center">
+<div aria-label="جدول اندازه‌گیری‌ها" class="table-scroll" role="region" tabindex="0"><table dir="rtl" id="antenna-response-table-1">
+<thead>
+<tr class="header">
+<th dir="rtl" scope="col" style="text-align: right;"><strong>تنظیم یا کمیت ثبت‌شده</strong></th>
+<th dir="rtl" scope="col" style="text-align: center;"><strong>مقدار</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td dir="rtl" style="text-align: right;">بازهٔ جاروب <span dir="ltr" lang="en">RF</span></td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo form="prefix" stretchy="true">[</mo><mn>400</mn><mo>,</mo><mspace width="0.167em"></mspace><mn>3000</mn><mo form="postfix" stretchy="true">]</mo></mrow><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">[400,\,3000]\,\mathrm{MHz}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td dir="rtl" style="text-align: right;">گام جاروب</td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">20\,\mathrm{MHz}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td dir="rtl" style="text-align: right;">تضعیف فرستنده</td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>47.50</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">47.50\,\mathrm{dB}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td dir="rtl" style="text-align: right;">بهرهٔ دستی گیرنده</td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">20\,\mathrm{dB}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td dir="rtl" style="text-align: right;">تعداد فرکانس‌های ثبت‌شده</td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>131</mn><annotation encoding="application/x-tex">131</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<figure id="antenna-response-fig-1"><a href="../figures/antenna-response/antenna-full-sweep.png"><img alt="تصویر شکل ۱، پاسخ فرکانسی لینک" decoding="async" height="1175" loading="lazy" src="../figures/antenna-response/antenna-full-sweep.png" width="2048"/></a><figcaption>شکل ۱ ــ پاسخ فرکانسی ثبت‌شده در کل بازهٔ جاروب. برای نمونه، عدد <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1.7</mn><annotation encoding="application/x-tex">1.7</annotation></semantics></math> روی محور افقی این نما معادل <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1700</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">1700\,\mathrm{MHz}</annotation></semantics></math> است.</figcaption>
+</figure>
+<p>جاروب تا <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3000</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">3000\,\mathrm{MHz}</annotation></semantics></math> کامل انجام شد. تعداد <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>131</mn><annotation encoding="application/x-tex">131</annotation></semantics></math> در نوار وضعیت با <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" maxsize="1.2" minsize="1.2" stretchy="false">(</mo><mn>3000</mn><mo>−</mo><mn>400</mn><mo form="postfix" maxsize="1.2" minsize="1.2" stretchy="false">)</mo><mi>/</mi><mn>20</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>131</mn></mrow><annotation encoding="application/x-tex">\bigl(3000-400\bigr)/20+1=131</annotation></semantics></math> فرکانسِ شامل هر دو سر بازه سازگار است.</p>
+<h2 id="antenna-response-2">فرکانس‌های قطع و پهنای باند سه‌دسی‌بل</h2>
+<p>قلهٔ اصلی در <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">k</mi></mrow></msub><mo>=</mo><mn>1700</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_{\mathrm{pk}}=1700\,\mathrm{MHz}</annotation></semantics></math> دیده شد و توان آن حدود <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>26.7</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">-26.7\,\mathrm{dB}</annotation></semantics></math> نسبی بود. اگر <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo form="prefix" stretchy="true">(</mo><mi>f</mi><mo form="postfix" stretchy="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(f)</annotation></semantics></math> سطح دریافتی برحسب دسی‌بل نسبی باشد، تراز قطع برابر است با</p>
+<p class="equation"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>=</mo><mi>R</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">k</mi></mrow></msub><mo form="postfix" stretchy="true">)</mo></mrow><mo>−</mo><mn>3</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow><mo>≃</mo><mi>−</mi><mn>29.7</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow><mspace width="0.222em"></mspace><mtext mathvariant="normal">relative</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">R_{\mathrm{cut}}=R(f_{\mathrm{pk}})-3\,\mathrm{dB}
+\simeq -29.7\,\mathrm{dB}\ \text{relative}.</annotation></semantics></math></p>
+<p>در این تراز، نسبت توان دریافتی به توان قله <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mrow><mi>−</mi><mn>3</mn><mi>/</mi><mn>10</mn></mrow></msup><mo>≃</mo><mn>0.501</mn></mrow><annotation encoding="application/x-tex">10^{-3/10}\simeq0.501</annotation></semantics></math> است. برای پهنای باند پیرامون قلهٔ اصلی، نخستین تقاطع در هر طرف قله انتخاب شد. تقاطع چپ میان <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1640</mn><annotation encoding="application/x-tex">1640</annotation></semantics></math> و <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1660</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">1660\,\mathrm{MHz}</annotation></semantics></math> و تقاطع راست میان <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1740</mn><annotation encoding="application/x-tex">1740</annotation></semantics></math> و <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1760</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">1760\,\mathrm{MHz}</annotation></semantics></math> قرار گرفت. فرکانس هر تقاطع با درون‌یابی خطی بین دو نقطهٔ مجاور روی نمودار برآورد شد.</p>
+<p class="equation"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>≃</mo><msub><mi>f</mi><mi>a</mi></msub><mo>+</mo><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>b</mi></msub><mo>−</mo><msub><mi>f</mi><mi>a</mi></msub><mo form="postfix" stretchy="true">)</mo></mrow><mfrac><mrow><msub><mi>R</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>−</mo><mi>R</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>a</mi></msub><mo form="postfix" stretchy="true">)</mo></mrow></mrow><mrow><mi>R</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>b</mi></msub><mo form="postfix" stretchy="true">)</mo></mrow><mo>−</mo><mi>R</mi><mrow><mo form="prefix" stretchy="true">(</mo><msub><mi>f</mi><mi>a</mi></msub><mo form="postfix" stretchy="true">)</mo></mrow></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{cut}}\simeq
+f_a+(f_b-f_a)\frac{R_{\mathrm{cut}}-R(f_a)}{R(f_b)-R(f_a)} .</annotation></semantics></math></p>
+<figure id="antenna-response-fig-2"><a href="../figures/antenna-response/antenna-3db-zoom.pdf"><img alt="تصویر شکل ۲، پاسخ فرکانسی لینک" decoding="async" height="443" loading="lazy" src="../figures/antenna-response/antenna-3db-zoom.png" width="1103"/></a><figcaption>شکل ۲ ــ نمای نزدیک قلهٔ اصلی از روی شکل ۱. نقاط، خواندن‌های تقریبی نمودار در گام‌های <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">20\,\mathrm{MHz}</annotation></semantics></math> هستند و خط افقی تراز قطع را نشان می‌دهد.</figcaption>
+</figure>
+<div class="center">
+<div aria-labelledby="antenna-response-table-2-caption" class="table-scroll" role="region" tabindex="0"><table dir="rtl" id="antenna-response-table-2">
+<caption id="antenna-response-table-2-caption"><span><strong>جدول ۷. فرکانس‌های قطع و پهنای باند اندازه‌گیری‌شدهٔ لینک</strong></span></caption><thead>
+<tr class="header">
+<th dir="rtl" scope="col" style="text-align: right;"><strong>کمیت</strong></th>
+<th dir="rtl" scope="col" style="text-align: center;"><strong>مقدار تقریبی</strong> <span dir="ltr" lang="en">(MHz)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td dir="rtl" style="text-align: right;">فرکانس قطع پایین <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>L</mi></msub><annotation encoding="application/x-tex">f_L</annotation></semantics></math></td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1655</mn><annotation encoding="application/x-tex">1655</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td dir="rtl" style="text-align: right;">فرکانس قطع بالا <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>H</mi></msub><annotation encoding="application/x-tex">f_H</annotation></semantics></math></td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1752</mn><annotation encoding="application/x-tex">1752</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td dir="rtl" style="text-align: right;"><strong>پهنای باند سه‌دسی‌بل</strong> <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>W</mi><mo>=</mo><msub><mi>f</mi><mi>H</mi></msub><mo>−</mo><msub><mi>f</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">BW=f_H-f_L</annotation></semantics></math></td>
+<td dir="ltr" style="text-align: center;"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>𝟗𝟕</mn><annotation encoding="application/x-tex">\mathbf{97}</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h2 id="antenna-response-3">تفسیر پاسخ اندازه‌گیری‌شده</h2>
+<p>توان دریافتی با پاسخ آنتن‌های فرستنده و گیرنده، انتشار بین آن‌ها و پاسخ سخت‌افزار تغییر می‌کند. در مقیاس دسی‌بل، سهم دو آنتن با هم جمع می‌شود. اگر دو آنتن پاسخ یکسان داشته باشند و اثر وابسته به فرکانسِ مسیر و سخت‌افزار جبران شود، پاسخ نسبی هر آنتن نصف سهم جمعی آن‌هاست. در آن حالت، افت <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">3\,\mathrm{dB}</annotation></semantics></math> برای یک آنتن با افت <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">6\,\mathrm{dB}</annotation></semantics></math> در سهم جمعی دو آنتن متناظر است.</p>
+<p>عدد <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>97</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">97\,\mathrm{MHz}</annotation></semantics></math> از افت <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">3\,\mathrm{dB}</annotation></semantics></math> منحنی دریافت‌شده به‌دست آمد. دقت آن به گام <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">20\,\mathrm{MHz}</annotation></semantics></math>، درون‌یابی میان دو نقطهٔ مجاور و وضوح تصویر بستگی دارد.</p>
+<p><span>منبع روش و قالب جدول، دستورکار آزمایش ۲، بخش ۵، صفحهٔ ۸.</span></p>
+<h2 id="antenna-response-4">ثبت اجرای مراحل</h2>
+<ol>
+<li><p>آنتن‌ها به دو درگاه فرستنده و گیرنده وصل شدند. هم‌ترازی و موقعیت آن‌ها در طول جاروب ثابت ماند.</p></li>
+<li><p>برنامهٔ پاسخ فرکانسی در محیط <span dir="ltr" lang="en">RadioConda</span> اجرا شد. جاروب از <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>400</mn><annotation encoding="application/x-tex">400</annotation></semantics></math> تا <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3000</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">3000\,\mathrm{MHz}</annotation></semantics></math> با گام <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">20\,\mathrm{MHz}</annotation></semantics></math> انجام شد و <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>131</mn><annotation encoding="application/x-tex">131</annotation></semantics></math> فرکانس ثبت گردید.</p></li>
+<li><p>قله در <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1700</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">1700\,\mathrm{MHz}</annotation></semantics></math> و تراز <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>26.7</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">-26.7\,\mathrm{dB}</annotation></semantics></math> نسبی خوانده شد. از تقاطع‌های دو سوی قله با تراز <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>29.7</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">-29.7\,\mathrm{dB}</annotation></semantics></math>، <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>L</mi></msub><annotation encoding="application/x-tex">f_L</annotation></semantics></math> و <math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>H</mi></msub><annotation encoding="application/x-tex">f_H</annotation></semantics></math> و سپس پهنای باند به دست آمدند.</p></li>
+</ol>
+<nav aria-label="بخش‌های مجاور" class="part-links"><a href="two-tone.html">بخش قبل · جاروب دوتن و محصولات <bdi lang="en">IM3</bdi></a></nav>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap">گزارش آزمایش ۲ آزمایشگاه رادیوی نرم‌افزار</div></footer>
+</div></body>
+</html>

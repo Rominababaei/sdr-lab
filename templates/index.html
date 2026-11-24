@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="آرشیو گزارش‌ها و پیش‌گزارش‌های آزمایشگاه رادیوی نرم‌افزار؛ رومینا بابایی و محمد موسوی.">
+  <meta name="theme-color" content="#12273b">
+  <title>آزمایشگاه رادیوی نرم‌افزار | بابایی و موسوی</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/hub.css">
+  <script src="assets/hub.js" defer></script>
+</head>
+<body class="hub-home">
+  <a class="hub-skip" href="#archive">رفتن به آرشیو آزمایش‌ها</a>
+  {{HEADER}}
+  <main class="hub-main">
+    <section class="hub-hero" aria-labelledby="home-title">
+      <div class="hub-hero-copy">
+        <p class="hub-eyebrow"><span class="hub-rule"></span>از سیگنال تا تحلیل</p>
+        <h1 id="home-title">آزمایشگاه<br><span>رادیوی نرم‌افزار</span></h1>
+        <p class="hub-lead">گزارش‌ها و پیش‌گزارش‌ها؛ از آماده‌سازی محیط دریافت تا پایش طیف و اندازه‌گیری پارامترهای رادیویی.</p>
+        <div class="hub-hero-actions"><a class="hub-button hub-button-primary" href="#archive">مشاهدهٔ آزمایش‌ها</a><a class="hub-text-link" href="#team">آشنایی با اعضای گروه</a></div>
+        <div class="hub-meta"><span><b>{{EXPERIMENT_COUNT}}</b> آزمایش</span><span><b>{{DOCUMENT_COUNT}}</b> گزارش و پیش‌گزارش</span><span dir="ltr">SDR / RF</span></div>
+      </div>
+      <figure class="hub-instrument" aria-labelledby="instrument-title">
+        <div class="hub-instrument-top"><span id="instrument-title">نمای سیگنال</span><span class="hub-instrument-tag" lang="en" dir="ltr">I + jQ</span></div>
+        <div class="hub-scope-label"><span lang="en">SPECTRUM</span><span>توان نسبی</span></div>
+        <svg class="hub-spectrum" viewBox="0 0 540 186" role="img" aria-label="نمای مفهومی طیف فرکانسی با چند قلهٔ سیگنال">
+          <defs><linearGradient id="spectrum-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#48c3bb" stop-opacity=".28"/><stop offset="1" stop-color="#48c3bb" stop-opacity="0"/></linearGradient><pattern id="scope-grid" width="54" height="36" patternUnits="userSpaceOnUse"><path d="M54 0H0V36" fill="none" stroke="#7898ae" stroke-opacity=".15" stroke-width="1"/></pattern></defs>
+          <rect width="540" height="180" fill="url(#scope-grid)"/>
+          <path id="spectrum-area" fill="url(#spectrum-fill)"/>
+          <path id="spectrum-line" fill="none" stroke="#57c7bf" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M270 0V180" stroke="#c0d3df" stroke-opacity=".25" stroke-dasharray="3 6"/>
+        </svg>
+        <div class="hub-axis" dir="ltr"><span>−fₛ/2</span><span>0</span><span>+fₛ/2</span></div>
+        <div class="hub-scope-label hub-waterfall-label"><span lang="en">WATERFALL</span><span>زمان</span></div>
+        <div class="hub-waterfall"><canvas id="waterfall" width="810" height="162" role="img" aria-label="نمای مفهومی آبشاری تغییرات طیف در زمان"></canvas><span class="hub-time-line" aria-hidden="true"></span></div>
+        <figcaption class="hub-instrument-caption"><span>نمای مفهومی طیف و نمایش آبشاری</span><button id="signal-toggle" type="button" aria-pressed="false" aria-label="توقف پویانمایی سیگنال"><span class="hub-pause-icon" aria-hidden="true"></span><span id="signal-toggle-label">توقف</span></button></figcaption>
+      </figure>
+    </section>
+
+    <section id="archive" class="hub-archive" aria-labelledby="archive-title">
+      <div class="hub-section-heading"><div><p class="hub-eyebrow">دفتر آزمایشگاه</p><h2 id="archive-title">آرشیو آزمایش‌ها</h2></div><p>هر آزمایش، از پیش‌گزارش تا نتایج.</p></div>
+      <div class="hub-archive-toolbar">
+        <div class="hub-filters" role="group" aria-label="نوع نوشته"><button class="is-active" data-filter="all" aria-pressed="true">همه</button><button data-filter="prelab" aria-pressed="false">پیش‌گزارش‌ها</button><button data-filter="report" aria-pressed="false">گزارش‌ها</button></div>
+        <label class="hub-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.5 4.5"/></svg><input id="archive-search" type="search" placeholder="جست‌وجو در آزمایش‌ها…" aria-label="جست‌وجو در آزمایش‌ها"></label>
+      </div>
+      <div class="hub-experiments" id="experiment-list">
+        {{EXPERIMENTS}}
+      </div>
+      <p class="hub-no-results" id="no-results" hidden role="status">موردی با این جست‌وجو پیدا نشد.</p>
+      <p id="filter-announcement" class="hub-sr" aria-live="polite"></p>
+    </section>
+
+    <section id="team" class="hub-team" aria-labelledby="team-title">
+      <div><p class="hub-eyebrow">گروه آزمایشگاه</p><h2 id="team-title">اعضای گروه</h2><p>آزمایشگاه رادیوی نرم‌افزار</p></div>
+      <div class="hub-team-member"><span class="hub-avatar" aria-hidden="true">RB</span><div><h3 lang="en" dir="ltr">Romina Babaei</h3><p>شمارهٔ دانشجویی <bdi>402111259</bdi></p></div></div>
+      <div class="hub-team-member"><span class="hub-avatar" aria-hidden="true">MM</span><div><h3 lang="en" dir="ltr">Mohammad Mousavi</h3><p>شمارهٔ دانشجویی <bdi>402111272</bdi></p></div></div>
+    </section>
+  </main>
+  <footer class="hub-footer"><div><span class="hub-footer-brand" dir="ltr">SDR LAB</span><span>آرشیو گزارش‌ها و پیش‌گزارش‌های گروه</span></div><a href="#top">بازگشت به بالا</a></footer>
+</body>
+</html>

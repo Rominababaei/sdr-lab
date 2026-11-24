@@ -1,0 +1,7 @@
+{
+  "experiments": [
+    {"number": 0, "title": "آماده‌سازی محیط و ابزارها", "topic": "MATLAB · GNU Radio · Python", "keywords": "صفر صفرم 0 ۰ محیط راه اندازی نصب ubuntu pluto", "icon": "setup", "documents": [{"id": "lab00-report", "type": "report", "label": "گزارش آزمایش", "pdf": null}]},
+    {"number": 1, "title": "پایش طیف", "topic": "دریافت، نمایش و ثبت نمونه‌های I/Q", "keywords": "اول اولم 1 ۱ طیف spectrum gsm loop", "icon": "spectrum", "documents": [{"id": "lab01-prelab", "type": "prelab", "label": "پیش‌گزارش", "pdf": null}, {"id": "lab01-report", "type": "report", "label": "گزارش آزمایش", "pdf": null}]},
+    {"number": 2, "title": "عدد نویز و پارامترهای RF", "topic": "نویز، خطی‌بودن و پاسخ فرکانسی", "keywords": "دوم 2 ۲ noise nf y factor iip3 p1db آنتن", "icon": "rf", "documents": [{"id": "lab02-prelab", "type": "prelab", "label": "پیش‌گزارش", "pdf": null}, {"id": "lab02-report", "type": "report", "label": "گزارش آزمایش", "pdf": null}]}
+  ]
+}

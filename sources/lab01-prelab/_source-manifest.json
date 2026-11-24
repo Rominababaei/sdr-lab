@@ -1,0 +1,67 @@
+{
+  "id": "lab01-prelab",
+  "origin": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/",
+  "files": [
+    {
+      "path": "app.js",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/app.js",
+      "bytes": 3569,
+      "sha256": "b86e0645e4a392b92933a01b4803b1e39d6422769c3a80b433f55d21da71bf14"
+    },
+    {
+      "path": "content.json",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/content.json",
+      "bytes": 96,
+      "sha256": "cf9bc5c82d6859815741fd59a5bb10a907ca42460b2cdccdc59474bd9dad6d85"
+    },
+    {
+      "path": "downloads/lab01_monitor.grc",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/downloads/lab01_monitor.grc",
+      "bytes": 16344,
+      "sha256": "65060a851b06616761dfd79e9abc184347ecd89d17fb6c3cfbd168cffdaec916"
+    },
+    {
+      "path": "downloads/lab01_monitor.png",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/downloads/lab01_monitor.png",
+      "bytes": 492476,
+      "sha256": "b088929bc306c1beb54626e53a7cb4059cf1c21a8cf3a880fb9a14a6cd007f11"
+    },
+    {
+      "path": "downloads/lab01_prereport_files.zip",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/downloads/lab01_prereport_files.zip",
+      "bytes": 472221,
+      "sha256": "09b923923e2e416cd574b589cf85e1ae0bd9227c7ca9f5cab0573f77c6e8a391"
+    },
+    {
+      "path": "downloads/sdrlab_iq_recorder.py",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/downloads/sdrlab_iq_recorder.py",
+      "bytes": 5420,
+      "sha256": "9ea55c63e4568a04153d902869033b7e7f28d0dca475d908b483c08c7af07429"
+    },
+    {
+      "path": "fonts/Vazirmatn-Bold.woff2",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/fonts/Vazirmatn-Bold.woff2",
+      "bytes": 51020,
+      "sha256": "836fae7d42d83faa249bc00e0099592be98a1fa260d22d82f269b6091e585627"
+    },
+    {
+      "path": "fonts/Vazirmatn-Regular.woff2",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/fonts/Vazirmatn-Regular.woff2",
+      "bytes": 50684,
+      "sha256": "e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91"
+    },
+    {
+      "path": "index.html",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/",
+      "bytes": 12605,
+      "sha256": "87212620df8841182bf3845a4cb374c5ba927ec98c93892f1105a236290d8953"
+    },
+    {
+      "path": "styles.css",
+      "url": "https://sdr-lab-romina.goofy-dream-4386.chatgpt.site/styles.css",
+      "bytes": 18161,
+      "sha256": "029822c5d9f5b4733f9e6be8414cb5866f06141b38ae857b235465ae2d241d0b"
+    }
+  ],
+  "errors": []
+}

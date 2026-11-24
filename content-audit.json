@@ -1,0 +1,162 @@
+{
+  "reports": 5,
+  "pages": 14,
+  "unchanged_original_assets": 130,
+  "checks": [
+    {
+      "page": "reports/lab00-report/index.html",
+      "verification": "Persian translation; code, formulas and table numbers preserved",
+      "text_sha256": "5cd341f105eff5cb77385d675bfbdcf6f3864e077910e9959cb9c0f9901efbeb",
+      "table": 9,
+      "img": 7,
+      "figure": 6,
+      "pre": 3,
+      "math": 0,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab01-prelab/index.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "cac5ccb1977ca27cb931dc3e3dd0128379b855755e263b86a258ed19117d1296",
+      "table": 0,
+      "img": 1,
+      "figure": 2,
+      "pre": 1,
+      "math": 0,
+      "svg": 2
+    },
+    {
+      "page": "reports/lab01-report/index.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "0842487b98282f492392d74f608e6427feed66ee496a39857bc3dda417c3216e",
+      "table": 0,
+      "img": 5,
+      "figure": 1,
+      "pre": 0,
+      "math": 0,
+      "svg": 13
+    },
+    {
+      "page": "reports/lab01-report/part1.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "f72b3798ce8d3fa62862a77e3ad04b2a129c299f6d519c5fc466eaae3a3f39af",
+      "table": 13,
+      "img": 9,
+      "figure": 8,
+      "pre": 0,
+      "math": 73,
+      "svg": 10
+    },
+    {
+      "page": "reports/lab01-report/part2.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "8dea39969de286bb1be6f1613bd982e87585b01b5a0d48e74711feccf3d5cfff",
+      "table": 9,
+      "img": 9,
+      "figure": 8,
+      "pre": 0,
+      "math": 89,
+      "svg": 10
+    },
+    {
+      "page": "reports/lab01-report/part3.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "e33f42eded34364a6c574a40603f993ebf024586a0f11405bc1c77700287149c",
+      "table": 15,
+      "img": 12,
+      "figure": 11,
+      "pre": 8,
+      "math": 59,
+      "svg": 12
+    },
+    {
+      "page": "reports/lab02-prelab/index.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "78d7bec507cbd9f0507febcf81f44f1f204133dae23a751573106b9479922c7e",
+      "table": 14,
+      "img": 15,
+      "figure": 14,
+      "pre": 0,
+      "math": 765,
+      "svg": 1
+    },
+    {
+      "page": "reports/lab02-report/index.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "d9afd99e5d0ea0aa7f3e807d8d0fa20f259f184f1981b462b481eee46764fd86",
+      "table": 0,
+      "img": 1,
+      "figure": 1,
+      "pre": 0,
+      "math": 0,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/parts/antenna-response.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "5919a57570f7792c02d421c2ec5faa4e49d1051b8e42eb8dd46f937a4e2b52a1",
+      "table": 2,
+      "img": 2,
+      "figure": 2,
+      "pre": 0,
+      "math": 47,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/parts/noise-floor.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "fb2e0337dac970e0856d3efba4a3ce144dbd1f55c87dc1fcf288015066a77d6d",
+      "table": 1,
+      "img": 3,
+      "figure": 3,
+      "pre": 0,
+      "math": 49,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/parts/single-tone.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "1701173b97b7f9a8d449cec7104bfc6098e0d85d9b628eb307c5e71880c042f9",
+      "table": 2,
+      "img": 4,
+      "figure": 4,
+      "pre": 0,
+      "math": 136,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/parts/two-tone.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "be502ccd9524c7cb459df93247bf083c599b5b97a06978d579bb32ce01b75a2f",
+      "table": 4,
+      "img": 4,
+      "figure": 4,
+      "pre": 0,
+      "math": 228,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/parts/y-factor.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "8268c7277dfb61f1120707bd42d9442a25b93267dc7f6ff81ddfedb686654cc9",
+      "table": 2,
+      "img": 7,
+      "figure": 7,
+      "pre": 0,
+      "math": 120,
+      "svg": 0
+    },
+    {
+      "page": "reports/lab02-report/lab02/report.html",
+      "verification": "exact Persian text match",
+      "text_sha256": "da6a3d4fd1249564e5d7fceec1b286bc519cb0fda823376d80287bb0308cd77d",
+      "table": 13,
+      "img": 22,
+      "figure": 22,
+      "pre": 0,
+      "math": 689,
+      "svg": 0
+    }
+  ],
+  "broken_links": []
+}

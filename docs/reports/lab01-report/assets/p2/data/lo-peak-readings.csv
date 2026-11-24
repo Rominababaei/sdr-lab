@@ -1,0 +1,4 @@
+﻿image,lo_shift_kHz,main_MHz,tx_lo_feature_approx_MHz,branch_A_approx_MHz,branch_B_approx_MHz,note
+3picture.jpg,100,434.25,434.00,434.65,433.85,visual estimates; main cursor is elsewhere
+4picture.jpg,200,434.250,434.00,435.05,433.45,main has cursor; side features are visual estimates
+5picture.jpg,-100,434.25,434.00,433.849,434.65,A has cursor; other features are visual estimates

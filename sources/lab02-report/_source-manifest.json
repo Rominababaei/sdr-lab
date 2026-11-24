@@ -1,0 +1,259 @@
+{
+  "id": "lab02-report",
+  "origin": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/",
+  "files": [
+    {
+      "path": "assets/fonts/Vazirmatn-Bold.ttf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/assets/fonts/Vazirmatn-Bold.ttf",
+      "bytes": 123036,
+      "sha256": "f635fdbea28f265de395ba83b4b1570dcf2f58d13c65469e61903b1c2d2ae723"
+    },
+    {
+      "path": "assets/fonts/Vazirmatn-Regular.ttf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/assets/fonts/Vazirmatn-Regular.ttf",
+      "bytes": 122752,
+      "sha256": "b69fd4c680b8f3f225feabcc655a2c585d97627b8f5f5c0f9985e894069f3a56"
+    },
+    {
+      "path": "assets/site.css",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/assets/site.css",
+      "bytes": 9585,
+      "sha256": "67f48a2a59f564983b5545b31170940b4b35d9054f5583d86c355bd626a9eadf"
+    },
+    {
+      "path": "index.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/",
+      "bytes": 5129,
+      "sha256": "c126644230c8cf12e443815242323b5d6ca84a43b1094aaa03beb142ae796d4a"
+    },
+    {
+      "path": "lab02/data/table5.xlsx",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/data/table5.xlsx",
+      "bytes": 12214,
+      "sha256": "5b863d9fee6cb98d09d0e62696045f6e0a119cf384d13f7c6bb5b1b69c47928b"
+    },
+    {
+      "path": "lab02/data/table6.xlsx",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/data/table6.xlsx",
+      "bytes": 11001,
+      "sha256": "08afb2cd79c4d3a47c0640ab47c69f476229bcae71a164af79b4d1c6d889f66c"
+    },
+    {
+      "path": "lab02/figures/analysis/input-output.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/analysis/input-output.png",
+      "bytes": 109548,
+      "sha256": "c4ce89da3be9177ff7b1450f0e65c40fb58ef76cbd05b969e52d34d7be07e24e"
+    },
+    {
+      "path": "lab02/figures/analysis/nf-gain.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/analysis/nf-gain.png",
+      "bytes": 83041,
+      "sha256": "7b9f7a1994994fc95372de4802c040ec511741b67cfa4ffc77aa9bc0734a0f53"
+    },
+    {
+      "path": "lab02/figures/antenna-response/antenna-3db-zoom.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/antenna-response/antenna-3db-zoom.pdf",
+      "bytes": 18854,
+      "sha256": "29e75d56cedf612cdb1dcbb04ec17cd6c6cc1a228708a7777788a7eee926de6f"
+    },
+    {
+      "path": "lab02/figures/antenna-response/antenna-3db-zoom.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/antenna-response/antenna-3db-zoom.png",
+      "bytes": 48018,
+      "sha256": "9214b6c454baf12648df4a1bcd87e13e308ac3c78150128b82c4ad6d7534c7aa"
+    },
+    {
+      "path": "lab02/figures/antenna-response/antenna-full-sweep.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/antenna-response/antenna-full-sweep.png",
+      "bytes": 1109498,
+      "sha256": "1ab7a557114e47213184a12239d56ae55c5c94822ac49ceaba8c9b7c3b1fbe9f"
+    },
+    {
+      "path": "lab02/figures/noise-floor/rx-noise-gain-29p7.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/noise-floor/rx-noise-gain-29p7.png",
+      "bytes": 961273,
+      "sha256": "94a6160a214528d673de817a2eccb2a7789ba4af2a9886d1c2d5f0bfee4c8059"
+    },
+    {
+      "path": "lab02/figures/noise-floor/rx-noise-gain-40p2.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/noise-floor/rx-noise-gain-40p2.png",
+      "bytes": 726124,
+      "sha256": "aff3e33f2a9cd8a4f0a9071c46d9ded0164a17c2ce9797b028887939e8004d54"
+    },
+    {
+      "path": "lab02/figures/noise-floor/rx-noise-gain-49p6.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/noise-floor/rx-noise-gain-49p6.png",
+      "bytes": 917186,
+      "sha256": "62e10cc6d79fa5d7da2b5328590b1083efdf0b2447df0bd46675ca4161efc665"
+    },
+    {
+      "path": "lab02/figures/single-tone/single-tone-receiver.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/single-tone/single-tone-receiver.png",
+      "bytes": 727907,
+      "sha256": "222fd27f7cbcdf1f9c808f15d3801fb416171ca82bc7e1385cf64c2cbcffb645"
+    },
+    {
+      "path": "lab02/figures/single-tone/single-tone-transmitter.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/single-tone/single-tone-transmitter.png",
+      "bytes": 709007,
+      "sha256": "5c1887d2fcbd05eb6af25f735115e0a0a14392a0199a541a305339d43863301a"
+    },
+    {
+      "path": "lab02/figures/single-tone/table5-single-tone-sweep.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/single-tone/table5-single-tone-sweep.png",
+      "bytes": 159834,
+      "sha256": "3b3a4f4f08be7a9eba0169293287fe8c23989797fffbed946ed766c4ca23c072"
+    },
+    {
+      "path": "lab02/figures/single-tone/tone-off.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/single-tone/tone-off.png",
+      "bytes": 695154,
+      "sha256": "4b61a747bce317bc3efbdd3748798df9e1766255410a7c26c8dfac8fa3b08a8f"
+    },
+    {
+      "path": "lab02/figures/two-tone/im3-floor.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/two-tone/im3-floor.png",
+      "bytes": 809553,
+      "sha256": "db409d983944f4b0b99071a8d07558fb9aa9dd94caf9ac42134ef9c57ea33a47"
+    },
+    {
+      "path": "lab02/figures/two-tone/table6-two-tone-sweep.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/two-tone/table6-two-tone-sweep.png",
+      "bytes": 269156,
+      "sha256": "5054d1a3680deccfc5301596ab0d50b67f62c020b6d64cb2ce4db232db67062d"
+    },
+    {
+      "path": "lab02/figures/two-tone/two-tone-attenuation-54.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/two-tone/two-tone-attenuation-54.png",
+      "bytes": 679316,
+      "sha256": "7dc1007262bf17902d3276475c70fec8ff5c5880a59ab5e835c9a7105f673237"
+    },
+    {
+      "path": "lab02/figures/two-tone/two-tone-attenuation-60.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/two-tone/two-tone-attenuation-60.png",
+      "bytes": 631957,
+      "sha256": "800d14438dfabfd6054799306567456930965340c2b4921505af3b71659c5317"
+    },
+    {
+      "path": "lab02/figures/y-factor/01-gain-40p2-off-atten-60.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/01-gain-40p2-off-atten-60.png",
+      "bytes": 774741,
+      "sha256": "3a2b74d031ba134e8b2ac1d9871ae7a17b0b85717cd349a61bd26a9b1a294e1a"
+    },
+    {
+      "path": "lab02/figures/y-factor/02-gain-40p2-on-atten-60.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/02-gain-40p2-on-atten-60.png",
+      "bytes": 792588,
+      "sha256": "875022ab41ff38ad2cbc006054ea53f9fefc451e32844fe0d4e1774aa0d62153"
+    },
+    {
+      "path": "lab02/figures/y-factor/03-gain-40p2-on-atten-57.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/03-gain-40p2-on-atten-57.png",
+      "bytes": 621397,
+      "sha256": "cab80df0af307ddc787146020b5b10d7a90c6e5a7e1f41e477d66d9824b9aa94"
+    },
+    {
+      "path": "lab02/figures/y-factor/04-gain-49p6-off.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/04-gain-49p6-off.png",
+      "bytes": 621985,
+      "sha256": "be96ce82fd2cabc435d8c2e5bd26fae83d28ac0f2c79f98a60a6cea69ae81e25"
+    },
+    {
+      "path": "lab02/figures/y-factor/05-gain-49p6-on.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/05-gain-49p6-on.png",
+      "bytes": 626875,
+      "sha256": "758de7f77184963b03028c1ae13466c4dc6f1ca4bfbd40ec7feba0fb40fa4fbf"
+    },
+    {
+      "path": "lab02/figures/y-factor/06-gain-29p7-off.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/06-gain-29p7-off.png",
+      "bytes": 631204,
+      "sha256": "795c28a0be1a4cf6574a38d9bf95e121e8b748fcf1e5d666b043422b452173c5"
+    },
+    {
+      "path": "lab02/figures/y-factor/07-gain-29p7-on.png",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/figures/y-factor/07-gain-29p7-on.png",
+      "bytes": 628169,
+      "sha256": "fc7725fbf129b44886c7d91253512ff55d98203173a95667211cf866a43827ee"
+    },
+    {
+      "path": "lab02/log.md",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/log.md",
+      "bytes": 2123,
+      "sha256": "57277b3b4016ea888335b59a3d0b8eaf8d5fa16a1cc3a6b69ad6ad16f8fdee89"
+    },
+    {
+      "path": "lab02/parts/antenna-response.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/antenna-response.html",
+      "bytes": 24976,
+      "sha256": "5b14956944407d1e38eb6c3f6d2ff5274d209ec2e4d1536c0c5c5dac17fb6319"
+    },
+    {
+      "path": "lab02/parts/antenna-response.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/antenna-response.pdf",
+      "bytes": 828364,
+      "sha256": "16fad0f36edaffaad2f24d0555b326e73f0578a5db88221cbe2d174774ff8f80"
+    },
+    {
+      "path": "lab02/parts/noise-floor.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/noise-floor.html",
+      "bytes": 28186,
+      "sha256": "deb3e414f0c4cdcc23fd5dd1f9ba2dc60b00b171a0986ea61af21bb6d752c7e1"
+    },
+    {
+      "path": "lab02/parts/noise-floor.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/noise-floor.pdf",
+      "bytes": 1941573,
+      "sha256": "48aa7d76f1d1da988def267353fc6933573a89c9f0974a70aa39034123f88ff4"
+    },
+    {
+      "path": "lab02/parts/single-tone.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/single-tone.html",
+      "bytes": 54283,
+      "sha256": "2df85bbf84e2ce85d931c736f2ff9e3cd69ce74b2a484be9fcbf0309d212ef99"
+    },
+    {
+      "path": "lab02/parts/single-tone.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/single-tone.pdf",
+      "bytes": 1698799,
+      "sha256": "9ed43bfea65d552c3a6a7ad24eb9b472063682beb5c718d34c56d6aab3c77d99"
+    },
+    {
+      "path": "lab02/parts/two-tone.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/two-tone.html",
+      "bytes": 78798,
+      "sha256": "b770d4fa3c17a3a71169bb7423bb336845fe62ec36c2f1f8f15d53b2878abd4b"
+    },
+    {
+      "path": "lab02/parts/two-tone.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/two-tone.pdf",
+      "bytes": 1755338,
+      "sha256": "720b3d71f3b9a9b68e347007bbe6997b55968f142cb313a7d5e2b509d6c0d62b"
+    },
+    {
+      "path": "lab02/parts/y-factor.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/y-factor.html",
+      "bytes": 55170,
+      "sha256": "5b0789d0ab0351e85d940091f8301cb85a4e6d72f6661746d9eb2cf01212d088"
+    },
+    {
+      "path": "lab02/parts/y-factor.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/parts/y-factor.pdf",
+      "bytes": 3397377,
+      "sha256": "519e701bc7bf0fc471c2cd52b1efbe1219cb2ae50d2705629aacaab88db8dbb9"
+    },
+    {
+      "path": "lab02/report.html",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/report.html",
+      "bytes": 284241,
+      "sha256": "51151b849f0c67b01c21e4c519591f56c03140dcd20ead26cf6db883276cad79"
+    },
+    {
+      "path": "lab02/report.pdf",
+      "url": "https://sdr-lab02-rf-report.lunarbun37.chatgpt.site/lab02/report.pdf",
+      "bytes": 9969679,
+      "sha256": "65739c4ec521fc17eb645d68a937d948ac313f16e58d8135d3f36a393ee2206c"
+    }
+  ],
+  "errors": []
+}

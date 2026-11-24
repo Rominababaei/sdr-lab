@@ -1,0 +1,349 @@
+{
+  "id": "lab01-report",
+  "origin": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/",
+  "files": [
+    {
+      "path": "assets/fonts/latin-modern-math.woff",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/fonts/latin-modern-math.woff",
+      "bytes": 483808,
+      "sha256": "bcf063651e46c33d476c3a3e73657dcfbaba4f55f993030b24c2c4b8d086edb8"
+    },
+    {
+      "path": "assets/fonts/noto-sans-arabic-bold.woff",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/fonts/noto-sans-arabic-bold.woff",
+      "bytes": 110160,
+      "sha256": "576d5ee3bd43e75af302f65ae3b9071846335bb86a0a09c9b4675b6329d17b4c"
+    },
+    {
+      "path": "assets/fonts/noto-sans-arabic-regular.woff",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/fonts/noto-sans-arabic-regular.woff",
+      "bytes": 106740,
+      "sha256": "d24c1fe80963038953e47ac6ebfc3ac72e55dc7ebd1287713a37e9f90374db71"
+    },
+    {
+      "path": "assets/icon.svg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/icon.svg",
+      "bytes": 262,
+      "sha256": "20544364e877ade19139217ef69e4bb95ea38d2791fde245f1b752f1a8c21f06"
+    },
+    {
+      "path": "assets/lab_01_spectrum_final_v2.pdf",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/lab_01_spectrum_final_v2.pdf",
+      "bytes": 440217,
+      "sha256": "17fed453829d3eaca360f1ffe41b74e9046791a7686a5db04232e373e9daa478"
+    },
+    {
+      "path": "assets/overview.webp",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/overview.webp",
+      "bytes": 36834,
+      "sha256": "95aa93d2c0f961f1364b896ad6550a3cadf082c6581a6b8fa18046af184c3d1d"
+    },
+    {
+      "path": "assets/p1/data/carrier-readings.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/data/carrier-readings.csv",
+      "bytes": 465,
+      "sha256": "e7c18b18a3044a921f320772ac3195f88a7fb5d80803f696e4e6e88546e23945"
+    },
+    {
+      "path": "assets/p1/data/recording-check.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/data/recording-check.csv",
+      "bytes": 386,
+      "sha256": "9bb5f11d1f750fea08c64aa5efb796d716d9d11120b022c6854aa1f4032601b4"
+    },
+    {
+      "path": "assets/p1/figures/01-device-identification.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/01-device-identification.png",
+      "bytes": 560267,
+      "sha256": "132bf0bebe61c324a0388178fd6f9d6bd11c75507a20020cd9ebd5295517c57b"
+    },
+    {
+      "path": "assets/p1/figures/02-gnuradio-flowgraph.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/02-gnuradio-flowgraph.png",
+      "bytes": 1222523,
+      "sha256": "0ab228daca55a1910c12ff5900b8211a1447214bb47866f4721f0c91ff0f3310"
+    },
+    {
+      "path": "assets/p1/figures/03-hardware-readback.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/03-hardware-readback.png",
+      "bytes": 353085,
+      "sha256": "a7798c321c5f73292e6956306462fa58252c5d0d8af6e08e19f6ce6372b18522"
+    },
+    {
+      "path": "assets/p1/figures/04-spectrum-945MHz.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/04-spectrum-945MHz.png",
+      "bytes": 1746728,
+      "sha256": "554c4fe4393faa8fa83582f2b033d04844a7c3353455e03a091c6bafd7629b91"
+    },
+    {
+      "path": "assets/p1/figures/05-frequency-axis-947MHz.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/05-frequency-axis-947MHz.png",
+      "bytes": 1753126,
+      "sha256": "1a8b1b99bf7d7126ab8947bec4a16611e8cb63585741e713e9552a1ffc41fce3"
+    },
+    {
+      "path": "assets/p1/figures/06-carrier-952772MHz.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/06-carrier-952772MHz.png",
+      "bytes": 1677977,
+      "sha256": "fb7207736c4f94345076f91e86596023214fb26aeaa04a910c671343c1058862"
+    },
+    {
+      "path": "assets/p1/figures/07-carrier-954204MHz.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/07-carrier-954204MHz.png",
+      "bytes": 1642181,
+      "sha256": "98f7f399069a86242db8154b5a5bcee6c25408a681725da94b865ec5ffee7d43"
+    },
+    {
+      "path": "assets/p1/figures/08-carrier-955416MHz.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p1/figures/08-carrier-955416MHz.png",
+      "bytes": 1654965,
+      "sha256": "7f2cd6466e85f5b4b05035272d9a0f55def8f7670778805a2ca4e7775550fa3c"
+    },
+    {
+      "path": "assets/p2/analysis/analyze_loopback.py",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/analysis/analyze_loopback.py",
+      "bytes": 9149,
+      "sha256": "e67301432cb4b3ee9541ccf524b8dbe9482d3dd2395c2e4f7dedc17a961d875e"
+    },
+    {
+      "path": "assets/p2/analysis/requirements.txt",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/analysis/requirements.txt",
+      "bytes": 23,
+      "sha256": "e13491531df6eeb59d6420ef04d4b5651adec77439da3bccd7409e90f0988035"
+    },
+    {
+      "path": "assets/p2/data/cursor-readings.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/data/cursor-readings.csv",
+      "bytes": 827,
+      "sha256": "41dee5f8756db833de20dc229694446653240a77fab9c04a4e705f4c097f7a9d"
+    },
+    {
+      "path": "assets/p2/data/image-sha256.json",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/data/image-sha256.json",
+      "bytes": 690,
+      "sha256": "d4507db8df300efa1cdd99c8f318e577bd2e6803a4b04fb6f98c568501e95af1"
+    },
+    {
+      "path": "assets/p2/data/lo-model-predictions.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/data/lo-model-predictions.csv",
+      "bytes": 472,
+      "sha256": "9515b37680ae1b40360dc3ef689fbbd3c66738feea15d36cde1290d4e5a2c11c"
+    },
+    {
+      "path": "assets/p2/data/lo-peak-readings.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/data/lo-peak-readings.csv",
+      "bytes": 388,
+      "sha256": "e7c2620ae82a5bf9f7dbdfac230947a5941b894fc78c863fc7497be625ba6832"
+    },
+    {
+      "path": "assets/p2/data/recording-check.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/data/recording-check.csv",
+      "bytes": 566,
+      "sha256": "116c5d506c839b96140316d2d1b8f44b585fdfc5b7709a092e1f0755e3af0795"
+    },
+    {
+      "path": "assets/p2/figures/1picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/1picture.jpg",
+      "bytes": 349013,
+      "sha256": "1fe70ecdee3cfff2ee9100f074edbde85d2d93cd6cc8143959c306c3736c8694"
+    },
+    {
+      "path": "assets/p2/figures/2picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/2picture.jpg",
+      "bytes": 342258,
+      "sha256": "a69abc8dcda0e2f0c49c868337a89ff3e8e7d6b70d29d4d18187d80077e88342"
+    },
+    {
+      "path": "assets/p2/figures/3picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/3picture.jpg",
+      "bytes": 271937,
+      "sha256": "4d2c0562c10a7a1f135e37a7174dd83962646ec036c2d8b6dd9577a6b0cc6512"
+    },
+    {
+      "path": "assets/p2/figures/4picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/4picture.jpg",
+      "bytes": 297837,
+      "sha256": "da20f419c000d13dab17aaf0a43d8e31d597a37e450d845c45f4a70c028b592e"
+    },
+    {
+      "path": "assets/p2/figures/5picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/5picture.jpg",
+      "bytes": 356533,
+      "sha256": "475c814630007a10a7a6d3fb94d436098edc67eff3405eab155ed25ed0fa69c8"
+    },
+    {
+      "path": "assets/p2/figures/6picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/6picture.jpg",
+      "bytes": 325238,
+      "sha256": "1f4af0b68abb0c69cb66fed7ada1cc64843fd9090b11353d2b3740f75bf3d1d3"
+    },
+    {
+      "path": "assets/p2/figures/7picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/7picture.jpg",
+      "bytes": 347244,
+      "sha256": "bdb351aae989749013a8388e8e399447540b9392e1a421013fb0b51088fcabd8"
+    },
+    {
+      "path": "assets/p2/figures/8picture.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p2/figures/8picture.jpg",
+      "bytes": 345814,
+      "sha256": "51f503022b644acaeb0e3f861697278832eebbe14ab8e26e6730ec26e27145fd"
+    },
+    {
+      "path": "assets/p3/analysis/analyze_capture.py",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/analysis/analyze_capture.py",
+      "bytes": 10638,
+      "sha256": "8e34ff45e9a0144240d4956fa4762c619c51d06b362936a74f5f4f936479fc17"
+    },
+    {
+      "path": "assets/p3/analysis/requirements.txt",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/analysis/requirements.txt",
+      "bytes": 17,
+      "sha256": "6d4cdf924e8b6fe2cf827f647ca740148e2e8b4c44ea31578dbea46cbd403417"
+    },
+    {
+      "path": "assets/p3/data/asset-manifest.json",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/data/asset-manifest.json",
+      "bytes": 2137,
+      "sha256": "5b30cb3805e64b263a0a167dfcd4a603eadd69fd7e6342e3be3987af00512359"
+    },
+    {
+      "path": "assets/p3/data/bandwidth-results.csv",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/data/bandwidth-results.csv",
+      "bytes": 283,
+      "sha256": "6453345382b87c02069c6066d8242edb4f8b809348a1f316b4bf1160181a2c25"
+    },
+    {
+      "path": "assets/p3/data/recording-index.md",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/data/recording-index.md",
+      "bytes": 2542,
+      "sha256": "dfa51073b0b0fafe033dd50e0756cacb35a40bec8f13c4c3a89f6cf63a0bd4f7"
+    },
+    {
+      "path": "assets/p3/data/scan-log.md",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/data/scan-log.md",
+      "bytes": 17095,
+      "sha256": "b96dd38cb960cc0301253d0dab54b99835e4dcb96464fb91de676f5aec56241f"
+    },
+    {
+      "path": "assets/p3/figures/10pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/10pictureee.jpg",
+      "bytes": 376594,
+      "sha256": "48a0b40dc777f5507bd087b66e9ad6d82466c53a4c791654ef6e4ac02f04e8ce"
+    },
+    {
+      "path": "assets/p3/figures/12-remote-4345-illustrative.png",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/12-remote-4345-illustrative.png",
+      "bytes": 894458,
+      "sha256": "dcd454dbeaf635a68b28af25715d71d7a4807c4c75c9c3a4c21d17eeab0babec"
+    },
+    {
+      "path": "assets/p3/figures/1pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/1pictureee.jpg",
+      "bytes": 353497,
+      "sha256": "9598c1d13c3d17e372373fcbc6e32c46bb749e52a6a0f2026a88daf67380518f"
+    },
+    {
+      "path": "assets/p3/figures/2pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/2pictureee.jpg",
+      "bytes": 360775,
+      "sha256": "7ac465cb345da5967dfc482a5b0d4f7a49092cf11e78dbc240a1eade4c9a87f5"
+    },
+    {
+      "path": "assets/p3/figures/3pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/3pictureee.jpg",
+      "bytes": 339829,
+      "sha256": "7d09f8f3f60588212902f1740c8acd1b01b3a2e0e53796b6adea54b8feab72d3"
+    },
+    {
+      "path": "assets/p3/figures/4pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/4pictureee.jpg",
+      "bytes": 382329,
+      "sha256": "a4f3e90940093f7b4e64162f41b77c392cc48ea1dca3a0ad8d9e5385672b4841"
+    },
+    {
+      "path": "assets/p3/figures/5pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/5pictureee.jpg",
+      "bytes": 315217,
+      "sha256": "24a9f70e86f57d716681600b95dbb14303ecedc32b3f417186c908605d4c7b08"
+    },
+    {
+      "path": "assets/p3/figures/6pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/6pictureee.jpg",
+      "bytes": 366421,
+      "sha256": "0f72b11c2d55950249996b09920438e17eb3869e1d4af004c50d39125fa647da"
+    },
+    {
+      "path": "assets/p3/figures/7pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/7pictureee.jpg",
+      "bytes": 377554,
+      "sha256": "ffff5aa7c1749975caf231cab1608fbf7d86db8b4f5492fffcba49553aedd877"
+    },
+    {
+      "path": "assets/p3/figures/8pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/8pictureee.jpg",
+      "bytes": 373920,
+      "sha256": "84060caf524efa5cf7f7b7a492e0a5f0e75c38b9d887d524c02c31338ef4145d"
+    },
+    {
+      "path": "assets/p3/figures/9pictureee.jpg",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/p3/figures/9pictureee.jpg",
+      "bytes": 360032,
+      "sha256": "d9cf9dc60cd3786ce36242b23329601da2b2fc77dad458042e3ab58609b1ef38"
+    },
+    {
+      "path": "assets/preview-1.webp",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/preview-1.webp",
+      "bytes": 35482,
+      "sha256": "c546270a266d6893eafa79a83da4cb448c761888000edd46fa8598a6b928fd45"
+    },
+    {
+      "path": "assets/preview-2.webp",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/preview-2.webp",
+      "bytes": 14492,
+      "sha256": "00f4359111250c8c8cfd935348e718900adc74bbc9ced31fb64efed46469b709"
+    },
+    {
+      "path": "assets/preview-3.webp",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/preview-3.webp",
+      "bytes": 26278,
+      "sha256": "4dc1e0203ad45c2b2004d32da3b04fea76390141124b214b89ffd0638afcbfc7"
+    },
+    {
+      "path": "assets/report.css",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/report.css",
+      "bytes": 22116,
+      "sha256": "3eedfeaa8a2b4ad9011073e245c8daa807a25fc278817c749f9afa7eae01fd53"
+    },
+    {
+      "path": "assets/report.js",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/assets/report.js",
+      "bytes": 2753,
+      "sha256": "4d68cba7add449cde6819f9493a18eeae6038ceed0b1be19a169ae57744ccac1"
+    },
+    {
+      "path": "index.html",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/",
+      "bytes": 9597,
+      "sha256": "ad831cc8c42077a48fc9b66d0125e4a0613a90376f75d4bdac70a275da7d459a"
+    },
+    {
+      "path": "part1.html",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/part1.html",
+      "bytes": 104633,
+      "sha256": "491f2a2dff53792ef81bb307f3ba28b890229d0b68b99007b094f5243b00a213"
+    },
+    {
+      "path": "part2.html",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/part2.html",
+      "bytes": 114328,
+      "sha256": "3ec0377549147332a0411cb1d3137cc9f023dfd88700c847d9e707d20a6e4cc9"
+    },
+    {
+      "path": "part3.html",
+      "url": "https://sdr-lab01-spectrum-report.goofy-dream-4386.chatgpt.site/part3.html",
+      "bytes": 155233,
+      "sha256": "9bdcccbdf8eb9f70b2657a4fe57b090e0395fcaf8675da97a0255127b1272667"
+    }
+  ],
+  "errors": []
+}

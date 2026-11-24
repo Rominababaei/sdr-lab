@@ -1,0 +1,5 @@
+﻿lo_shift_kHz,rx_lo_MHz,main_rf_MHz,main_bb_kHz,rx_dc_model_MHz,tx_lo_model_MHz,tx_image_model_MHz,rx_image_model_MHz,kind
+0,434,434.25,250.00,434,434,433.75,433.75,theoretical model; not measured values
+100,434.1,434.25,150.00,434.1,434,433.75,433.95,theoretical model; not measured values
+200,434.2,434.25,50.00,434.2,434,433.75,434.15,theoretical model; not measured values
+-100,433.9,434.25,350.00,433.9,434,433.75,433.55,theoretical model; not measured values

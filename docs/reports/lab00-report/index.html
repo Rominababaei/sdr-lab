@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>آزمایشگاه SDR، آزمایش صفر | آماده‌سازی محیط و ابزارها</title>
+<meta content="گزارش آزمایش صفر آزمایشگاه رادیوی نرم‌افزار، تهیه‌شده توسط Romina Babaei و Seyed Mohammad Mahdi Mousavi: نتایج گیرنده در MATLAB، GNU Radio، Ubuntu و Python." name="description"/>
+<meta content="noindex, nofollow" name="robots"/><meta content="#f8f8f3" name="theme-color"/>
+<meta content="آزمایشگاه SDR، آزمایش صفر — آماده‌سازی محیط و ابزارها" property="og:title"/>
+<meta content="گزارش آزمایشگاه · Romina Babaei و Seyed Mohammad Mahdi Mousavi · راه‌اندازی ADALM-Pluto و روش‌های دریافت." property="og:description"/>
+<meta content="website" property="og:type"/><meta content="https://rominababaei.github.io/sdr-lab/reports/lab00-report/index.html" property="og:url"/>
+<link href="https://rominababaei.github.io/sdr-lab/reports/lab00-report/index.html" rel="canonical"/><link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="styles.css" rel="stylesheet"/><script defer="" src="app.js"></script><link href="../../assets/hub.css" rel="stylesheet"/><link href="../../assets/report-theme.css" rel="stylesheet"/><script defer="" src="../../assets/hub.js"></script></head><body data-report="lab00-report"><header class="hub-header" data-hub-shell="">
+<div class="hub-header-inner"><a class="hub-brand" href="../../index.html"><img alt="" height="42" src="../../assets/mark.svg" width="42"/><span>آزمایشگاه رادیوی نرم‌افزار<small dir="ltr" lang="en">SOFTWARE DEFINED RADIO</small></span></a>
+<nav aria-label="پیمایش آزمایشگاه" class="hub-top-nav"><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><a href="../../index.html#team">اعضای گروه</a><details class="hub-switch"><summary>گزارش‌ها</summary><ul><li><a aria-current="page" href="../../reports/lab00-report/index.html">گزارش آزمایش آزمایش ۰</a></li><li><a href="../../reports/lab01-prelab/index.html">پیش‌گزارش آزمایش ۱</a></li><li><a href="../../reports/lab01-report/index.html">گزارش آزمایش آزمایش ۱</a></li><li><a href="../../reports/lab02-prelab/index.html">پیش‌گزارش آزمایش ۲</a></li><li><a href="../../reports/lab02-report/index.html">گزارش آزمایش آزمایش ۲</a></li></ul></details></nav></div></header><nav aria-label="مسیر صفحه" class="hub-crumbs" data-hub-shell=""><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><span aria-hidden="true" class="hub-crumb-divider"></span><span>آزمایش ۰</span><span aria-hidden="true" class="hub-crumb-divider"></span><span>گزارش آزمایش</span></nav><div class="original-report">
+<a class="skip-link" href="#main">رفتن به متن گزارش</a>
+<header class="site-header"><div class="header-inner">
+<a aria-label="ابتدای گزارش آزمایش صفر SDR" class="brand" href="#top"><span class="brand-mark">00</span>
+<span>آزمایشگاه <bdi dir="ltr">SDR</bdi><span class="brand-divider">/</span><span class="brand-subtitle">گزارش آزمایش</span></span></a>
+<div class="header-actions"><span class="submission-label"><span class="small-dot"></span>نسخهٔ نهایی</span>
+<button class="text-button" id="print-report" type="button">چاپ گزارش <span aria-hidden="true">↗</span></button></div>
+</div><div aria-hidden="true" class="reading-progress"></div></header>
+<div class="report-layout" id="top">
+<aside aria-label="فهرست گزارش" class="report-sidebar">
+<div class="sidebar-label eyebrow">فهرست گزارش</div>
+<nav id="report-navigation"><a class="active" href="#overview"><span>00</span>نمای کلی</a>
+<a href="#matlab"><span>01</span>MATLAB</a>
+<a href="#gnuradio"><span>02</span>GNU Radio</a>
+<a href="#ubuntu"><span>03</span>Ubuntu</a>
+<a href="#python"><span>04</span>Python</a>
+<a href="#conclusion"><span>05</span>نتیجه‌گیری</a></nav>
+<div class="sidebar-footer"><span class="eyebrow">سخت‌افزار</span><strong>ADALM-Pluto</strong>
+<p>آماده‌سازی محیط<br/>و آزمون‌های دریافت</p></div>
+</aside>
+<main id="main">
+<section aria-labelledby="report-title" class="hero chapter" id="overview">
+<div class="eyebrow hero-kicker"><span>آزمایشگاه رادیوی نرم‌افزار</span><span class="kicker-rule"></span>آزمایش صفر</div>
+<h1 id="report-title">آماده‌سازی محیط و<br/><em>ابزارهای نرم‌افزاری</em></h1>
+<p class="hero-deck">ثبت کامل راه‌اندازی و دریافت با <bdi dir="ltr">ADALM-Pluto</bdi> در <bdi dir="ltr">MATLAB</bdi>، <bdi dir="ltr">GNU Radio</bdi> و <bdi dir="ltr">Python</bdi>، همراه با آماده‌سازی نرم‌افزارها در <bdi dir="ltr">Ubuntu.</bdi></p>
+<div aria-label="تهیه‌کنندگان گزارش" class="authors">
+<div class="author"><span class="eyebrow">تهیه‌کننده</span><strong>Romina Babaei</strong><span class="student-id">شمارهٔ دانشجویی <b>402111259</b></span></div>
+<div class="author"><span class="eyebrow">تهیه‌کننده</span><strong>Seyed Mohammad Mahdi Mousavi</strong><span class="student-id">شمارهٔ دانشجویی <b>402111272</b></span></div>
+</div>
+<div class="report-scope"><span class="eyebrow">دامنهٔ کار</span><p>این گزارش مسیرهای <bdi dir="ltr">A</bdi> تا <bdi dir="ltr">D</bdi> دستورکار درس را پوشش می‌دهد. تنظیمات گیرنده، تصاویر اصلی محیط نرم‌افزار، کد و جدول‌های نتایج در ادامه ثبت شده‌اند. آماده‌سازی <bdi dir="ltr">Ubuntu</bdi> در خانه انجام شد؛ آزمون‌های وابسته به سخت‌افزار از بررسی‌های نرم‌افزاری تفکیک شده‌اند.</p></div>
+<div class="reference-heading"><h2>یک گیرنده؛ چهار مسیر نرم‌افزاری.</h2><span class="eyebrow">پیکربندی مرجع دریافت</span></div>
+<dl class="key-metrics">
+<div><dt>فرکانس مرکزی</dt><dd>945 <span>MHz</span></dd></div>
+<div><dt>نرخ نمونه‌برداری</dt><dd>2.6 <span>MS/s</span></dd></div>
+<div><dt>قاب <bdi dir="ltr">I/Q</bdi></dt><dd>4,096 <span>نمونه</span></dd></div>
+<div><dt>بهرهٔ دستی گیرنده</dt><dd>20 <span>dB</span></dd></div>
+</dl>
+<p class="small-copy">تصویر <bdi dir="ltr">SDR++</bdi> به پیکربندی جداگانه‌ای برای <bdi dir="ltr">FM</bdi> مربوط است. مقادیر نمایش‌داده‌شدهٔ آن در مسیر <bdi dir="ltr">B</bdi> گزارش شده‌اند.</p>
+<div class="intro-grid"><div><h3>هدف</h3><p>آماده‌سازی رایانه برای <bdi dir="ltr">ADALM-Pluto</bdi>، پیکربندی رابط‌های نرم‌افزاری، دریافت نمونه‌های مختلط <bdi dir="ltr">I/Q</bdi> و بررسی طیف دریافتی. در هر مسیر، مراحل راه‌اندازی، خروجی قابل مشاهده و دامنهٔ آزمون ثبت شده است.</p></div>
+<div><h3>تجهیزات و مسیر سیگنال</h3><p><bdi dir="ltr">ADALM-Pluto</bdi>، رایانه، کابل <bdi dir="ltr">LAN</bdi>، تغذیهٔ <bdi dir="ltr">USB</bdi> و آنتن دریافت <bdi dir="ltr">GSM/LTE.</bdi> در روش مرجع شبکه، داده‌ها از <bdi dir="ltr">LAN</bdi> و تغذیه از <bdi dir="ltr">USB</bdi> تأمین می‌شوند. گیرنده ورودی <bdi dir="ltr">RF</bdi> را برای پردازش نرم‌افزاری به نمونه‌های مختلط باند پایه تبدیل می‌کند.</p></div></div>
+<h3 class="subsection-title">آماده‌سازی شبکه</h3><p>رایانه و رادیو در یک زیرشبکه قرار می‌گیرند. مقادیر زیر، تنظیمات مرجع اتصال مستقیم در دستورکارند؛ تصویر جداگانه‌ای از تنظیمات شبکه یا آزمون <bdi dir="ltr">ping</bdi> ارائه نشده است.</p>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">مرجع راه‌اندازی</span><span>پیکربندی مشترک شبکه</span></caption>
+<thead><tr><th scope="col">پارامتر</th><th scope="col">مقدار مرجع</th></tr></thead><tbody><tr><th scope="row">نشانی <bdi dir="ltr">IP</bdi> دستگاه</th><td><code>192.168.1.10</code></td></tr><tr><th scope="row">نشانی <bdi dir="ltr">Ethernet</bdi> رایانه</th><td><code>192.168.1.20</code></td></tr><tr><th scope="row">ماسک زیرشبکه</th><td><code>255.255.255.0</code></td></tr><tr><th scope="row">نشانی بافت <bdi dir="ltr">IIO</bdi></th><td><code>ip:192.168.1.10</code></td></tr><tr><th scope="row">دروازهٔ <bdi dir="ltr">Ethernet</bdi> و <bdi dir="ltr">DNS</bdi></th><td>در تنظیمات اتصال مستقیم خالی گذاشته می‌شوند.</td></tr></tbody>
+</table></div>
+</section>
+<section aria-labelledby="matlab-title" class="chapter" id="matlab">
+<div class="chapter-heading"><span class="chapter-index">01</span><div><span class="eyebrow">مسیر <bdi dir="ltr">A</bdi></span><h2 id="matlab-title"><bdi dir="ltr">MATLAB</bdi> و <bdi dir="ltr">ADALM-Pluto</bdi></h2></div><span class="status yes">خروجی دریافت ثبت شده است</span></div>
+<p class="section-lead">نصب بستهٔ پشتیبانی سخت‌افزار، انتخاب گیرندهٔ متصل به شبکه و نمایش طیف باند پایهٔ آن.</p>
+<h3>راه‌اندازی و روش اجرا</h3><p><bdi dir="ltr">MATLAB</bdi> به <bdi dir="ltr">Communications Toolbox</bdi>، <bdi dir="ltr">DSP System Toolbox</bdi> و بستهٔ پشتیبانی سخت‌افزار <bdi dir="ltr">ADALM-Pluto</bdi> نیاز دارد. فهرست جعبه‌ابزارها با دستور <code>ver</code>بررسی می‌شود؛ بستهٔ پشتیبانی از طریق <bdi dir="ltr">Add-Ons</bdi> نصب می‌شود. در روش شبکه، مرحلهٔ راه‌اندازی مبتنی بر <bdi dir="ltr">USB</bdi> با انتخاب <em>راه‌اندازی در فرصتی دیگر (<bdi dir="ltr">Set up later)</bdi></em>به تعویق می‌افتد و <code>RadioID</code> نشانی شبکهٔ <bdi dir="ltr">IIO</bdi> را مشخص می‌کند.</p>
+<p>پیکربندی مرجع دریافت شامل آنتن روی <bdi dir="ltr">RX1</bdi>، فرکانس مرکزی <bdi dir="ltr">945 MHz</bdi>، نرخ نمونه‌برداری <bdi dir="ltr">2.6 MS/s</bdi>، بهرهٔ دستی <bdi dir="ltr">20 dB</bdi> و <bdi dir="ltr">4,096</bdi> نمونه در هر قاب است. برای این آزمون دریافت، نیازی به ارسال نیست.</p>
+<div class="code-block">
+<div class="code-toolbar"><span><bdi dir="ltr">MATLAB</bdi> · کد مرجع گیرنده</span><button aria-label="کپی کد matlab" class="copy-code" type="button">کپی کد</button></div>
+<pre tabindex="0"><code class="language-matlab">rx = sdrrx('Pluto', ...
+    'RadioID', 'ip:192.168.1.10', ...
+    'CenterFrequency', 945e6, ...
+    'BasebandSampleRate', 2.6e6, ...
+    'GainSource', 'Manual', ...
+    'Gain', 20, ...
+    'SamplesPerFrame', 4096, ...
+    'OutputDataType', 'double');
+info(rx)
+sa = spectrumAnalyzer('SampleRate', 2.6e6);
+for k = 1:200
+    sa(rx());
+end
+release(rx);</code></pre></div>
+<p><code>sdrrx</code> گیرنده را می‌سازد، <code>info(rx)</code> اطلاعات دستگاه را درخواست می‌کند و <code>rx()</code> یک قاب نمونه برمی‌گرداند. <bdi dir="ltr">Spectrum Analyzer</bdi> قاب را نمایش می‌دهد و <code>release(rx)</code> پس از پایان حلقه، منابع گیرنده را آزاد می‌کند.</p>
+<div class="note"><strong>کد مرجع و اجرای ثبت‌شده.</strong> حلقهٔ دستورکار <bdi dir="ltr">200</bdi> بار تکرار می‌شود. تصویر واقعی تحلیلگر مقدار <code>Updates = 800</code>را نشان می‌دهد؛ شمارندهٔ تصویر مستقل از حلقهٔ مرجع گزارش شده است.</div>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">05</bdi></span><span>نتایج گیرنده در <bdi dir="ltr">MATLAB</bdi></span></caption>
+<thead><tr><th scope="col">مورد</th><th scope="col">نتیجهٔ ثبت‌شده</th></tr></thead><tbody><tr><th scope="row">شمارهٔ سریال دستگاه</th><td>هشدار، رشتهٔ خالی شمارهٔ سریال را نشان می‌دهد: <code>''</code>. خروجی کامل <code>info(rx)</code> در تصویر ارائه‌شده از پنجرهٔ فرمان وجود ندارد.</td></tr><tr><th scope="row">میان‌افزار</th><td><code>3669</code>، دقیقاً مطابق هشدار <bdi dir="ltr">MATLAB.</bdi> در همان هشدار، میان‌افزار آزمایش‌شده برای بستهٔ پشتیبانی برابر است با <code>0.35</code>.</td></tr><tr><th scope="row">بازهٔ فرکانسی فعال</th><td>ثبت نشده است. دستورکار بازهٔ پیش‌فرض <bdi dir="ltr">325 MHz</bdi> تا <bdi dir="ltr">3.8 GHz</bdi> و بازهٔ گسترش‌یافتهٔ <bdi dir="ltr">70 MHz</bdi> تا <bdi dir="ltr">6 GHz</bdi> را ذکر می‌کند؛ گسترش بازه برای این آزمون مستند نشده است.</td></tr><tr><th scope="row">آیا طیف <bdi dir="ltr">GSM900</bdi> نمایش داده شد؟</th><td>طیف دریافتی نمایش داده شد. تصویرِ صرفاً باند پایه، فرکانس مرکزی را مشخص نمی‌کند و حامل‌های <bdi dir="ltr">GSM</bdi> را به‌صورت مجزا شناسایی نمی‌کند.</td></tr></tbody>
+</table></div>
+<figure class="evidence" id="figure-1">
+<button aria-label="بزرگ‌نمایی شکل 1: خروجی پنجرهٔ فرمان MATLAB" class="image-open" data-caption="کد، فرایند اتصال سخت‌افزار را آغاز می‌کند و رشتهٔ میان‌افزار 3669 را گزارش می‌دهد. هشدار بیان می‌کند که بستهٔ پشتیبانی با میان‌افزار 0.35 آزمایش شده است." data-image="assets/matlab-command-window.png" data-title="خروجی پنجرهٔ فرمان MATLAB" type="button">
+<img alt="کد، فرایند اتصال سخت‌افزار را آغاز می‌کند و رشتهٔ میان‌افزار 3669 را گزارش می‌دهد. هشدار بیان می‌کند که بستهٔ پشتیبانی با میان‌افزار 0.35 آزمایش شده است." decoding="async" height="332" loading="lazy" src="assets/matlab-command-window.png" width="1280"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">01</bdi></span><div><strong>خروجی پنجرهٔ فرمان <bdi dir="ltr">MATLAB</bdi></strong>
+<p>کد، فرایند اتصال سخت‌افزار را آغاز می‌کند و رشتهٔ میان‌افزار <bdi dir="ltr">3669</bdi> را گزارش می‌دهد. هشدار بیان می‌کند که بستهٔ پشتیبانی با میان‌افزار <bdi dir="ltr">0.35</bdi> آزمایش شده است.</p></div></figcaption></figure>
+<p>این هشدار، اطلاع‌رسانی دربارهٔ سازگاری است و به‌تنهایی نشان‌دهندهٔ خطای متوقف‌کنندهٔ برنامه نیست. مقدار <code>0.35</code> نسخهٔ آزمایش‌شده برای بستهٔ پشتیبانی است و جایگزین رشتهٔ گزارش‌شدهٔ <code>3669</code>نمی‌شود. تکرار هشدار نیز ساختار کامل اطلاعات دستگاه را ارائه نمی‌کند.</p>
+<figure class="evidence" id="figure-2">
+<button aria-label="بزرگ‌نمایی شکل 2: تحلیلگر طیف MATLAB" class="image-open" data-caption="محور افقی، فرکانس باند پایه است. در نمایش، نرخ نمونه‌برداری 2.600000 MHz، مقدار RBW برابر 2.53906 kHz، مقدار VBW برابر 44.9005 Hz و 800 به‌روزرسانی ثبت شده‌اند." data-image="assets/spectrum-analyzer.png" data-title="تحلیلگر طیف MATLAB" type="button">
+<img alt="محور افقی، فرکانس باند پایه است. در نمایش، نرخ نمونه‌برداری 2.600000 MHz، مقدار RBW برابر 2.53906 kHz، مقدار VBW برابر 44.9005 Hz و 800 به‌روزرسانی ثبت شده‌اند." decoding="async" height="844" loading="lazy" src="assets/spectrum-analyzer.png" width="1280"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">02</bdi></span><div><strong>تحلیلگر طیف <bdi dir="ltr">MATLAB</bdi></strong>
+<p>محور افقی، فرکانس باند پایه است. در نمایش، نرخ نمونه‌برداری <bdi dir="ltr">2.600000 MHz</bdi>، مقدار <bdi dir="ltr">RBW</bdi> برابر <bdi dir="ltr">2.53906 kHz</bdi>، مقدار <bdi dir="ltr">VBW</bdi> برابر <bdi dir="ltr">44.9005 Hz</bdi> و <bdi dir="ltr">800</bdi> به‌روزرسانی ثبت شده‌اند.</p></div></figcaption></figure>
+<h3>خواندن طیف</h3><p>در نرخ <bdi dir="ltr">2.6 MS/s</bdi>، پنجرهٔ دوطرفهٔ باند پایه تقریباً از <bdi dir="ltr">−1.3</bdi> تا <bdi dir="ltr">+1.3 MHz</bdi> امتداد دارد. صفر باند پایه نسبت به فرکانس مرکزی گیرنده تعریف می‌شود:</p>
+<div class="equation">f<sub>RF</sub> = f<sub>c</sub> + f<sub>BB</sub></div>
+<p>اگر فرکانس مرکزی مرجعِ <bdi dir="ltr">945 MHz</bdi> اعمال شده باشد، نمایش تقریباً به بازهٔ <bdi dir="ltr">943.7–946.3 MHz</bdi> مربوط است. رد طیف در مرکز، روی مقیاس نمایش‌داده‌شدهٔ تحلیلگر، حدود <bdi dir="ltr">−36 dBm</bdi> است و به‌سوی لبه‌ها کاهش می‌یابد. تصویر به‌تنهایی حامل‌های مجزای <bdi dir="ltr">GSM</bdi> با فاصلهٔ تقریبی <bdi dir="ltr">200 kHz</bdi> را به‌وضوح تفکیک نمی‌کند و پروتکل سیگنال را مشخص نمی‌سازد.</p>
+<p class="section-summary"><strong>نتیجهٔ مسیر <bdi dir="ltr">A:</bdi></strong> اجرای <bdi dir="ltr">MATLAB</bdi> و نمایش طیف مستند شده‌اند. نتیجهٔ کامل شمارهٔ سریال و بازهٔ فعال <bdi dir="ltr">RF</bdi> در تصویر ثبت‌شده وجود ندارند.</p>
+</section>
+<section aria-labelledby="gnuradio-title" class="chapter" id="gnuradio">
+<div class="chapter-heading"><span class="chapter-index">02</span><div><span class="eyebrow">مسیر <bdi dir="ltr">B</bdi></span><h2 id="gnuradio-title"><bdi dir="ltr">GNU Radio</bdi> و ابزارهای طیف</h2></div><span class="status yes">فلوگراف اجرا شده است</span></div>
+<p class="section-lead">آماده‌سازی محیط <bdi dir="ltr">Radioconda</bdi> در <bdi dir="ltr">Windows</bdi>، اتصال منبع <bdi dir="ltr">PlutoSDR</bdi> به نمایشگر فرکانس و نصب دو نرم‌افزار آمادهٔ بررسی طیف.</p>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">06</bdi></span><span>نرم‌افزارهای آمادهٔ بررسی طیف</span></caption>
+<thead><tr><th scope="col">نرم‌افزار</th><th scope="col">نکتهٔ اتصال در دستورکار</th><th scope="col">نصب شده</th></tr></thead><tbody><tr><th scope="row">SDRangel</th><td>یک ورودی <bdi dir="ltr">PlutoSDR</bdi> اضافه کنید و <bdi dir="ltr">IP</bdi> دستگاه را در تنظیمات آن وارد کنید.</td><td><span class="status yes">بله</span></td></tr><tr><th scope="row">SDR++</th><td><bdi dir="ltr">PlutoSDR Source</bdi> را انتخاب کنید. نشانی مرجع شبکه برابر است با <code>ip:192.168.1.10</code>.</td><td><span class="status yes">بله</span></td></tr><tr><th scope="row">SATSAGEN</th><td><bdi dir="ltr">Pluto</bdi> را با <bdi dir="ltr">IP</bdi> انتخاب کنید؛ از ابزارهای <bdi dir="ltr">Power</bdi> و <bdi dir="ltr">Spectrum Analyzer</bdi> آن استفاده کنید.</td><td><span class="status neutral">خیر</span></td></tr><tr><th scope="row">SatDump</th><td>از منبع <bdi dir="ltr">PlutoSDR</bdi> با <bdi dir="ltr">IP</bdi> استفاده کنید. این نرم‌افزار از روش‌های دریافت ماهواره‌های هواشناسی نیز پشتیبانی می‌کند.</td><td><span class="status neutral">خیر</span></td></tr><tr><th scope="row">SDR# (SDRSharp)</th><td>به افزونهٔ غیررسمی <bdi dir="ltr">PlutoSDR</bdi> نیاز دارد؛ در دستورکار اختیاری است.</td><td><span class="status neutral">خیر</span></td></tr></tbody>
+</table></div>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">07</bdi></span><span>روش <bdi dir="ltr">GNU Radio</bdi> در <bdi dir="ltr">Windows</bdi></span></caption>
+<thead><tr><th scope="col">مورد</th><th scope="col">نتیجهٔ ثبت‌شده</th></tr></thead><tbody><tr><th scope="row">نسخهٔ <bdi dir="ltr">GNU Radio</bdi></th><td><code>3.10.12.0</code>. پنجرهٔ <bdi dir="ltr">About</bdi>، نسخهٔ <bdi dir="ltr">Python</bdi> را نیز گزارش می‌کند: <code>3.12.9</code>.</td></tr><tr><th scope="row">آیا فلوگراف، ناحیهٔ فرکانسی <bdi dir="ltr">GSM900</bdi> را نمایش داد؟</th><td>بله. طیفی در اطراف <bdi dir="ltr">945 MHz</bdi>، داخل ناحیهٔ هدف <bdi dir="ltr">GSM900</bdi>، نمایش داده شد. از این تصویر نمی‌توان حامل‌های مجزای <bdi dir="ltr">GSM</bdi> را به‌طور قطعی شناسایی کرد.</td></tr><tr><th scope="row">دو نرم‌افزار انتخاب‌شده</th><td><bdi dir="ltr">SDRangel</bdi> و <bdi dir="ltr">SDR++</bdi> نصب شدند. نمایش دریافت <bdi dir="ltr">SDR++</bdi> در ادامه مستند شده است؛ تصویر جداگانه‌ای از دریافت در <bdi dir="ltr">SDRangel</bdi> ارائه نشده است.</td></tr></tbody>
+</table></div>
+<h3>نسخهٔ نرم‌افزار</h3>
+<figure class="evidence compact" id="figure-3">
+<button aria-label="بزرگ‌نمایی شکل 3: نسخهٔ GNU Radio Companion" class="image-open" data-caption="پنجرهٔ About، نسخهٔ GNU Radio Companion را 3.10.12.0 و نسخهٔ Python را 3.12.9 گزارش می‌کند." data-image="assets/gnuradio-about.png" data-title="نسخهٔ GNU Radio Companion" type="button">
+<img alt="پنجرهٔ About، نسخهٔ GNU Radio Companion را 3.10.12.0 و نسخهٔ Python را 3.12.9 گزارش می‌کند." decoding="async" height="509" loading="lazy" src="assets/gnuradio-about.png" width="855"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">03</bdi></span><div><strong>نسخهٔ <bdi dir="ltr">GNU Radio Companion</bdi></strong>
+<p>پنجرهٔ <bdi dir="ltr">About</bdi>، نسخهٔ <bdi dir="ltr">GNU Radio Companion</bdi> را <bdi dir="ltr">3.10.12.0</bdi> و نسخهٔ <bdi dir="ltr">Python</bdi> را <bdi dir="ltr">3.12.9</bdi> گزارش می‌کند.</p></div></figcaption></figure>
+<h3>ساخت فلوگراف</h3><p>در <bdi dir="ltr">GNU Radio Companion</bdi> یک فلوگراف <bdi dir="ltr">QT GUI</bdi> ساخته شد. متغیر <code>samp_rate</code> برابر <code>2.6e6</code>قرار گرفت و خروجی <code>PlutoSDR Source</code> به <code>QT GUI Frequency Sink</code>متصل شد. با اجرای فلوگراف، نمایشگر فرکانس باز شد.</p>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">مرجع راه‌اندازی</span><span>پارامترهای قابل مشاهده در تصویر <bdi dir="ltr">GNU Radio</bdi></span></caption>
+<thead><tr><th scope="col">پارامتر</th><th scope="col">تنظیم نمایش‌داده‌شده</th></tr></thead><tbody><tr><th scope="row">فرکانس <bdi dir="ltr">LO</bdi></th><td>945 MHz</td></tr><tr><th scope="row">نرخ نمونه‌برداری منبع و متغیر</th><td>2.6 MS/s (<code>samp_rate = 2600000</code>)</td></tr><tr><th scope="row">پهنای باند <bdi dir="ltr">RF</bdi></th><td>2 MHz</td></tr><tr><th scope="row">کنترل بهرهٔ دریافت</th><td>دستی</td></tr><tr><th scope="row">بهرهٔ دستی <bdi dir="ltr">RX1</bdi></th><td>20 dB</td></tr><tr><th scope="row">بافر دریافت</th><td><bdi dir="ltr">32,768</bdi> نمونه، با نمایش <code>32.768k</code></td></tr><tr><th scope="row">اندازهٔ <bdi dir="ltr">FFT</bdi></th><td>4,096</td></tr><tr><th scope="row">مرکز / گسترهٔ نمایشگر فرکانس</th><td>945 MHz / 2.6 MHz</td></tr></tbody>
+</table></div>
+<p>تصویر، فعال‌بودن تصحیح متعامد، تصحیح <bdi dir="ltr">DC</bdi> در <bdi dir="ltr">RF</bdi> و تصحیح <bdi dir="ltr">DC</bdi> در باند پایه را نشان می‌دهد و تنظیم فیلتر روی <bdi dir="ltr">Auto</bdi> است. بلوک منبع، نشانی <bdi dir="ltr">IIO</bdi> را با سه‌نقطه کوتاه کرده است؛ نشانی کامل مرجع در دستورکار برابر است با <code>ip:192.168.1.10</code>.</p>
+<figure class="evidence" id="figure-4">
+<button aria-label="بزرگ‌نمایی شکل 4: فلوگراف GNU Radio در حال اجرا" class="image-open" data-caption="یک PlutoSDR Source به QT GUI Frequency Sink متصل است. طیف دریافت در اطراف 945 MHz رسم شده است؛ مقیاس عمودی، بهرهٔ نسبی بر حسب dB است." data-image="assets/gnuradio-flowgraph.png" data-title="فلوگراف GNU Radio در حال اجرا" type="button">
+<img alt="یک PlutoSDR Source به QT GUI Frequency Sink متصل است. طیف دریافت در اطراف 945 MHz رسم شده است؛ مقیاس عمودی، بهرهٔ نسبی بر حسب dB است." decoding="async" height="1124" loading="lazy" src="assets/gnuradio-flowgraph.png" width="1280"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">04</bdi></span><div><strong>فلوگراف <bdi dir="ltr">GNU Radio</bdi> در حال اجرا</strong>
+<p>یک <bdi dir="ltr">PlutoSDR Source</bdi> به <bdi dir="ltr">QT GUI Frequency Sink</bdi> متصل است. طیف دریافت در اطراف <bdi dir="ltr">945 MHz</bdi> رسم شده است؛ مقیاس عمودی، بهرهٔ نسبی بر حسب <bdi dir="ltr">dB</bdi> است.</p></div></figcaption></figure>
+<p>فاصلهٔ نظری بین خانه‌های <bdi dir="ltr">FFT</bdi> برابر است با <code>2,600,000 / 4,096 ≈ 634.8 Hz</code>. این مقدار فاصلهٔ خانه‌هاست و بیان کامل تفکیک‌پذیری مؤثرِ وابسته به پنجره نیست. مقیاس نسبی <bdi dir="ltr">dB</bdi> در <bdi dir="ltr">GNU Radio</bdi> نباید مستقیماً معادل مقادیر <bdi dir="ltr">dBm</bdi> نمایش‌داده‌شده در تحلیلگر <bdi dir="ltr">MATLAB</bdi> در نظر گرفته شود.</p>
+<h3><bdi dir="ltr">SDR++:</bdi> طیف و نمایش آبشاری</h3>
+<figure class="evidence" id="figure-5">
+<button aria-label="بزرگ‌نمایی شکل 5: نمایش دریافت در SDR++" class="image-open" data-caption="تصویر، ورودی PlutoSDR، رد طیف و نمایش آبشاری با مرکز نزدیک 100 MHz و برچسب FM Broadcast را نشان می‌دهد." data-image="assets/sdrpp-interface.png" data-title="نمایش دریافت در SDR++" type="button">
+<img alt="تصویر، ورودی PlutoSDR، رد طیف و نمایش آبشاری با مرکز نزدیک 100 MHz و برچسب FM Broadcast را نشان می‌دهد." decoding="async" height="758" loading="lazy" src="assets/sdrpp-interface.png" width="1280"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">05</bdi></span><div><strong>نمایش دریافت در <bdi dir="ltr">SDR++</bdi></strong>
+<p>تصویر، ورودی <bdi dir="ltr">PlutoSDR</bdi>، رد طیف و نمایش آبشاری با مرکز نزدیک <bdi dir="ltr">100 MHz</bdi> و برچسب <bdi dir="ltr">FM Broadcast</bdi> را نشان می‌دهد.</p></div></figcaption></figure>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">مرجع راه‌اندازی</span><span>تنظیمات <bdi dir="ltr">SDR++</bdi> در تصویر ثبت‌شده</span></caption>
+<thead><tr><th scope="col">پارامتر</th><th scope="col">مقدار نمایش‌داده‌شده</th></tr></thead><tbody><tr><th scope="row">نسخهٔ نرم‌افزار</th><td><code>v1.3.2</code></td></tr><tr><th scope="row">منبع ورودی</th><td>PlutoSDR</td></tr><tr><th scope="row">فرکانس تنظیم‌شده</th><td>100.000000 MHz</td></tr><tr><th scope="row">نرخ نمونه‌برداری انتخاب‌شده</th><td>4.0 MHz</td></tr><tr><th scope="row">حالت بهره / بهره</th><td>دستی / <bdi dir="ltr">61 dB</bdi></td></tr><tr><th scope="row">اتصال نمایش‌داده‌شده در فهرست دستگاه</th><td>USB</td></tr></tbody>
+</table></div>
+<p>نمودار بالا، سطح طیف را بر حسب فرکانس نشان می‌دهد. در نمایش آبشاری زیر آن، محور افقی نمایندهٔ فرکانس، جهت عمودی نمایندهٔ زمان سپری‌شده و رنگ نمایندهٔ سطح نسبی سیگنال در نمایش است.</p>
+<div class="note"><strong>پیکربندی ثبت‌شدهٔ جداگانه.</strong> تنظیم <bdi dir="ltr">100 MHz</bdi> و برچسب <bdi dir="ltr">FM Broadcast</bdi>، این نمونهٔ <bdi dir="ltr">SDR++</bdi> را در ناحیهٔ <bdi dir="ltr">FM</bdi> قرار می‌دهند. فهرست دستگاه، <bdi dir="ltr">USB</bdi> را نشان می‌دهد؛ درحالی‌که روش مرجع دستورکار از <bdi dir="ltr">LAN</bdi> استفاده می‌کند. نتیجهٔ ناحیهٔ <bdi dir="ltr">GSM900</bdi> در این مسیر، مربوط به فلوگراف <bdi dir="ltr">GNU Radio</bdi> در <bdi dir="ltr">945 MHz</bdi> است.</div>
+<p class="section-summary"><strong>نتیجهٔ مسیر <bdi dir="ltr">B:</bdi></strong> فلوگراف دریافت <bdi dir="ltr">GNU Radio</bdi> اجرا شد و طیف را نمایش داد. <bdi dir="ltr">SDRangel</bdi> و <bdi dir="ltr">SDR++</bdi> نصب شدند و نمایش <bdi dir="ltr">SDR++</bdi> ثبت شد.</p>
+</section>
+<section aria-labelledby="ubuntu-title" class="chapter" id="ubuntu">
+<div class="chapter-heading"><span class="chapter-index">03</span><div><span class="eyebrow">مسیر <bdi dir="ltr">C</bdi></span><h2 id="ubuntu-title">آماده‌سازی <bdi dir="ltr">Ubuntu</bdi> در خانه</h2></div><span class="status preparation">فقط راه‌اندازی نرم‌افزار</span></div>
+<p class="section-lead">با وجود اینکه بخش <bdi dir="ltr">C</bdi> در جلسهٔ آزمایشگاه الزامی نبود، <bdi dir="ltr">Ubuntu</bdi> را در خانه نصب کردیم و آماده‌سازی‌های نرم‌افزاریِ بی‌نیاز از رادیو را انجام دادیم.</p>
+<p><bdi dir="ltr">GNU Radio</bdi>، <bdi dir="ltr">gr-iio</bdi> و ابزارهای <bdi dir="ltr">libiio</bdi> نصب شدند. <bdi dir="ltr">GNU Radio Companion</bdi> باز شد و وجود بلوک‌های لازم فلوگراف بررسی شد. نصب و اجرای اولیهٔ <bdi dir="ltr">IIO Oscilloscope</bdi> و <bdi dir="ltr">GQRX</bdi> نیز بررسی شدند.</p>
+<div class="code-block">
+<div class="code-toolbar"><span><bdi dir="ltr">Ubuntu</bdi> · دستورهای نصب و اجرا</span><button aria-label="کپی کد bash" class="copy-code" type="button">کپی کد</button></div>
+<pre tabindex="0"><code class="language-bash">sudo apt update
+sudo apt install gnuradio gr-iio libiio-utils libad9361-dev \
+    iio-oscilloscope gqrx-sdr soapysdr-module-plutosdr
+gnuradio-companion</code></pre></div>
+<p>پیکربندی <bdi dir="ltr">Ethernet</bdi> برای نشانی <code>192.168.1.20</code> با ماسک زیرشبکهٔ <code>255.255.255.0</code> و دروازهٔ پیش‌فرض خالی آماده شد. آماده‌سازی رابط به‌خودی‌خود اتصال به رادیو را برقرار نمی‌کند: پاسخ <bdi dir="ltr">ping</bdi>، بافت شبکهٔ <bdi dir="ltr">IIO</bdi> و بافر دریافت واقعی به دستگاه نیاز دارند.</p>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">08</bdi></span><span>آماده‌سازی <bdi dir="ltr">Ubuntu</bdi> در خانه</span></caption>
+<thead><tr><th scope="col">مورد</th><th scope="col">نتیجهٔ ثبت‌شده</th></tr></thead><tbody><tr><th scope="row">نسخه‌های <bdi dir="ltr">Ubuntu</bdi> و <bdi dir="ltr">GNU Radio</bdi></th><td><bdi dir="ltr">Ubuntu</bdi> و <bdi dir="ltr">GNU Radio</bdi> نصب شدند و <bdi dir="ltr">GRC</bdi> باز شد. شمارهٔ انتشار <bdi dir="ltr">Ubuntu</bdi> و نسخهٔ <bdi dir="ltr">GNU Radio</bdi> روی <bdi dir="ltr">Ubuntu</bdi> ثبت نشده‌اند.</td></tr><tr><th scope="row">آیا <bdi dir="ltr">iio_info</bdi> دستگاه را شناسایی کرد؟</th><td>انجام نشد. <bdi dir="ltr">SDR</bdi> در خانه در دسترس نبود. نصب <bdi dir="ltr">iio_info</bdi> با شناسایی دستگاه واقعی متفاوت است.</td></tr><tr><th scope="row">آیا <bdi dir="ltr">GRC</bdi> روی <bdi dir="ltr">Ubuntu</bdi> طیف دریافت‌شده را نمایش داد؟</th><td>نصب و اجرای اولیهٔ <bdi dir="ltr">GRC</bdi> بررسی شد. به‌دلیل در دسترس نبودن ورودی سخت‌افزار، طیف دریافت <bdi dir="ltr">SDR</bdi> روی <bdi dir="ltr">Ubuntu</bdi> ثبت نشد.</td></tr><tr><th scope="row">ابزارهای تکمیلی بررسی‌شده</th><td><bdi dir="ltr">IIO Oscilloscope</bdi> و <bdi dir="ltr">GQRX</bdi> نصب شدند و رابط‌های آن‌ها باز شدند. بدون دستگاه، ثبت نمونه و دریافت واقعی آزمایش نشدند.</td></tr></tbody>
+</table></div>
+<p class="small-copy">برای ثبت شمارهٔ انتشار نرم‌افزارها که روی رایانهٔ <bdi dir="ltr">Ubuntu</bdi> ثبت نشده‌اند، دستورهای مربوط عبارت‌اند از <code>lsb_release -ds</code> و <code>gnuradio-config-info --version</code>. نسخهٔ <bdi dir="ltr">GNU Radio</bdi> در <bdi dir="ltr">Windows</bdi> به‌عنوان نسخهٔ <bdi dir="ltr">Ubuntu</bdi> در نظر گرفته نمی‌شود.</p>
+<p class="section-summary"><strong>نتیجهٔ مسیر <bdi dir="ltr">C:</bdi></strong> محیط نرم‌افزاری در خانه آماده شد. به‌دلیل در دسترس نبودن <bdi dir="ltr">SDR</bdi>، شناسایی سخت‌افزار و دریافت رادیویی در خانه انجام نشدند.</p>
+</section>
+<section aria-labelledby="python-title" class="chapter" id="python">
+<div class="chapter-heading"><span class="chapter-index">04</span><div><span class="eyebrow">مسیر <bdi dir="ltr">D</bdi></span><h2 id="python-title">دریافت با <bdi dir="ltr">Python</bdi> و <bdi dir="ltr">pyadi-iio</bdi></h2></div><span class="status yes">دریافت <bdi dir="ltr">I/Q</bdi> ثبت شده است</span></div>
+<p class="section-lead">اجرای کد دریافت از <bdi dir="ltr">VS Code</bdi> در محیط <bdi dir="ltr">Radioconda</bdi>، دریافت یک قاب مختلط <bdi dir="ltr">4,096</bdi> نمونه‌ای و رسم <bdi dir="ltr">FFT</bdi> آن در اطراف <bdi dir="ltr">945 MHz.</bdi></p>
+<p>تصویر به‌روزشده، فایل <code>spectrum_view.py</code>، ساخت دستگاه با <code>adi.Pluto</code>، تنظیم گیرنده، <code>sdr.rx()</code>و طیف حاصل را نشان می‌دهد. شکل آرایهٔ قاب ثبت‌شده و نرخ نمونه‌برداری با تنظیمات کد سازگارند.</p>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">09</bdi></span><span>نتایج گیرنده در <bdi dir="ltr">Python</bdi></span></caption>
+<thead><tr><th scope="col">مورد</th><th scope="col">نتیجهٔ ثبت‌شده</th></tr></thead><tbody><tr><th scope="row">نصب و اجرای <bdi dir="ltr">pyadi-iio</bdi></th><td>نصب، بارگذاری با <code>import adi</code>و فرایند دریافت با <code>adi.Pluto</code> با موفقیت انجام شدند.</td></tr><tr><th scope="row">محیط <bdi dir="ltr">Python</bdi></th><td><bdi dir="ltr">Radioconda</bdi> روی <bdi dir="ltr">Windows</bdi>، برای اجرای کد دریافت و طیف.</td></tr><tr><th scope="row">شکل آرایه و نرخ نمونه‌برداری</th><td><code>x.shape = (4096,)</code><br/><code>sdr.sample_rate = 2600000</code><br/>معادل <bdi dir="ltr">2.6 MS/s.</bdi></td></tr><tr><th scope="row">آیا ناحیهٔ فرکانسی <bdi dir="ltr">GSM900</bdi> رسم شد؟</th><td>بله. طیف دریافت با فرکانس مرکزی <bdi dir="ltr">945 MHz</bdi> در ناحیهٔ <bdi dir="ltr">GSM900</bdi> رسم شد. کد به‌روزشده و نمودار آن در شکل <bdi dir="ltr">6</bdi> نشان داده شده‌اند.</td></tr></tbody>
+</table></div>
+<h3>کد دریافت</h3><p>فرکانس مرکزی تنظیم‌شده <bdi dir="ltr">945 MHz</bdi>، نرخ نمونه‌برداری <bdi dir="ltr">2.6 MS/s</bdi>، پهنای باند <bdi dir="ltr">RF</bdi> برابر <bdi dir="ltr">2 MHz</bdi>، بهرهٔ دستی دریافت <bdi dir="ltr">20 dB</bdi> و طول بافر <bdi dir="ltr">4,096</bdi> نمونه است.</p>
+<div class="code-block">
+<div class="code-toolbar"><span><bdi dir="ltr">Python</bdi> · دریافت و <bdi dir="ltr">FFT</bdi></span><button aria-label="کپی کد python" class="copy-code" type="button">کپی کد</button></div>
+<pre tabindex="0"><code class="language-python">import adi, numpy as np, matplotlib.pyplot as plt
+
+sdr = adi.Pluto("ip:192.168.1.10")
+sdr.sample_rate = int(2.6e6)
+sdr.rx_lo = int(945e6)
+sdr.rx_rf_bandwidth = int(2e6)
+sdr.gain_control_mode_chan0 = "manual"
+sdr.rx_hardwaregain_chan0 = 20
+sdr.rx_buffer_size = 4096
+
+x = sdr.rx()
+print("samples:", x.shape, "sample_rate:", sdr.sample_rate)
+X = np.fft.fftshift(np.fft.fft(x * np.hanning(len(x))))
+f = (sdr.rx_lo + np.fft.fftshift(
+    np.fft.fftfreq(len(x), 1/sdr.sample_rate))) / 1e6
+plt.plot(f, 20*np.log10(np.abs(X) + 1e-9))
+plt.xlabel("frequency (MHz)")
+plt.ylabel("dB")
+plt.grid(True)
+plt.show()</code></pre></div>
+<figure class="evidence" id="figure-6">
+<button aria-label="بزرگ‌نمایی شکل 6: کد دریافت Python و طیف" class="image-open" data-caption="تصویر اصلی به‌روزشده، spectrum_view.py را در VS Code و طیف دریافت رسم‌شده را نشان می‌دهد. برای بررسی کد و نمودار در وضوح کامل، تصویر را باز کنید." data-image="assets/python-reception-vscode.png" data-title="کد دریافت Python و طیف" type="button">
+<img alt="تصویر اصلی به‌روزشده، spectrum_view.py را در VS Code و طیف دریافت رسم‌شده را نشان می‌دهد. برای بررسی کد و نمودار در وضوح کامل، تصویر را باز کنید." decoding="async" height="762" loading="lazy" src="assets/python-reception-vscode.png" width="2047"/>
+<span class="image-action">مشاهده در اندازهٔ اصلی <span aria-hidden="true">↗</span></span></button>
+<figcaption><span class="figure-number">شکل <bdi dir="ltr">06</bdi></span><div><strong>کد دریافت <bdi dir="ltr">Python</bdi> و طیف</strong>
+<p>تصویر اصلی به‌روزشده، <bdi dir="ltr">spectrum_view.py</bdi> را در <bdi dir="ltr">VS Code</bdi> و طیف دریافت رسم‌شده را نشان می‌دهد. برای بررسی کد و نمودار در وضوح کامل، تصویر را باز کنید.</p></div></figcaption></figure>
+<p>ساخت موفق گیرنده، دریافت نمونه و رسم طیف، عملکرد <bdi dir="ltr">pyadi-iio</bdi> و زنجیرهٔ دریافت را در محیط انتخاب‌شده مستند می‌کنند. ردیف نخست جدول <bdi dir="ltr">9</bdi>، این بررسی نصب و اجرا را ثبت می‌کند و شمارهٔ نسخهٔ مشاهده‌نشده‌ای برای بسته تعیین نمی‌کند.</p>
+<h3>تحلیل قاب نمونه‌ها</h3>
+<div class="calculation-grid">
+<div><span class="eyebrow">مدت دریافت</span><div class="calculation">T = N / f<sub>s</sub></div><strong>≈ 1.575 ms</strong><p><bdi dir="ltr">4,096</bdi> نمونه با نرخ <bdi dir="ltr">2.6 MS/s.</bdi></p></div>
+<div><span class="eyebrow">فاصلهٔ خانه‌های <bdi dir="ltr">FFT</bdi></span><div class="calculation">Δf = f<sub>s</sub> / N</div><strong>≈ 634.8 Hz</strong><p>فاصلهٔ نظری بین خانه‌های <bdi dir="ltr">FFT.</bdi></p></div>
+</div>
+<p>زنجیرهٔ پردازش، نمونه‌های <bdi dir="ltr">I/Q</bdi> را دریافت می‌کند، پنجرهٔ <bdi dir="ltr">Hann</bdi> را اعمال می‌کند، <bdi dir="ltr">FFT</bdi> را محاسبه می‌کند، خانه‌های فرکانسی را جابه‌جا می‌کند و محور افقی را در اطراف <bdi dir="ltr">945 MHz</bdi> قرار می‌دهد. گسترهٔ دوطرفهٔ آن تقریباً <bdi dir="ltr">943.7–946.3 MHz</bdi> است.</p>
+<p>مرکز طیف نمایش‌داده‌شده از لبه‌های آن بالاتر است. کمیت عمودی، <code>20 log10(|X|)</code> بر حسب <bdi dir="ltr">dB</bdi> و نسبت به اندازهٔ عددی <bdi dir="ltr">FFT</bdi> است. تعیین توان مطلق ورودی <bdi dir="ltr">RF</bdi> بر حسب <bdi dir="ltr">dBm</bdi> به کالیبراسیون نیاز دارد؛ شناسایی مدولاسیون یا حامل‌های مجزای <bdi dir="ltr">GSM</bdi> نیز به تحلیلی بیشتر از این تصویر تک‌قابی نیاز دارد.</p>
+<p class="section-summary"><strong>نتیجهٔ مسیر <bdi dir="ltr">D:</bdi></strong> کد دریافت اجرا شد، قاب <bdi dir="ltr">4,096</bdi> نمونه‌ای و نرخ <bdi dir="ltr">2.6 MS/s</bdi> ثبت شدند و طیف رسم شد.</p>
+</section>
+<section aria-labelledby="conclusion-title" class="chapter conclusion" id="conclusion">
+<div class="chapter-heading"><span class="chapter-index">05</span><div><span class="eyebrow">مرور</span><h2 id="conclusion-title">نتایج و نتیجه‌گیری</h2></div></div>
+<div class="table-wrap"><table>
+<caption><span class="eyebrow">جدول <bdi dir="ltr">10</bdi></span><span>خلاصهٔ تحویل و آمادگی</span></caption>
+<thead><tr><th scope="col">مسیر</th><th scope="col">وضعیت</th><th scope="col">مبنای مستند</th></tr></thead><tbody><tr><th scope="row">شبکه</th><td><span class="status neutral">پیکربندی ثبت شده</span></td><td>نشانی مرجع رایانه: <bdi dir="ltr">192.168.1.20.</bdi> نتیجهٔ جداگانه‌ای از <bdi dir="ltr">ping</bdi> در تصاویر وجود ندارد.</td></tr><tr><th scope="row">A · MATLAB</th><td><span class="status yes">خروجی ثبت شده</span></td><td>اجرای کد و نمایش طیف مستند شده‌اند. شمارهٔ سریال در تصویر پنجرهٔ فرمان خالی است.</td></tr><tr><th scope="row">B · GNU Radio</th><td><span class="status yes">خروجی ثبت شده</span></td><td>فلوگراف طیفی نزدیک <bdi dir="ltr">945 MHz</bdi> نمایش داد. <bdi dir="ltr">SDRangel</bdi> و <bdi dir="ltr">SDR++</bdi> نصب شدند و نمایش دریافت <bdi dir="ltr">SDR++</bdi> مستند شده است.</td></tr><tr><th scope="row">C · Ubuntu</th><td><span class="status preparation">نرم‌افزار آماده شده</span></td><td>این بخش در جلسه الزامی نبود. <bdi dir="ltr">Ubuntu</bdi> و ابزارهای آن در خانه نصب شدند؛ آزمون‌های وابسته به سخت‌افزار در خانه انجام نشدند.</td></tr><tr><th scope="row">D · Python</th><td><span class="status yes">انجام شده</span></td><td>کد <bdi dir="ltr">pyadi-iio</bdi> اجرا شد. قاب <bdi dir="ltr">4,096</bdi> نمونه‌ای، نرخ <bdi dir="ltr">2,600,000</bdi> نمونه بر ثانیه و طیف دریافت ثبت شده‌اند.</td></tr></tbody>
+</table></div>
+<p class="small-copy">تأیید مدرس به ارائه یا ارزیابی موکول است؛ در این گزارش ادعایی دربارهٔ امضای تأیید مطرح نشده است.</p>
+<h3>نتیجه‌گیری</h3><p>محیط‌های نرم‌افزاری موردنیاز آماده شدند و خروجی دریافت در <bdi dir="ltr">MATLAB</bdi>، <bdi dir="ltr">GNU Radio</bdi> و <bdi dir="ltr">Python</bdi> ثبت شد. آماده‌سازی <bdi dir="ltr">Ubuntu</bdi> در خانه و بدون دستگاه انجام شد. تنظیمات شبکه و پردازش <bdi dir="ltr">I/Q</bdi>، مبنای مشترک این روش‌ها هستند؛ در هر بخش، پیکربندی مرجع، تنظیمات نمایش‌داده‌شده و دامنهٔ آزمون از یکدیگر متمایز شده‌اند.</p>
+<div class="report-closing"><span class="eyebrow">مبنای گزارش</span><p>دستورکار درس: <em>آزمایش <bdi dir="ltr">0</bdi> — آماده‌سازی محیط و ابزارها</em>، صفحات <bdi dir="ltr">2–11</bdi>، همراه با شش تصویر اصلی گروه از محیط نرم‌افزارها. همهٔ پیوندهای شکل‌ها، تصاویر ارائه‌شده را باز می‌کنند. در این گزارش از نمودار شبیه‌سازی‌شده استفاده نشده است.</p></div>
+</section>
+<footer class="report-footer"><div><strong>آزمایشگاه <bdi dir="ltr">SDR</bdi> · آزمایش صفر</strong><p>Romina Babaei · 402111259<br/>Seyed Mohammad Mahdi Mousavi · 402111272</p></div><a href="#top">بازگشت به بالا <span aria-hidden="true">↑</span></a></footer>
+</main></div>
+<dialog aria-labelledby="viewer-title" id="evidence-viewer">
+<div class="viewer-header"><div><span class="eyebrow">تصویر اصلی</span><h2 id="viewer-title"></h2></div><button aria-label="بستن نمایشگر تصویر" id="close-viewer" type="button">بستن <span aria-hidden="true">×</span></button></div>
+<div class="viewer-viewport"><img alt="" id="viewer-image"/></div>
+<div class="viewer-footer"><p id="viewer-caption"></p><div><button aria-pressed="false" id="zoom-viewer" type="button">بزرگ‌نمایی تا اندازهٔ اصلی</button><a id="open-original" rel="noopener" target="_blank">بازکردن نسخهٔ اصلی ↗</a></div></div>
+</dialog>
+<div aria-live="polite" class="sr-only" id="copy-announcement" role="status"></div>
+</div></body></html>

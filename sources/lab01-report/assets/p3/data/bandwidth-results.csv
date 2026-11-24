@@ -1,0 +1,4 @@
+entry,f_L_MHz,f_U_MHz,center_MHz,bandwidth_kHz,provenance
+E1,952.690,952.910,952.800,220.000,team-reported repeat device measurement
+E2,954.090,954.310,954.200,220.000,team-reported repeat device measurement
+E3,955.330,955.470,955.400,140.000,team-reported repeat device measurement

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#22314e">
+  <meta name="description" content="پیش‌گزارش آزمایش پایش طیف: فلوگراف GNU Radio، کد ضبط I/Q و فایل‌های گروه آزمایشگاه SDR.">
+  <title>پایش طیف | آزمایشگاه SDR</title>
+  <link rel="preload" href="fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Vazirmatn-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">رفتن به محتوای اصلی</a>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="صفحهٔ اصلی آزمایشگاه SDR">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36"><path d="M5 18h4l3-9 5 18 5-21 4 12h5"/></svg></span>
+      <span>آزمایشگاه رادیو نرم‌افزار<small dir="ltr">SDR LAB / TEAM ARCHIVE</small></span>
+    </a>
+    <nav aria-label="بخش‌های صفحه">
+      <a href="#files">فایل‌های تحویل</a>
+      <a href="#flowgraph">فلوگراف</a>
+      <a href="#recorder">کد ضبط</a>
+    </nav>
+    <span class="top-meta" dir="ltr">GNU Radio 3.10</span>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> پیش‌گزارش آزمایش اول</div>
+        <h1 id="title">پایش <em>طیف</em></h1>
+        <p class="intro">از دریافت سیگنال تا ثبت نمونه‌های I/Q؛ فلوگراف، کد و فایل‌های آزمایش در یک صفحه.</p>
+        <div class="hero-actions"><a href="#files" class="button primary">مشاهدهٔ فایل‌های تحویل <span aria-hidden="true">↙</span></a><a class="text-link" href="#test">روش آزمون بدون دستگاه</a></div>
+        <div class="hero-meta"><span dir="ltr">LAB 01</span><span>رادیو نرم‌افزار</span><span dir="ltr">ADALM-Pluto</span></div>
+      </div>
+      <div class="spectrum-panel" role="img" aria-label="طرح شماتیک یک نمایشگر طیف؛ این تصویر نتیجهٔ اندازه‌گیری نیست">
+        <div class="panel-top"><span class="scope-label" dir="ltr">SPECTRUM MONITOR</span><span class="scope-led"><i></i> طرح شماتیک</span></div>
+        <svg class="spectrum" viewBox="0 0 560 270" aria-hidden="true">
+          <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0ad86" stop-opacity=".28"/><stop offset="1" stop-color="#f0ad86" stop-opacity="0"/></linearGradient></defs>
+          <g class="grid"><path d="M34 38H534M34 82H534M34 126H534M34 170H534M34 214H534M34 38V232M134 38V232M234 38V232M334 38V232M434 38V232M534 38V232"/></g>
+          <path class="area" d="M34 214L52 209 62 215 73 210 83 213 94 202 101 192 107 80 112 192 119 208 138 211 148 205 161 213 176 208 185 214 199 207 210 185 220 130 232 124 245 128 258 122 271 126 285 121 300 126 313 130 323 185 331 210 346 212 358 205 371 214 390 210 403 212 418 205 430 190 437 56 444 190 453 209 467 213 482 205 495 212 510 208 522 214 534 210V232H34Z"/>
+          <path class="trace" d="M34 214L52 209 62 215 73 210 83 213 94 202 101 192 107 80 112 192 119 208 138 211 148 205 161 213 176 208 185 214 199 207 210 185 220 130 232 124 245 128 258 122 271 126 285 121 300 126 313 130 323 185 331 210 346 212 358 205 371 214 390 210 403 212 418 205 430 190 437 56 444 190 453 209 467 213 482 205 495 212 510 208 522 214 534 210"/>
+          <g class="axis"><text x="34" y="255">−fs/2</text><text x="277" y="255">0</text><text x="504" y="255">+fs/2</text></g>
+          <path class="center-line" d="M284 38V232"/>
+        </svg>
+        <div class="panel-bottom"><span dir="ltr">I + jQ</span><span>دریافت · نمایش · ضبط</span><span dir="ltr">.cf32</span></div>
+      </div>
+    </section>
+    <div class="wrap">
+      <section class="team-strip" aria-label="اعضای گروه">
+        <div class="team-heading">اعضای گروه<small dir="ltr">THE LAB TEAM</small></div>
+        <article class="team-member"><h2>رومینا بابائی</h2><p>شمارهٔ دانشجویی <bdi dir="ltr">402111259</bdi></p></article>
+        <article class="team-member"><h2>سیدمحمدمهدی موسوی</h2><p>شمارهٔ دانشجویی <bdi dir="ltr">402111272</bdi></p></article>
+      </section>
+      <aside class="draft-notice" aria-label="وضعیت آماده‌سازی"><span class="notice-icon" aria-hidden="true">◷</span><div><strong id="draft-title">فایل‌های پیش‌گزارش آمادهٔ دریافت‌اند</strong><p id="draft-text">تصویر فلوگراف، فایل قابل ویرایش و کد ضبط در این صفحه قرار گرفته‌اند.</p></div><span class="progress-label" id="progress-label">۳ از ۳ فایل آماده</span></aside>
+      <section id="files" class="section" aria-labelledby="files-title">
+        <div class="section-heading"><div><span class="section-number" dir="ltr">01 / DELIVERABLES</span><h2 id="files-title">فایل‌های تحویل</h2></div><a class="download-bundle" href="downloads/lab01_prereport_files.zip" download="lab01_prereport_files.zip">دریافت همهٔ فایل‌ها <span dir="ltr">ZIP ↓</span></a></div>
+        <div class="file-list">
+          <article class="file-row"><span class="file-icon python" dir="ltr">PY</span><div class="file-info"><h3>کد ضبط نمونه‌های I/Q</h3><span dir="ltr">sdrlab_iq_recorder.py</span><p>بلوک ضبط با شروع دستی، محدودیت تعداد نمونه و توقف هنگام تغییر تنظیمات.</p></div><span class="status ready">آماده</span><a class="download-link" href="downloads/sdrlab_iq_recorder.py" download="sdrlab_iq_recorder.py">دانلود کد <span aria-hidden="true">↓</span></a></article>
+          <article class="file-row"><span class="file-icon" dir="ltr">GRC</span><div class="file-info"><h3>فلوگراف اصلی دریافت</h3><span dir="ltr">lab01_monitor.grc</span><p>فایل قابل ویرایش فلوگراف اصلی در GNU Radio Companion.</p></div><span class="status ready" id="grc-status">آماده</span><a class="download-link" id="grc-link" href="downloads/lab01_monitor.grc" download="lab01_monitor.grc">دانلود فلوگراف ↓</a><span class="unavailable" id="grc-empty" hidden>هنوز افزوده نشده</span></article>
+          <article class="file-row"><span class="file-icon" dir="ltr">PNG</span><div class="file-info"><h3>تصویر فلوگراف در GNU Radio</h3><span dir="ltr">lab01_monitor.png</span><p>تصویر واقعی محیط نرم‌افزار با بلوک‌ها و اتصال‌های کامل.</p></div><span class="status ready" id="image-status">آماده</span><a class="download-link" id="image-link" href="downloads/lab01_monitor.png" download="lab01_monitor.png">دانلود تصویر ↓</a><span class="unavailable" id="image-empty" hidden>هنوز افزوده نشده</span></article>
+        </div>
+      </section>
+      <section id="flowgraph" class="section" aria-labelledby="flow-title">
+        <div class="section-heading"><div><span class="section-number" dir="ltr">02 / FLOWGRAPH</span><h2 id="flow-title">فلوگراف دریافت در GNU Radio</h2></div><span class="mono subtle" dir="ltr">lab01_monitor</span></div>
+        <figure class="actual-flowgraph" id="actual-flowgraph"><a id="actual-image-link" href="downloads/lab01_monitor.png" target="_blank" rel="noopener"><img id="actual-image" src="downloads/lab01_monitor.png" alt="تصویر فلوگراف اصلی در محیط GNU Radio Companion" loading="lazy"></a><figcaption>فلوگراف اصلی در محیط GNU Radio Companion · برای مشاهدهٔ اندازهٔ اصلی روی تصویر کلیک کنید.</figcaption></figure>
+        <div class="flow-layout">
+          <div class="flow-description"><p>خروجی مختلط گیرنده به سه نمایشگر و بلوک ضبط می‌رود. کنترل‌های فرکانس، نرخ نمونه‌برداری، بهره و فرمان ضبط در رابط گرافیکی تنظیم می‌شوند.</p><dl class="settings"><div><dt>فرکانس مرکزی اولیه</dt><dd dir="ltr">945 MHz</dd></div><div><dt>نرخ نمونه‌برداری اولیه</dt><dd dir="ltr">2.6 MS/s</dd></div><div><dt>بهرهٔ دستی اولیه</dt><dd dir="ltr">20 dB</dd></div></dl><small>مقادیر اولیهٔ دستورکار؛ اتصال به دستگاه در آزمایشگاه بررسی می‌شود.</small></div>
+          <figure class="flow-figure"><div class="flow-diagram" dir="ltr"><div class="source-block"><span class="block-kicker">RECEIVER</span><strong>PlutoSDR<br>Source</strong><small>Complex I/Q</small></div><div class="branches" aria-hidden="true"></div><div class="sinks"><div>QT GUI Frequency Sink</div><div>QT GUI Waterfall Sink</div><div>QT GUI Time Sink</div><div class="recorder-node">SDR Lab IQ Recorder</div></div></div><figcaption>طرحوارهٔ مسیر نمونه‌های مختلط؛ تصویر اصلی فلوگراف در بالا قرار دارد.</figcaption></figure>
+        </div>
+
+      </section>
+      <section id="recorder" class="section" aria-labelledby="recorder-title">
+        <div class="section-heading"><div><span class="section-number" dir="ltr">03 / IQ RECORDER</span><h2 id="recorder-title">کد ضبط؛ قابل مشاهده و دانلود</h2></div><a class="text-link" href="downloads/sdrlab_iq_recorder.py" download>دریافت فایل پایتون ↓</a></div>
+        <div class="code-toolbar"><span class="mono" dir="ltr">sdrlab_iq_recorder.py</span><button type="button" class="copy-button" id="copy-code">کپی کد</button></div>
+        <div class="code-scroll" dir="ltr" tabindex="0" aria-label="کد پایتون بلوک ضبط"><pre><code id="source-code">در حال بارگذاری کد…</code></pre></div>
+        <p class="feedback" id="code-feedback" role="status" aria-live="polite"></p>
+        <div class="recorder-notes"><p><strong>قالب داده</strong><span dir="ltr">complex64 · I/Q float32 · 8 bytes/sample</span></p><p><strong>شروع و توقف</strong><span>شروع با Record؛ پایان با برداشتن تیک، رسیدن به سقف، تغییر تنظیمات یا توقف فلوگراف.</span></p><p><strong>ضبط بعدی</strong><span>پس از توقف خودکار، تیک باید برداشته و دوباره زده شود.</span></p></div>
+      </section>
+      <section id="test" class="section test-section" aria-labelledby="test-title">
+        <div class="section-heading"><div><span class="section-number" dir="ltr">04 / BEFORE THE LAB</span><h2 id="test-title">آزمون بدون دستگاه</h2></div><span class="test-label">روش بررسی کد</span></div>
+        <p class="test-intro">پیوست دستورکار، روش آزمون بلوک ضبط با یک تن مصنوعی را پیش از جلسه شرح می‌دهد. مراحل زیر روش بررسی‌اند و نتیجهٔ آزمایش انجام‌شده را گزارش نمی‌کنند.</p>
+        <ol class="test-steps"><li><span class="step-num">۱</span><div><h3>ساخت تن مختلط</h3><p>در فلوگراف جداگانه، Signal Source با فرکانس ۱۰۰ کیلوهرتز را از طریق Throttle به بلوک ضبط وصل کنید.</p></div></li><li><span class="step-num">۲</span><div><h3>بررسی فایل خروجی</h3><p>در نرخ ۲٫۶ میلیون نمونه بر ثانیه و مدت یک ثانیه، حجم فایل باید دقیقاً ۲۰٬۸۰۰٬۰۰۰ بایت باشد.</p></div></li><li><span class="step-num">۳</span><div><h3>بررسی توقف و شروع دوباره</h3><p>تغییر فرکانس، نرخ یا بهره باید فایل را ببندد؛ شروع دوباره به برداشتن و زدن مجدد تیک نیاز دارد.</p></div></li></ol>
+      </section>
+      <footer><div class="footer-brand">SDR<span>LAB</span></div><p>پیش‌گزارش آزمایش اول · پایش طیف</p><a href="#main">بازگشت به بالا ↑</a></footer>
+    </div>
+  </main>
+</body>
+</html>

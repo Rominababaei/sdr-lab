@@ -1,0 +1,7 @@
+quantity,value,unit,interpretation
+sample_rate,2600000,samples/s,recording setting
+duration,2,s,approximate recording duration
+bytes_per_complex_sample,8,byte,complex float32
+theoretical_size,41600000,byte,8*2600000*2
+reported_size,42,MB,rounded observed size
+relative_difference,0.9615384615384615384615384615,percent,nominal difference from rounded size; not sample-loss error

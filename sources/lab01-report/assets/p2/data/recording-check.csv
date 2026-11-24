@@ -1,0 +1,8 @@
+﻿quantity,value,unit,basis
+sample_rate,2600000,complex samples/s,prescribed recording setting
+bytes_per_complex_sample,8,byte,cf32 format
+reference_duration,2,s,approximately two-second comparison; not exact measured duration
+theoretical_reference_size,41600000,byte,8*fs*T
+reported_size,42.2,decimal MB,user-reported rounded size
+relative_size_difference,1.442307692307692307692307692,percent,reported decimal size versus 2 s reference
+equivalent_duration,2.028846153846153846153846154,s,inferred from rounded size; not independent wall-clock measurement

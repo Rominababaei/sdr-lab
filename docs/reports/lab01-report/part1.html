@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="شناسایی دستگاه، فلوگراف پایش، آزمون محور فرکانس و دو دور قرائت حامل‌های GSM900." name="description"/>
+<meta content="#f7f8f4" name="theme-color"/>
+<meta content="noindex" name="robots"/>
+<link href="https://rominababaei.github.io/sdr-lab/reports/lab01-report/part1.html" rel="canonical"/>
+<link href="assets/icon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/report.css" rel="stylesheet"/>
+<script defer="" src="assets/report.js"></script>
+<title>بخش اول | گزارش آزمایش ۱، پایش طیف</title>
+<link href="../../assets/hub.css" rel="stylesheet"/><link href="../../assets/report-theme.css" rel="stylesheet"/><script defer="" src="../../assets/hub.js"></script></head>
+<body data-report="lab01-report" id="top"><header class="hub-header" data-hub-shell="">
+<div class="hub-header-inner"><a class="hub-brand" href="../../index.html"><img alt="" height="42" src="../../assets/mark.svg" width="42"/><span>آزمایشگاه رادیوی نرم‌افزار<small dir="ltr" lang="en">SOFTWARE DEFINED RADIO</small></span></a>
+<nav aria-label="پیمایش آزمایشگاه" class="hub-top-nav"><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><a href="../../index.html#team">اعضای گروه</a><details class="hub-switch"><summary>گزارش‌ها</summary><ul><li><a href="../../reports/lab00-report/index.html">گزارش آزمایش آزمایش ۰</a></li><li><a href="../../reports/lab01-prelab/index.html">پیش‌گزارش آزمایش ۱</a></li><li><a aria-current="page" href="../../reports/lab01-report/index.html">گزارش آزمایش آزمایش ۱</a></li><li><a href="../../reports/lab02-prelab/index.html">پیش‌گزارش آزمایش ۲</a></li><li><a href="../../reports/lab02-report/index.html">گزارش آزمایش آزمایش ۲</a></li></ul></details></nav></div></header><nav aria-label="مسیر صفحه" class="hub-crumbs" data-hub-shell=""><a href="../../index.html#archive">آرشیو آزمایش‌ها</a><span aria-hidden="true" class="hub-crumb-divider"></span><span>آزمایش ۱</span><span aria-hidden="true" class="hub-crumb-divider"></span><span>گزارش آزمایش</span></nav><div class="original-report">
+<a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+<header class="site-header">
+<div class="wrap nav-shell">
+<a class="brand" href="index.html"><span class="brand-icon"><svg aria-hidden="true" fill="none" viewbox="0 0 28 28"><path d="M2 14h4l3-6 4 13 4-16 3 9h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg></span><span>آزمایشگاه رادیو نرم‌افزار</span></a>
+<nav aria-label="بخش‌های گزارش" class="primary-nav"><a href="index.html">نمای کلی</a><a aria-current="page" href="part1.html">بخش ۱</a><a href="part2.html">بخش ۲</a><a href="part3.html">بخش ۳</a></nav>
+<a class="manual-link" href="assets/lab_01_spectrum_final_v2.pdf" rel="noopener" target="_blank">دستورکار <bdi dir="ltr">PDF</bdi></a>
+</div>
+</header>
+<main class="wrap part-page" id="main">
+<nav aria-label="مسیر صفحه" class="breadcrumb"><a href="index.html">گزارش آزمایش ۱</a><span aria-hidden="true">/</span><span>بخش اول</span></nav>
+<header class="part-banner">
+<div><p class="eyebrow">آزمایش ۰۱ <span class="divider"></span> بخش اول</p><h1>راه‌اندازی، نخستین طیف و پاسخ پرسش‌ها</h1><p>شناسایی دستگاه، فلوگراف پایش، آزمون محور فرکانس و دو دور قرائت حامل‌های GSM900.</p><div aria-label="دسترسی سریع" class="quick-links"><a href="#p1-question-1">پرسش ۱</a><a href="#p1-question-2">پرسش ۲</a><a href="#resources">پیوست‌ها</a></div></div>
+<span aria-hidden="true" class="part-ordinal">۰۱</span>
+</header>
+<div class="reading-grid">
+<aside aria-label="فهرست مطالب" class="contents-panel">
+<div class="contents-desktop"><p>فهرست این بخش</p><nav><a href="#p1-heading-1"><bdi>۱</bdi><span>اتصال و شناسایی دستگاه</span></a><a href="#p1-heading-2"><bdi>۲</bdi><span>ساخت و اجرای فلوگراف پایش</span></a><a href="#p1-heading-3"><bdi>۳</bdi><span>بازخوانی تنظیمات واقعی گیرنده</span></a><a href="#p1-heading-5"><bdi>۴</bdi><span>نخستین طیف و انتخاب بهرهٔ کاری در ۹۴۵ مگاهرتز</span></a><a href="#p1-heading-7"><bdi>۵</bdi><span>آزمون محور فرکانس در ۹۴۷ مگاهرتز</span></a><a href="#p1-question-1"><bdi>۶</bdi><span>پاسخ پرسش اول: لبه‌های نما و گام پویش</span></a><a href="#p1-question-2"><bdi>۷</bdi><span>پاسخ پرسش دوم: قرائت اول و شبکهٔ <span class="unit-text" dir="ltr" lang="en">GSM900</span></span></a><a href="#p1-heading-15"><bdi></bdi><span>ادامهٔ شواهد تصویری قرائت اول</span></a><a href="#p1-heading-16"><bdi>۸</bdi><span>پرسش دوم: قرائت دوم و محاسبهٔ دقیق خطا</span></a><a href="#p1-heading-18"><bdi>۹</bdi><span>تحلیل تکرارپذیری و برآورد خطای مرجع</span></a><a href="#p1-heading-21"><bdi>۱۰</bdi><span>آزمون ضبط؛ انجام بند ۱۰ دستورکار</span></a><a href="#p1-heading-24"><bdi>۱۱</bdi><span>جمع‌بندی اجرای بخش اول</span></a><a href="#resources"><bdi>↳</bdi><span>داده‌ها و پیوست‌ها</span></a></nav></div>
+<details class="contents-mobile"><summary>فهرست این بخش</summary><nav><a href="#p1-heading-1"><bdi>۱</bdi><span>اتصال و شناسایی دستگاه</span></a><a href="#p1-heading-2"><bdi>۲</bdi><span>ساخت و اجرای فلوگراف پایش</span></a><a href="#p1-heading-3"><bdi>۳</bdi><span>بازخوانی تنظیمات واقعی گیرنده</span></a><a href="#p1-heading-5"><bdi>۴</bdi><span>نخستین طیف و انتخاب بهرهٔ کاری در ۹۴۵ مگاهرتز</span></a><a href="#p1-heading-7"><bdi>۵</bdi><span>آزمون محور فرکانس در ۹۴۷ مگاهرتز</span></a><a href="#p1-question-1"><bdi>۶</bdi><span>پاسخ پرسش اول: لبه‌های نما و گام پویش</span></a><a href="#p1-question-2"><bdi>۷</bdi><span>پاسخ پرسش دوم: قرائت اول و شبکهٔ <span class="unit-text" dir="ltr" lang="en">GSM900</span></span></a><a href="#p1-heading-15"><bdi></bdi><span>ادامهٔ شواهد تصویری قرائت اول</span></a><a href="#p1-heading-16"><bdi>۸</bdi><span>پرسش دوم: قرائت دوم و محاسبهٔ دقیق خطا</span></a><a href="#p1-heading-18"><bdi>۹</bdi><span>تحلیل تکرارپذیری و برآورد خطای مرجع</span></a><a href="#p1-heading-21"><bdi>۱۰</bdi><span>آزمون ضبط؛ انجام بند ۱۰ دستورکار</span></a><a href="#p1-heading-24"><bdi>۱۱</bdi><span>جمع‌بندی اجرای بخش اول</span></a><a href="#resources"><bdi>↳</bdi><span>داده‌ها و پیوست‌ها</span></a></nav></details>
+</aside>
+<article aria-label="متن بخش اول" class="report-body">
+<p><strong>هدف و محدودهٔ گزارش.</strong> در این بخش، اتصال و شناسایی دستگاه، ساخت فلوگراف، بازخوانی تنظیمات، دریافت طیف، انتخاب بهره، آزمون محور فرکانس و آزمون ضبط را انجام دادیم. پاسخ دو پرسش با استفاده از هشت تصویر اصلی، دو دور قرائت حامل‌ها و حجم فایل ضبط‌شده ارائه شده است.</p>
+<h2 class="chapter-title" id="p1-heading-1"><span aria-hidden="true" class="chapter-number">۱</span> اتصال و شناسایی دستگاه</h2>
+<p>آنتن دریافت را به <span class="unit-text" dir="ltr" lang="en">RX1</span> بستیم؛ داده‌ها از کابل <span dir="ltr" lang="en">LAN</span> منتقل شدند و کابل <span dir="ltr" lang="en">USB</span> تغذیه را تأمین کرد. در این بخش ارسال انجام نشد و <span class="unit-text" dir="ltr" lang="en">TX1</span> خالی ماند. فرمان‌های شناسایی را در <span dir="ltr" lang="en">Radioconda Prompt</span> اجرا کردیم. شکل <a href="#p1-figure-1">۱</a> چهار پاسخ پینگ، صفر درصد اتلاف بسته و زمان رفت‌وبرگشت گزارش‌شدهٔ صفر تا دو میلی‌ثانیه را نشان می‌دهد.</p>
+<div class="table-block" id="p1-table-1">
+<div class="table-caption" id="p1-table-1-caption"><span class="evidence-number">جدول ۱</span><span>مشخصات بازخوانی‌شده از دستگاه متصل</span></div><div aria-labelledby="p1-table-1-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-1-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 59%"/>
+<col style="width: 36%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>مقدار ثبت‌شده</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>مورد</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr"><code dir="ltr">PUZHI PZSDR P201PRO</code></td>
+<td data-align="right" dir="rtl">مدل سخت‌افزار</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><code dir="ltr">ad9361</code></td>
+<td data-align="right" dir="rtl">مدل گزارش‌شدهٔ تراشه</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><code dir="ltr">3669-dirty</code></td>
+<td data-align="right" dir="rtl">رشتهٔ نسخهٔ سفت‌افزار</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><code dir="ltr">[70000000 1 6000000000]</code></td>
+<td data-align="right" dir="rtl">بازهٔ <span dir="ltr" lang="en">RX LO</span>؛ از <span class="unit-text" dir="ltr" lang="en">70 MHz</span> تا <span class="unit-text" dir="ltr" lang="en">6 GHz</span></td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><code dir="ltr">ip:192.168.1.10</code></td>
+<td data-align="right" dir="rtl">نشانی اتصال</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="rtl">فیلد بازگشتی خالی است.</td>
+<td data-align="right" dir="rtl">شمارهٔ سریال <code dir="ltr">hw_serial</code></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<figure id="p1-figure-1">
+<a aria-label="بزرگ‌نمایی شکل ۱" class="figure-image" data-zoom="" href="assets/p1/figures/01-device-identification.png" rel="noopener" target="_blank"><img alt="اجرای موفق پینگ و فرمان‌های IIO برای خواندن مشخصات و بازهٔ فرکانسی گیرنده." decoding="async" height="1069" loading="lazy" src="assets/p1/figures/01-device-identification.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۱</span><span class="figure-caption">اجرای موفق پینگ و فرمان‌های <span dir="ltr" lang="en">IIO</span> برای خواندن مشخصات و بازهٔ فرکانسی گیرنده.</span><a aria-label="بزرگ‌نمایی شکل ۱" class="figure-zoom" data-zoom="" href="assets/p1/figures/01-device-identification.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> ارتباط شبکه و شناسایی نرم‌افزاری موفق بود. مدل، سفت‌افزار و بازهٔ واقعی گزارش‌شده را ثبت کردیم؛ فرکانس‌های ۹۴۵ و ۹۴۷ مگاهرتز در این بازه قرار دارند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-2"><span aria-hidden="true" class="chapter-number">۲</span> ساخت و اجرای فلوگراف پایش</h2>
+<p>فلوگراف <code dir="ltr">lab01_monitor.grc</code> را ساختیم و اجرا کردیم.</p>
+<p>خروجی مختلط <span dir="ltr" lang="en">PlutoSDR Source</span> را به نمایشگرهای فرکانس، آبشار و زمان متصل کردیم.</p>
+<p>همین خروجی به شاخهٔ ضبط <span dir="ltr" lang="en">SDR Lab IQ Recorder</span> نیز داده شد. شکل <a href="#p1-figure-2">۲</a> اتصال‌ها، کنترل‌ها و تنظیمات اولیه را نشان می‌دهد.</p>
+<figure id="p1-figure-2">
+<a aria-label="بزرگ‌نمایی شکل ۲" class="figure-image" data-zoom="" href="assets/p1/figures/02-gnuradio-flowgraph.png" rel="noopener" target="_blank"><img alt="فلوگراف ساخته‌شده در GNU Radio: منبع سخت‌افزاری، سه نمایشگر، کنترل‌های تنظیم و شاخهٔ ضبط. تنظیم‌های اولیهٔ منبع و نمایشگرها با یکدیگر سازگارند." decoding="async" height="1221" loading="lazy" src="assets/p1/figures/02-gnuradio-flowgraph.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۲</span><span class="figure-caption">فلوگراف ساخته‌شده در <span dir="ltr" lang="en">GNU Radio</span>: منبع سخت‌افزاری، سه نمایشگر، کنترل‌های تنظیم و شاخهٔ ضبط. تنظیم‌های اولیهٔ منبع و نمایشگرها با یکدیگر سازگارند.</span><a aria-label="بزرگ‌نمایی شکل ۲" class="figure-zoom" data-zoom="" href="assets/p1/figures/02-gnuradio-flowgraph.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p1-table-2">
+<div class="table-caption" id="p1-table-2-caption"><span class="evidence-number">جدول ۲</span><span>تنظیمات اولیه و کنترل‌های پیاده‌سازی‌شده</span></div><div aria-labelledby="p1-table-2-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-2-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 66%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>تنظیم انجام‌شده</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>بلوک یا کنترل</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">خروجی <span dir="ltr" lang="en">Python</span> و رابط <span dir="ltr" lang="en">QT GUI</span></td>
+<td data-align="right" dir="rtl">تنظیمات اصلی</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="ltr"><code dir="ltr">uri = "ip:192.168.1.10"</code> <code dir="ltr">f_tune = int(fc + lo_shift)</code></td>
+<td data-align="right" dir="rtl">اتصال و فرکانس</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">مرکز <span class="unit-text" dir="ltr" lang="en">945 MHz</span>؛ نرخ <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span>؛ بهرهٔ دستی <span class="unit-text" dir="ltr" lang="en">20 dB</span>؛ جابه‌جایی <span dir="ltr" lang="en">LO</span> صفر</td>
+<td data-align="right" dir="rtl">گیرنده در آغاز</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">گزینه‌های <span class="unit-text" dir="ltr" lang="en">2.6</span>، <span class="unit-text" dir="ltr" lang="en">5</span>، <span class="unit-text" dir="ltr" lang="en">10</span> و <span class="unit-text" dir="ltr" lang="en">20 MS/s</span></td>
+<td data-align="right" dir="rtl">انتخاب نرخ نمونه‌برداری</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">بهره از صفر تا <span class="unit-text" dir="ltr" lang="en">30 dB</span>؛ جابه‌جایی <span dir="ltr" lang="en">LO</span> از <span class="unit-text" dir="ltr" lang="en">-500</span> تا <span class="unit-text" dir="ltr" lang="en">+500 kHz</span></td>
+<td data-align="right" dir="rtl">محدودهٔ کنترل‌ها</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><span dir="ltr" lang="en">Filter Configuration = Off</span>؛ پهنای باند <span dir="ltr" lang="en">RF</span> برابر <span class="unit-text" dir="ltr" lang="en">20 MHz</span>؛ تصحیح‌های <span dir="ltr" lang="en">I/Q</span> و <span dir="ltr" lang="en">DC</span> فعال</td>
+<td data-align="right" dir="rtl">فیلتر و تصحیح‌ها</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">مرکز برابر <code dir="ltr">f_tune</code> و عرض برابر <code dir="ltr">samp_rate</code>؛ طول اولیهٔ <span dir="ltr" lang="en">FFT</span> برابر <span class="unit-text" dir="ltr" lang="en">1024</span></td>
+<td data-align="right" dir="rtl">نمایشگرها</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">پارامترهای تیم، آزمایش، فرکانس، نرخ و بهره؛ پوشهٔ <code dir="ltr">recordings</code> و کلید ضبط</td>
+<td data-align="right" dir="rtl">شاخهٔ ضبط</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> فلوگراف و شاخهٔ ضبط را پیاده‌سازی کردیم. به دلیل تعیین نرخ جریان توسط سخت‌افزار، بلوک <span dir="ltr" lang="en">Throttle</span> اضافه نشد. گزینهٔ ضبط در تصویرِ تنظیم اولیه خاموش است؛ آزمون عملی ضبط پس از این مرحله انجام شد و در بخش <a href="#p1-heading-21">۱۰</a> آمده است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-3"><span aria-hidden="true" class="chapter-number">۳</span> بازخوانی تنظیمات واقعی گیرنده</h2>
+<p>پس از اجرای فلوگراف، طبق دستورکار به مقادیر واردشده در <span dir="ltr" lang="en">GRC</span> اکتفا نکردیم: با <code dir="ltr">iio_attr</code> فرکانس نوسان‌ساز گیرنده، نرخ نمونه‌برداری، پهنای باند <span dir="ltr" lang="en">RF</span>، حالت کنترل بهره و بهرهٔ سخت‌افزار را از خود دستگاه خواندیم. شکل <a href="#p1-figure-3">۳</a> خروجی واقعی این فرمان‌هاست.</p>
+<figure id="p1-figure-3">
+<a aria-label="بزرگ‌نمایی شکل ۳" class="figure-image" data-zoom="" href="assets/p1/figures/03-hardware-readback.png" rel="noopener" target="_blank"><img alt="بازخوانی دستگاه در وضعیت اولیه: فرکانس ۹۴۵ مگاهرتز، نرخ 2.6 MS/s، پهنای باند 20 MHz، حالت دستی و بهرهٔ 20 dB." decoding="async" height="1062" loading="lazy" src="assets/p1/figures/03-hardware-readback.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۳</span><span class="figure-caption">بازخوانی دستگاه در وضعیت اولیه: فرکانس ۹۴۵ مگاهرتز، نرخ <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span>، پهنای باند <span class="unit-text" dir="ltr" lang="en">20 MHz</span>، حالت دستی و بهرهٔ <span class="unit-text" dir="ltr" lang="en">20 dB</span>.</span><a aria-label="بزرگ‌نمایی شکل ۳" class="figure-zoom" data-zoom="" href="assets/p1/figures/03-hardware-readback.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p1-table-3">
+<div class="table-caption" id="p1-table-3-caption"><span class="evidence-number">جدول ۳</span><span>مقایسهٔ مقدار درخواست‌شده با مقدار بازخوانی‌شده</span></div><div aria-labelledby="p1-table-3-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-3-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 25%"/>
+<col style="width: 20%"/>
+<col style="width: 31%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>نتیجه</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>بازخوانی</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>درخواست</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>پارامتر</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">مطابق</td>
+<td data-align="left" dir="ltr"><code dir="ltr">945000000</code> Hz</td>
+<td data-align="left" dir="ltr">945 MHz</td>
+<td data-align="right" dir="rtl">فرکانس <span dir="ltr" lang="en">RX LO</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">مطابق</td>
+<td data-align="left" dir="ltr"><code dir="ltr">2600000</code> S/s</td>
+<td data-align="left" dir="ltr">2.6 MS/s</td>
+<td data-align="right" dir="rtl">نرخ نمونه‌برداری</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">مطابق</td>
+<td data-align="left" dir="ltr"><code dir="ltr">20000000</code> Hz</td>
+<td data-align="left" dir="ltr">20 MHz</td>
+<td data-align="right" dir="rtl">پهنای باند <span dir="ltr" lang="en">RF</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">مطابق</td>
+<td data-align="left" dir="ltr"><code dir="ltr">manual</code></td>
+<td data-align="left" dir="ltr">Manual</td>
+<td data-align="right" dir="rtl">کنترل بهره</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">مطابق</td>
+<td data-align="left" dir="ltr"><code dir="ltr">20.000000 dB</code></td>
+<td data-align="left" dir="ltr">20 dB</td>
+<td data-align="right" dir="rtl">بهرهٔ سخت‌افزاری</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<h3 id="p1-heading-4">تفسیر بازخوانی</h3>
+<p>هر پنج مقدار با تنظیم اولیه تطبیق دارند. به‌ویژه، پهنای باند <span class="unit-text" dir="ltr" lang="en">20 MHz</span> واقعاً روی دستگاه اعمال شده است؛ بنابراین تنظیم <span dir="ltr" lang="en">Filter Configuration = Off</span> با بازخوانی سخت‌افزاری نیز بررسی شد. پهنای باند فیلتر <span dir="ltr" lang="en">RF</span> با نرخ جریان خروجی یکسان نیست؛ تنظیم <span class="unit-text" dir="ltr" lang="en">20 MHz</span> فیلتر می‌تواند همراه با نرخ اولیهٔ <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> استفاده شود. در این وضعیت، گسترهٔ اسمی نمونه‌های مختلط برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>c</mi></msub><mo>−</mo><mfrac><msub><mi>f</mi><mi>s</mi></msub><mn>2</mn></mfrac><mo>≤</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">F</mi></mrow></msub><mo>&lt;</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><mfrac><msub><mi>f</mi><mi>s</mi></msub><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mn>943.7</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>≤</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">F</mi></mrow></msub><mo>&lt;</mo><mn>946.3</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_c-\frac{f_s}{2}\leq f_{\mathrm{RF}}&lt;f_c+\frac{f_s}{2},
+\qquad
+943.7\ \mathrm{MHz}\leq f_{\mathrm{RF}}&lt;946.3\ \mathrm{MHz}.</annotation></semantics></math></span> این تصویر به وضعیت اولیهٔ <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> و <span class="unit-text" dir="ltr" lang="en">20 dB</span> مربوط است. در مرحلهٔ بعد، نرخ و بهره را به <span class="unit-text" dir="ltr" lang="en">20 MS/s</span> و <span class="unit-text" dir="ltr" lang="en">30 dB</span> تغییر دادیم.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> همهٔ پارامترهای خواسته‌شده را از دستگاه خواندیم و مقایسه کردیم؛ هر پنج بررسی در وضعیت ثبت‌شده موفق بودند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-5"><span aria-hidden="true" class="chapter-number">۴</span> نخستین طیف و انتخاب بهرهٔ کاری در ۹۴۵ مگاهرتز</h2>
+<p>پس از راه‌اندازی اولیه، نرخ را به <span class="unit-text" dir="ltr" lang="en">20 MS/s</span> افزایش دادیم و کنترل بهرهٔ دستی را در محدودهٔ مجاز بررسی کردیم. برای نمای ذخیره‌شده، بهرهٔ <span class="unit-text" dir="ltr" lang="en">30 dB</span> انتخاب شد. شکل <a href="#p1-figure-4">۴</a> آبشار، شکل موج <span dir="ltr" lang="en">I/Q</span> و طیف را هم‌زمان نشان می‌دهد.</p>
+<figure id="p1-figure-4">
+<a aria-label="بزرگ‌نمایی شکل ۴" class="figure-image" data-zoom="" href="assets/p1/figures/04-spectrum-945MHz.png" rel="noopener" target="_blank"><img alt="دریافت زنده با مرکز ۹۴۵ مگاهرتز، نرخ انتخاب‌شدهٔ 20 MS/s و بهرهٔ 30 dB. سه پنل، آبشار، مؤلفه‌های زمانی I/Q و طیف را نمایش می‌دهند." decoding="async" height="1216" loading="lazy" src="assets/p1/figures/04-spectrum-945MHz.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۴</span><span class="figure-caption">دریافت زنده با مرکز ۹۴۵ مگاهرتز، نرخ انتخاب‌شدهٔ <span class="unit-text" dir="ltr" lang="en">20 MS/s</span> و بهرهٔ <span class="unit-text" dir="ltr" lang="en">30 dB</span>. سه پنل، آبشار، مؤلفه‌های زمانی <span dir="ltr" lang="en">I/Q</span> و طیف را نمایش می‌دهند.</span><a aria-label="بزرگ‌نمایی شکل ۴" class="figure-zoom" data-zoom="" href="assets/p1/figures/04-spectrum-945MHz.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p1-table-4">
+<div class="table-caption" id="p1-table-4-caption"><span class="evidence-number">جدول ۴</span><span>تنظیمات و مشاهده‌های ثبت‌شده در نمای ۹۴۵ مگاهرتز</span></div><div aria-labelledby="p1-table-4-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-4-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 66%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>مقدار یا مشاهده</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>مورد</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl"><code dir="ltr">945000000</code> هرتز</td>
+<td data-align="right" dir="rtl">کنترل فرکانس مرکز</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl"><span class="unit-text" dir="ltr" lang="en">20 MS/s</span>؛ بازهٔ اسمی تقریباً ۹۳۵ تا ۹۵۵ مگاهرتز</td>
+<td data-align="right" dir="rtl">نرخ و گسترهٔ نما</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl"><span class="unit-text" dir="ltr" lang="en">30 dB</span>، در سقف مجاز حالت آنتن</td>
+<td data-align="right" dir="rtl">بهرهٔ کاری</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">طول <span class="unit-text" dir="ltr" lang="en">32768</span> و پنجرهٔ <span dir="ltr" lang="en">Blackman–Harris</span></td>
+<td data-align="right" dir="rtl">تنظیم زندهٔ <span dir="ltr" lang="en">FFT</span></td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">در قاب نمایش‌داده‌شده، مؤلفه‌ها تقریباً در محدودهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>0.3</mn></mrow><annotation encoding="application/x-tex">\pm0.3</annotation></semantics></math></span> قرار دارند؛ کمتر از معیار حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>0.5</mn></mrow><annotation encoding="application/x-tex">\pm0.5</annotation></semantics></math></span></td>
+<td data-align="right" dir="rtl">دامنهٔ <span dir="ltr" lang="en">I/Q</span></td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">نواحی اشغال‌شدهٔ پهن و چند ویژگی باریک‌تر بالاتر از کف اطراف دیده می‌شوند</td>
+<td data-align="right" dir="rtl">طیف و آبشار</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p1-heading-6">تحلیل مشاهده</h3>
+<p>تطابق نواحی اشغال‌شده در طیف و آبشار، دریافت زنده را نشان می‌دهد. در شکل موج این قاب، تخت‌شدن آشکار قله‌ها دیده نمی‌شود و دامنه در محدودهٔ معیار دستورکار است. بر این اساس، <span class="unit-text" dir="ltr" lang="en">30 dB</span> را بهرهٔ کاری نمای ثبت‌شده انتخاب کردیم. بلوک‌های چندمگاهرتزی و قله‌های باریک‌تر در باند ۹۰۰ مگاهرتز هم‌زمان حضور دارند؛ این نمای کلی را «طیف دریافتی باند ۹۰۰ مگاهرتز» می‌نامیم. بررسی حامل‌های منتخب در پاسخ پرسش دوم انجام شده است. محور عمودی نسبی است و به معنی توان ورودی کالیبره‌شده بر حسب <span dir="ltr" lang="en">dBm</span> نیست.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> نمایش زنده و انتخاب بهره را انجام دادیم؛ تصویر نرخ <span class="unit-text" dir="ltr" lang="en">20 MS/s</span> و بهرهٔ کاری <span class="unit-text" dir="ltr" lang="en">30 dB</span> را با دامنهٔ زمانی مناسب ثبت می‌کند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-7"><span aria-hidden="true" class="chapter-number">۵</span> آزمون محور فرکانس در ۹۴۷ مگاهرتز</h2>
+<p>طبق دستورکار، کنترل فرکانس مرکز را از ۹۴۵ به ۹۴۷ مگاهرتز تغییر دادیم. شکل <a href="#p1-figure-5">۵</a> مقدار <code dir="ltr">fc = 947000000</code> و <code dir="ltr">lo_shift = 0</code> را ثبت می‌کند. این نمای تقریباً ۲۰ مگاهرتزی را با شکل <a href="#p1-figure-4">۴</a> مقایسه کردیم.</p>
+<figure id="p1-figure-5">
+<a aria-label="بزرگ‌نمایی شکل ۵" class="figure-image" data-zoom="" href="assets/p1/figures/05-frequency-axis-947MHz.png" rel="noopener" target="_blank"><img alt="آزمون تغییر مرکز به ۹۴۷ مگاهرتز با جابه‌جایی LO صفر. نواحی مشترک با نمای ۹۴۵، برچسب فرکانس RF تقریباً یکسانی دارند و نسبت به مرکز جدید جابه‌جا شده‌اند." decoding="async" height="1180" loading="lazy" src="assets/p1/figures/05-frequency-axis-947MHz.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۵</span><span class="figure-caption">آزمون تغییر مرکز به ۹۴۷ مگاهرتز با جابه‌جایی <span dir="ltr" lang="en">LO</span> صفر. نواحی مشترک با نمای ۹۴۵، برچسب فرکانس <span dir="ltr" lang="en">RF</span> تقریباً یکسانی دارند و نسبت به مرکز جدید جابه‌جا شده‌اند.</span><a aria-label="بزرگ‌نمایی شکل ۵" class="figure-zoom" data-zoom="" href="assets/p1/figures/05-frequency-axis-947MHz.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<div class="table-block" id="p1-table-5">
+<div class="table-caption" id="p1-table-5-caption"><span class="evidence-number">جدول ۵</span><span>مقایسهٔ محور فرکانس دو نمای گسترده</span></div><div aria-labelledby="p1-table-5-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-5-caption" data-cols="3" dir="ltr">
+<colgroup>
+<col style="width: 31%"/>
+<col style="width: 31%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>نمای ۹۴۷</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>نمای ۹۴۵</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">947 MHz</span></td>
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">945 MHz</span></td>
+<td data-align="right" dir="rtl">فرکانس مرکز</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">937–957 MHz</span></td>
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">935–955 MHz</span></td>
+<td data-align="right" dir="rtl">بازهٔ اسمی با عرض <span class="unit-text" dir="ltr" lang="en">20 MHz</span></td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="ltr"><span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">F</mi></mrow></msub><mo>−</mo><mn>947</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_{\mathrm{bb}}=f_{\mathrm{RF}}-947\,\mathrm{MHz}</annotation></semantics></math></span></td>
+<td data-align="right" dir="ltr"><span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">F</mi></mrow></msub><mo>−</mo><mn>945</mn><mspace width="0.167em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">f_{\mathrm{bb}}=f_{\mathrm{RF}}-945\,\mathrm{MHz}</annotation></semantics></math></span></td>
+<td data-align="right" dir="rtl">مکان باند پایهٔ یک ویژگی مشترک</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">کاهش <span class="unit-text" dir="ltr" lang="en">2 MHz</span></td>
+<td data-align="right" dir="rtl">مبنای مقایسه</td>
+<td data-align="right" dir="rtl">تغییر مکان باند پایه</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">تقریباً همان مقادیر <span dir="ltr" lang="en">RF</span></td>
+<td data-align="right" dir="rtl">نواحی مشترک مرجع</td>
+<td data-align="right" dir="rtl">رفتار برچسب‌ها</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p1-heading-8">اصل آزمون و نتیجه</h3>
+<p>رابطهٔ برچسب فرکانس با فرکانس باند پایه چنین است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">b</mi></mrow></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{label}}=f_{\mathrm{tune}}+f_{\mathrm{bb}},
+\qquad
+f_{\mathrm{tune}}=f_c+f_{\mathrm{LO\,shift}}.</annotation></semantics></math></span> با افزایش دو مگاهرتزی فرکانس تنظیم، مکان باند پایهٔ یک سیگنال ثابت دو مگاهرتز کاهش می‌یابد؛ پس مجموع این دو و در نتیجه برچسب <span dir="ltr" lang="en">RF</span> ثابت می‌ماند. در تصاویر، نواحی پهن نزدیک حدود ۹۴۲ تا ۹۴۶ و ۹۴۷ تا ۹۵۱ مگاهرتز مکان <span dir="ltr" lang="en">RF</span> خود را در حد دقت خواندن نمای کلی حفظ کرده‌اند. ملاک این آزمون مکان فرکانسی بود؛ تغییرات لحظه‌ای ارتفاع طیف مبنای آن نیست.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> آزمون تغییر مرکز به ۹۴۷ مگاهرتز و مقایسه با مرجع ۹۴۵ را انجام دادیم. نتیجهٔ کیفی با رفتار مورد انتظار محور <span dir="ltr" lang="en">RF</span> سازگار است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-question-1"><span aria-hidden="true" class="chapter-number">۶</span> پاسخ پرسش اول: لبه‌های نما و گام پویش</h2>
+<p><strong>صورت پرسش.</strong> لبه‌های بازهٔ نمایش چه تفاوتی با میانه دارند؟ چه کسری از <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>s</mi></msub><annotation encoding="application/x-tex">f_s</annotation></semantics></math></span> قابل اعتماد است و این کسر چه ارتباطی با گام پویش رابطهٔ ۲ دارد؟</p>
+<h3 id="p1-heading-10">پاسخ فرکانسی لبه‌ها و ناحیهٔ قابل اعتماد</h3>
+<p>گسترهٔ اسمی دوطرفهٔ نمونه‌های مختلط برابر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>s</mi></msub><annotation encoding="application/x-tex">f_s</annotation></semantics></math></span> است. فیلترهای گیرنده در نزدیکی لبه‌ها ناحیهٔ گذار دارند؛ پاسخ دامنه در این قسمت‌ها به اندازهٔ میانه تخت نیست. سیگنال نزدیک لبه ممکن است تضعیف شود یا شکل طیف آن تغییر کند. بنابراین، کل پهنای قابل مشاهده را به یک اندازه معتبر در نظر نمی‌گیریم. مطابق قاعدهٔ تقریبی دستورکار، <strong>۸۰ درصد میانی</strong> را نگه می‌داریم و در هر طرف حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><msub><mi>f</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">0.1f_s</annotation></semantics></math></span> را کنار می‌گذاریم: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi mathvariant="normal">u</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>≃</mo><mn>0.8</mn><msub><mi>f</mi><mi>s</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>−</mo><mn>0.4</mn><msub><mi>f</mi><mi>s</mi></msub><mo>≤</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">F</mi></mrow></msub><mo>≤</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>+</mo><mn>0.4</mn><msub><mi>f</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">W_{\mathrm{usable}}\simeq0.8f_s,\qquad
+f_{\mathrm{tune}}-0.4f_s
+\leq f_{\mathrm{RF}}\leq
+f_{\mathrm{tune}}+0.4f_s.</annotation></semantics></math></span> این یک معیار عملی دستورکار است و به معنی اندازه‌گیری مستقل تختی فیلتر دستگاه نیست.</p>
+<div class="table-block" id="p1-table-6">
+<div class="table-caption" id="p1-table-6-caption"><span class="evidence-number">جدول ۶</span><span>بازهٔ اسمی و ناحیهٔ میانی برای تنظیم‌های ثبت‌شده</span></div><div aria-labelledby="p1-table-6-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-6-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 24%"/>
+<col style="width: 24%"/>
+<col style="width: 27%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>عرض معتبر</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>بازهٔ معتبر <span dir="ltr" lang="en">(MHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>بازهٔ اسمی <span dir="ltr" lang="en">(MHz)</span></strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>مرکز و نرخ</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">2.08 MHz</td>
+<td data-align="left" dir="ltr">943.96–946.04</td>
+<td data-align="left" dir="ltr">943.70–946.30</td>
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">945 MHz / 2.6 MS/s</span></td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">16 MHz</td>
+<td data-align="left" dir="ltr">937–953</td>
+<td data-align="left" dir="ltr">935–955</td>
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">945 MHz / 20 MS/s</span></td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">16 MHz</td>
+<td data-align="left" dir="ltr">939–955</td>
+<td data-align="left" dir="ltr">937–957</td>
+<td data-align="right" dir="ltr"><span class="unit-text" dir="ltr" lang="en">947 MHz / 20 MS/s</span></td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<h3 id="p1-heading-11">ارتباط با گام پویش</h3>
+<p>برای اتصال بازه‌های میانی معتبرِ نماهای متوالی، فاصلهٔ مراکز را برابر <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">p</mi></mrow></msub><mo>=</mo><mn>0.8</mn><msub><mi>f</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Delta_{\mathrm{step}}=0.8f_s</annotation></semantics></math></span> می‌گیریم. در این حالت، نماهای اسمی به اندازهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><msub><mi>f</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">0.2f_s</annotation></semantics></math></span> هم‌پوشانی دارند و قسمت‌های میانی نگه‌داشته‌شده بدون شکاف به هم می‌رسند. در نرخ <span class="unit-text" dir="ltr" lang="en">20 MS/s</span>، گام پویش <strong>۱۶ مگاهرتز</strong>، هم‌پوشانی اسمی ۴ مگاهرتز و حاشیهٔ کنارگذاشته‌شده در هر انتها ۲ مگاهرتز است. برای شروع باند از <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub><annotation encoding="application/x-tex">f_{\mathrm{low}}</annotation></semantics></math></span>، رابطهٔ ۲ دستورکار می‌دهد: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>c</mi><mo>,</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub><mo>+</mo><mn>0.4</mn><msub><mi>f</mi><mi>s</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>n</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">p</mi></mrow></msub><mo>=</mo><mrow><mo form="prefix" stretchy="true">⌈</mo><mfrac><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">h</mi></mrow></msub><mo>−</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow></msub></mrow><mrow><mn>0.8</mn><msub><mi>f</mi><mi>s</mi></msub></mrow></mfrac><mo form="postfix" stretchy="true">⌉</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{c,1}=f_{\mathrm{low}}+0.4f_s,\qquad
+n_{\mathrm{step}}=
+\left\lceil\frac{f_{\mathrm{high}}-f_{\mathrm{low}}}{0.8f_s}\right\rceil.</annotation></semantics></math></span></p>
+<h3 id="p1-heading-12">فاصلهٔ بین بین‌های <span dir="ltr" lang="en">FFT</span></h3>
+<p>فاصلهٔ فرکانسی بین دو بین برابر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>f</mi><mo>=</mo><msub><mi>f</mi><mi>s</mi></msub><mi>/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">\Delta f=f_s/N</annotation></semantics></math></span> است. طول اولیهٔ فلوگراف <span class="unit-text" dir="ltr" lang="en">1024</span> بود و کنترل <span dir="ltr" lang="en">FFT</span> در نمای زنده به <span class="unit-text" dir="ltr" lang="en">32768</span> تغییر کرده است.</p>
+<div class="table-block" id="p1-table-7">
+<div class="table-caption" id="p1-table-7-caption"><span class="evidence-number">جدول ۷</span><span>فاصلهٔ محاسباتی بین‌ها؛ مستقل از دقت مطلق مرجع فرکانس</span></div><div aria-labelledby="p1-table-7-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-7-caption" data-cols="3" dir="ltr">
+<colgroup>
+<col style="width: 28%"/>
+<col style="width: 28%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>نمای زنده</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>تنظیم اولیه</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">20 MS/s</td>
+<td data-align="left" dir="ltr">2.6 MS/s</td>
+<td data-align="right" dir="rtl">نرخ نمونه‌برداری</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">32768</td>
+<td data-align="left" dir="ltr">1024</td>
+<td data-align="right" dir="rtl">طول <span dir="ltr" lang="en">FFT</span></td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">610.35 Hz</td>
+<td data-align="left" dir="ltr">2539.06 Hz</td>
+<td data-align="right" dir="rtl">فاصلهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>s</mi></msub><mi>/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">f_s/N</annotation></semantics></math></span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> طبق معیار دستورکار، ناحیهٔ ۸۰ درصد میانی را برای تفسیر نما در نظر گرفتیم؛ در نرخ <span class="unit-text" dir="ltr" lang="en">20 MS/s</span>، عرض معتبر و گام پویش هر دو ۱۶ مگاهرتز هستند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-question-2"><span aria-hidden="true" class="chapter-number">۷</span> پاسخ پرسش دوم: قرائت اول و شبکهٔ <span class="unit-text" dir="ltr" lang="en">GSM900</span></h2>
+<p><strong>صورت پرسش.</strong> مرکز سه حامل را بخوانید، با شبکهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>935</mn><mo>+</mo><mn>0.2</mn><mi>n</mi><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">935+0.2n\ \mathrm{MHz}</annotation></semantics></math></span> مقایسه کنید، اختلاف را بر حسب کیلوهرتز و خطای فرکانس را بر حسب <span dir="ltr" lang="en">ppm</span> به دست آورید و با جدول ۲ مقایسه کنید.</p>
+<p>سه ویژگی باریک را برای مقایسه با شبکهٔ <span class="unit-text" dir="ltr" lang="en">GSM900</span> انتخاب کردیم. در دور اول، مقادیر نشانگر در شکل‌های <a href="#p1-figure-6">۶</a> تا <a href="#p1-figure-8">۸</a> به‌عنوان برآورد تقریبی مرکز ثبت شدند. این تصاویر قرائت فرکانسی را نشان می‌دهند؛ تعیین دقیق مرکز و شناسایی فناوری صرفاً از یک نقطهٔ نشانگر نتیجه نمی‌شود.</p>
+<h3 id="p1-heading-14">روش مقایسه با شبکه</h3>
+<p>در روابط زیر، فرکانس‌های داخل کسر بر حسب مگاهرتز هستند: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>i</mi></msub><mo>=</mo><mo>round</mo><mrow><mo form="prefix" stretchy="true">(</mo><mfrac><mrow><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub><mo>−</mo><mn>935</mn></mrow><mn>0.2</mn></mfrac><mo form="postfix" stretchy="true">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">g</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub><mo>=</mo><mn>935</mn><mo>+</mo><mn>0.2</mn><msub><mi>n</mi><mi>i</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>δ</mi><msub><mi>f</mi><mi>i</mi></msub><mo>=</mo><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub><mo>−</mo><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">g</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">n_i=\operatorname{round}\left(\frac{f_{\mathrm{read},i}-935}{0.2}\right),
+\qquad
+f_{\mathrm{grid},i}=935+0.2n_i,\qquad
+\delta f_i=f_{\mathrm{read},i}-f_{\mathrm{grid},i}.</annotation></semantics></math></span></p>
+<div class="table-block" id="p1-table-8">
+<div class="table-caption" id="p1-table-8-caption"><span class="evidence-number">جدول ۸</span><span>قرائت اول و نزدیک‌ترین نقاط شبکهٔ استاندارد</span></div><div aria-labelledby="p1-table-8-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-8-caption" data-cols="5" dir="ltr">
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 21%"/>
+<col style="width: 16%"/>
+<col style="width: 22%"/>
+<col style="width: 10%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>اختلاف <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>نامی <span dir="ltr" lang="en">(MHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>شاخص <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math></span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>قرائت <span dir="ltr" lang="en">(MHz)</span></strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>حامل</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>28</mn></mrow><annotation encoding="application/x-tex">-28</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">952.800</td>
+<td data-align="left" dir="ltr">89</td>
+<td data-align="left" dir="ltr">952.772</td>
+<td data-align="right" dir="rtl">۱</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">+4</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">954.200</td>
+<td data-align="left" dir="ltr">96</td>
+<td data-align="left" dir="ltr">954.204</td>
+<td data-align="right" dir="rtl">۲</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>16</mn></mrow><annotation encoding="application/x-tex">+16</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">955.400</td>
+<td data-align="left" dir="ltr">102</td>
+<td data-align="left" dir="ltr">955.416</td>
+<td data-align="right" dir="rtl">۳</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<p>برای نمونه، <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo form="prefix" stretchy="true">(</mo><mn>952.772</mn><mo>−</mo><mn>952.800</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>×</mo><mn>1000</mn><mo>=</mo><mi>−</mi><mn>28</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">(952.772-952.800)\times1000=-28\ \mathrm{kHz}</annotation></semantics></math></span>.</p>
+<figure id="p1-figure-6">
+<a aria-label="بزرگ‌نمایی شکل ۶" class="figure-image" data-zoom="" href="assets/p1/figures/06-carrier-952772MHz.png" rel="noopener" target="_blank"><img alt="قرائت اولِ حامل ۱: نشانگر 952.772 MHz و سطح نسبی -60.31 dB. تنظیمِ تصویر fc = 961000000، جابه‌جایی lo_shift = -60000 و طول FFT برابر 32768 است." decoding="async" height="1165" loading="lazy" src="assets/p1/figures/06-carrier-952772MHz.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۶</span><span class="figure-caption">قرائت اولِ حامل ۱: نشانگر <span class="unit-text" dir="ltr" lang="en">952.772 MHz</span> و سطح نسبی <span class="unit-text" dir="ltr" lang="en">-60.31 dB</span>. تنظیمِ تصویر <code dir="ltr">fc = 961000000</code>، جابه‌جایی <code dir="ltr">lo_shift = -60000</code> و طول <span dir="ltr" lang="en">FFT</span> برابر <span class="unit-text" dir="ltr" lang="en">32768</span> است.</span><a aria-label="بزرگ‌نمایی شکل ۶" class="figure-zoom" data-zoom="" href="assets/p1/figures/06-carrier-952772MHz.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> سه فرکانس دور اول را ثبت و با نزدیک‌ترین نقاط شبکهٔ ۲۰۰ کیلوهرتزی مقایسه کردیم؛ اختلاف‌های علامت‌دار برابر <span class="unit-text" dir="ltr" lang="en">-28</span>، <span class="unit-text" dir="ltr" lang="en">+4</span> و <span class="unit-text" dir="ltr" lang="en">+16 kHz</span> شدند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-15">ادامهٔ شواهد تصویری قرائت اول</h2>
+<p>دو تصویر زیر، قرائت حامل‌های دوم و سوم در دور اول را ثبت می‌کنند. اعداد فرکانس برای محاسبات استفاده شده‌اند و اعداد <span dir="ltr" lang="en">dB</span> سطح نسبیِ محل نشانگر هستند. هر سه عکس این مجموعه به دور اول مربوط‌اند؛ مقادیر دور دوم در جدول‌های عددی بعدی جداگانه آمده‌اند.</p>
+<figure id="p1-figure-7">
+<a aria-label="بزرگ‌نمایی شکل ۷" class="figure-image" data-zoom="" href="assets/p1/figures/07-carrier-954204MHz.png" rel="noopener" target="_blank"><img alt="قرائت اولِ حامل ۲: 954.204 MHz و -62.81 dB. نزدیک‌ترین نقطهٔ شبکه 954.200 MHz است؛ بنابراین اختلاف +4 kHz می‌شود." decoding="async" height="1174" loading="lazy" src="assets/p1/figures/07-carrier-954204MHz.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۷</span><span class="figure-caption">قرائت اولِ حامل ۲: <span class="unit-text" dir="ltr" lang="en">954.204 MHz</span> و <span class="unit-text" dir="ltr" lang="en">-62.81 dB</span>. نزدیک‌ترین نقطهٔ شبکه <span class="unit-text" dir="ltr" lang="en">954.200 MHz</span> است؛ بنابراین اختلاف <span class="unit-text" dir="ltr" lang="en">+4 kHz</span> می‌شود.</span><a aria-label="بزرگ‌نمایی شکل ۷" class="figure-zoom" data-zoom="" href="assets/p1/figures/07-carrier-954204MHz.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<figure id="p1-figure-8">
+<a aria-label="بزرگ‌نمایی شکل ۸" class="figure-image" data-zoom="" href="assets/p1/figures/08-carrier-955416MHz.png" rel="noopener" target="_blank"><img alt="قرائت اولِ حامل ۳: 955.416 MHz و -75.01 dB. نزدیک‌ترین نقطهٔ شبکه 955.400 MHz است؛ بنابراین اختلاف +16 kHz می‌شود." decoding="async" height="1161" loading="lazy" src="assets/p1/figures/08-carrier-955416MHz.png" width="2048"/>
+</a><figcaption><span class="evidence-number">شکل ۸</span><span class="figure-caption">قرائت اولِ حامل ۳: <span class="unit-text" dir="ltr" lang="en">955.416 MHz</span> و <span class="unit-text" dir="ltr" lang="en">-75.01 dB</span>. نزدیک‌ترین نقطهٔ شبکه <span class="unit-text" dir="ltr" lang="en">955.400 MHz</span> است؛ بنابراین اختلاف <span class="unit-text" dir="ltr" lang="en">+16 kHz</span> می‌شود.</span><a aria-label="بزرگ‌نمایی شکل ۸" class="figure-zoom" data-zoom="" href="assets/p1/figures/08-carrier-955416MHz.png" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M7 4H4v3m9-3h3v3M4 13v3h3m9-3v3h-3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg><span>بزرگ‌نمایی</span></a></figcaption></figure>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> هر سه تصویر اصلیِ دور اول و اعداد نشانگر آن‌ها حفظ شده‌اند. هیچ تصویر جدیدی برای دور دوم به گزارش اضافه نشده است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-16"><span aria-hidden="true" class="chapter-number">۸</span> پرسش دوم: قرائت دوم و محاسبهٔ دقیق خطا</h2>
+<p>برای بررسی تغییر قرائت، مقادیر دور دومِ همان سه حامل را به‌ترتیب <span class="unit-text" dir="ltr" lang="en">952.840</span>، <span class="unit-text" dir="ltr" lang="en">954.196</span> و <span class="unit-text" dir="ltr" lang="en">955.380 MHz</span> ثبت کردیم. مبنای استاندارد هر حامل همان نقاط دور اول است؛ از جایگزینی عدد اندازه‌گیری‌شده با فرکانس استاندارد خودداری کردیم.</p>
+<div class="table-block" id="p1-table-9">
+<div class="table-caption" id="p1-table-9-caption"><span class="evidence-number">جدول ۹</span><span>مقایسهٔ دو دور قرائت؛ همهٔ فرکانس‌ها بر حسب مگاهرتز</span></div><div aria-labelledby="p1-table-9-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-9-caption" data-cols="6" dir="ltr">
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 14%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 7%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>خطای دوم <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>خطای اول <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>فرکانس نامی</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>قرائت دوم</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>قرائت اول</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>حامل</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>40</mn></mrow><annotation encoding="application/x-tex">+40</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>28</mn></mrow><annotation encoding="application/x-tex">-28</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">952.800</td>
+<td data-align="left" dir="ltr">952.840</td>
+<td data-align="left" dir="ltr">952.772</td>
+<td data-align="right" dir="rtl">۱</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">-4</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">+4</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">954.200</td>
+<td data-align="left" dir="ltr">954.196</td>
+<td data-align="left" dir="ltr">954.204</td>
+<td data-align="right" dir="rtl">۲</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">-20</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>16</mn></mrow><annotation encoding="application/x-tex">+16</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">955.400</td>
+<td data-align="left" dir="ltr">955.380</td>
+<td data-align="left" dir="ltr">955.416</td>
+<td data-align="right" dir="rtl">۳</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<h3 id="p1-heading-17">قرارداد علامت و تبدیل به <span dir="ltr" lang="en">ppm</span></h3>
+<p>خطا را «فرکانس خوانده‌شده منهای فرکانس نامی» تعریف می‌کنیم. مقدار منفی یعنی برچسب خوانده‌شده پایین‌تر از نقطهٔ استاندارد قرار گرفته است: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ϵ</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub><mo>−</mo><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">g</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub></mrow><msub><mi>f</mi><mrow><mrow><mi mathvariant="normal">g</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi></mrow><mo>,</mo><mi>i</mi></mrow></msub></mfrac><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\epsilon_i=
+\frac{f_{\mathrm{read},i}-f_{\mathrm{grid},i}}
+     {f_{\mathrm{grid},i}}\times10^6\ \mathrm{ppm}.</annotation></semantics></math></span> در این نرمال‌سازی، صورت و مخرج باید واحد یکسان داشته باشند. برای حامل اول در دور دوم: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mi>f</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><mrow><mo form="prefix" stretchy="true">(</mo><mn>952.840</mn><mo>−</mo><mn>952.800</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>×</mo><mn>1000</mn><mo>=</mo><mi>+</mi><mn>40</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>ϵ</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><mfrac><mn>0.040</mn><mn>952.800</mn></mfrac><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>=</mo><mi>+</mi><mn>41.9815</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\delta f_{1,2}=(952.840-952.800)\times1000
+=+40\ \mathrm{kHz},
+\qquad
+\epsilon_{1,2}=\frac{0.040}{952.800}\times10^6
+=+41.9815\ \mathrm{ppm}.</annotation></semantics></math></span></p>
+<div class="table-block" id="p1-table-10">
+<div class="table-caption" id="p1-table-10-caption"><span class="evidence-number">جدول ۱۰</span><span>خطای ظاهریِ هر قرائت و مقایسه با مرجع حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>25</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">\pm25\ \mathrm{ppm}</annotation></semantics></math></span> جدول ۲</span></div><div aria-labelledby="p1-table-10-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-10-caption" data-cols="4" dir="ltr">
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 24%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>مقایسه با مرجع</strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>خطا <span dir="ltr" lang="en">(ppm)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>اختلاف <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>حامل و دور قرائت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">کمی بیرون بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>29.3871</mn></mrow><annotation encoding="application/x-tex">-29.3871</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>28</mn></mrow><annotation encoding="application/x-tex">-28</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۱، دور اول</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">داخل بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>4.1920</mn></mrow><annotation encoding="application/x-tex">+4.1920</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">+4</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۲، دور اول</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">داخل بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>16.7469</mn></mrow><annotation encoding="application/x-tex">+16.7469</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>16</mn></mrow><annotation encoding="application/x-tex">+16</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۳، دور اول</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">بیرون بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>41.9815</mn></mrow><annotation encoding="application/x-tex">+41.9815</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>40</mn></mrow><annotation encoding="application/x-tex">+40</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۱، دور دوم</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">داخل بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>4.1920</mn></mrow><annotation encoding="application/x-tex">-4.1920</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>4</mn></mrow><annotation encoding="application/x-tex">-4</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۲، دور دوم</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">داخل بازه</td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>20.9336</mn></mrow><annotation encoding="application/x-tex">-20.9336</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">-20</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حامل ۳، دور دوم</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<p>مرجع <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>25</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">\pm25\ \mathrm{ppm}</annotation></semantics></math></span> در فرکانس‌های نامیِ این سه حامل به‌ترتیب حدود <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>23.820</mn></mrow><annotation encoding="application/x-tex">\pm23.820</annotation></semantics></math></span>، <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>23.855</mn></mrow><annotation encoding="application/x-tex">\pm23.855</annotation></semantics></math></span> و <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>23.885</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">k</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">\pm23.885\ \mathrm{kHz}</annotation></semantics></math></span> است. در هر دو دور، دو حامل داخل این مرجع‌اند و حامل اول بیرون آن قرار می‌گیرد. جدول ۲ یک مقدار نوعی آموزشی ارائه می‌کند؛ این مقایسه به‌تنهایی آزمون مشخصهٔ قطعیِ واحد متصل نیست.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> محاسبات هر شش قرائت با حفظ علامت انجام شد. اختلاف‌های دور دوم <span class="unit-text" dir="ltr" lang="en">+40</span>، <span class="unit-text" dir="ltr" lang="en">-4</span> و <span class="unit-text" dir="ltr" lang="en">-20 kHz</span> و خطاهای متناظر در جدول ثبت شده‌اند.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-18"><span aria-hidden="true" class="chapter-number">۹</span> تحلیل تکرارپذیری و برآورد خطای مرجع</h2>
+<h3 id="p1-heading-19">میانگین‌ها و پراکندگی دو دور</h3>
+<p>میانگین خطاهای ظاهری دور اول <span class="unit-text" dir="ltr" lang="en">-2.8161 ppm</span> و دور دوم <span class="unit-text" dir="ltr" lang="en">+5.6186 ppm</span> است. انحراف معیار نمونه‌ای سه مقدار هر دور، به‌ترتیب <span class="unit-text" dir="ltr" lang="en">23.8521</span> و <span class="unit-text" dir="ltr" lang="en">32.5847 ppm</span> به دست می‌آید. برای بررسی اثر تکرار، میانگین دو قرائتِ هر حامل را نیز حساب کردیم: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>f</mi><mo accent="true">‾</mo></mover><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo>,</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>f</mi><mrow><mi>i</mi><mo>,</mo><mn>2</mn></mrow></msub></mrow><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\bar f_i=\frac{f_{i,1}+f_{i,2}}{2}.</annotation></semantics></math></span></p>
+<div class="table-block" id="p1-table-11">
+<div class="table-caption" id="p1-table-11-caption"><span class="evidence-number">جدول ۱۱</span><span>میانگین دو قرائت و دامنهٔ اختلاف مشاهده‌شده</span></div><div aria-labelledby="p1-table-11-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-11-caption" data-cols="5" dir="ltr">
+<colgroup>
+<col style="width: 19%"/>
+<col style="width: 18%"/>
+<col style="width: 18%"/>
+<col style="width: 22%"/>
+<col style="width: 9%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>اختلاف دو قرائت <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>خطای میانگین <span dir="ltr" lang="en">(ppm)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>اختلاف میانگین با نامی <span dir="ltr" lang="en">(kHz)</span></strong></th>
+<th data-align="left" dir="rtl" scope="col"><strong>میانگین فرکانس <span dir="ltr" lang="en">(MHz)</span></strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>حامل</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>68</mn></mrow><annotation encoding="application/x-tex">+68</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>6.2972</mn></mrow><annotation encoding="application/x-tex">+6.2972</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mn>6</mn></mrow><annotation encoding="application/x-tex">+6</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">952.806</td>
+<td data-align="right" dir="rtl">۱</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">-8</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.0000</mn><annotation encoding="application/x-tex">0.0000</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">954.200</td>
+<td data-align="right" dir="rtl">۲</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>36</mn></mrow><annotation encoding="application/x-tex">-36</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2.0934</mn></mrow><annotation encoding="application/x-tex">-2.0934</annotation></semantics></math></td>
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">-2</annotation></semantics></math></td>
+<td data-align="left" dir="ltr">955.398</td>
+<td data-align="right" dir="rtl">۳</td>
+</tr>
+</tbody>
+</table>
+</div><p class="table-hint">برای دیدن ستون‌های دیگر، جدول را افقی پیمایش کنید.</p></div>
+<p>میانگین شش خطای نرمال‌شده، یا میانگین خطاهای سه فرکانس میانگین، برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>ϵ</mi><mo accent="true">‾</mo></mover><mrow><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>=</mo><mi>+</mi><mn>1.4013</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\bar\epsilon_{\mathrm{all}}=+1.4013\ \mathrm{ppm}.</annotation></semantics></math></span> <strong>این عدد فقط میانگین ظاهری داده‌های موجود است.</strong> نزدیک‌شدن میانگین به صفر، با وجود اختلاف قرائت‌های علامت‌مخالف، کالیبراسیون دقیق دستگاه را ثابت نمی‌کند. یک خطای مشترک مرجع برای حامل‌های نزدیک باید جابه‌جایی‌های سازگارتری ایجاد کند؛ در این داده‌ها انتخاب محل نشانگر، تغییرات طیف و تعیین تقریبی مرکز در نتیجه مؤثرند. اختلاف‌های <span class="unit-text" dir="ltr" lang="en">68</span>، <span class="unit-text" dir="ltr" lang="en">8</span> و <span class="unit-text" dir="ltr" lang="en">36 kHz</span> شاخص تغییر مشاهده‌شده بین دو قرائت‌اند و به‌تنهایی عدم‌قطعیت استاندارد آماری محسوب نمی‌شوند.</p>
+<h3 id="p1-heading-20">نقش محل حامل اول در نمای دور اول</h3>
+<p>در سه تصویر دور اول: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>=</mo><msub><mi>f</mi><mi>c</mi></msub><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">L</mi><mi mathvariant="normal">O</mi><mspace width="0.167em"></mspace><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi></mrow></msub><mo>=</mo><mn>961.000</mn><mo>−</mo><mn>0.060</mn><mo>=</mo><mn>960.940</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{\mathrm{tune}}=f_c+f_{\mathrm{LO\,shift}}
+=961.000-0.060=960.940\ \mathrm{MHz}.</annotation></semantics></math></span> بازهٔ اسمی تقریباً <span class="unit-text" dir="ltr" lang="en">950.940–970.940 MHz</span> و ۸۰ درصد میانی آن <span class="unit-text" dir="ltr" lang="en">952.940–968.940 MHz</span> است. قرائت اولِ حامل ۱، یعنی <span class="unit-text" dir="ltr" lang="en">952.772 MHz</span>، حدود <span class="unit-text" dir="ltr" lang="en">168 kHz</span> پایین‌تر از ابتدای ناحیهٔ نگه‌داشته‌شده است. این قرارگیری می‌تواند شکل طیف و خواندن مرکز را تحت تأثیر پاسخ لبه قرار دهد؛ به‌تنهایی علت کل اختلاف را اثبات نمی‌کند. دو حامل دیگرِ دور اول داخل این ناحیه‌اند.</p>
+<p>طبق مدل <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><mi>f</mi><mo>≃</mo><mi>ϵ</mi><msub><mi>f</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">\delta f\simeq\epsilon f_c</annotation></semantics></math></span> دستورکار، اگر اختلاف‌های دور اول را بر فرکانس تنظیم <span class="unit-text" dir="ltr" lang="en">960.940 MHz</span> نرمال کنیم، به‌ترتیب <span class="unit-text" dir="ltr" lang="en">-29.1381</span>، <span class="unit-text" dir="ltr" lang="en">+4.1626</span> و <span class="unit-text" dir="ltr" lang="en">+16.6504 ppm</span> به دست می‌آیند؛ نتیجهٔ مقایسه با <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>±</mi><mn>25</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">m</mi></mrow></mrow><annotation encoding="application/x-tex">\pm25\ \mathrm{ppm}</annotation></semantics></math></span> تغییر نمی‌کند. برای مقایسهٔ یکسان دو دور در جدول <a href="#p1-table-10">۱۰</a> از فرکانس نامی هر حامل استفاده شده است.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> پاسخ پرسش دوم، شامل مقادیر مستقل هر دو دور، برآورد عددی خطا، مقایسه با جدول ۲ و تحلیل پراکندگی است؛ تصحیح کالیبراسیون تأییدنشده‌ای به دستگاه نسبت داده نشده است.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-21"><span aria-hidden="true" class="chapter-number">۱۰</span> آزمون ضبط؛ انجام بند ۱۰ دستورکار</h2>
+<p><strong>بند ۱۰ دستورکار را انجام دادیم.</strong> نرخ نمونه‌برداری را به <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> برگرداندیم، گزینهٔ <span dir="ltr" lang="en">Record I/Q</span> را فعال کردیم و پس از حدود دو ثانیه برداشتیم. فایل خروجی ایجاد و ذخیره شد و حجم مشاهده‌شدهٔ آن حدود <strong><span class="unit-text" dir="ltr" lang="en">42 MB</span></strong> بود. این نتیجهٔ عملی، علاوه بر پیاده‌سازی شاخهٔ ضبط در شکل <a href="#p1-figure-2">۲</a>، انجام آزمون ذخیرهٔ نمونه‌های خام را ثبت می‌کند.</p>
+<h3 id="p1-heading-22">مقایسهٔ حجم با رابطهٔ خواسته‌شده</h3>
+<p>در قالب <span class="unit-text" dir="ltr" lang="en">complex float32</span>، هر نمونهٔ مختلط از دو مؤلفهٔ <span class="unit-text" dir="ltr" lang="en">float32</span> تشکیل می‌شود: ۴ بایت برای <span dir="ltr" lang="en">I</span> و ۴ بایت برای <span dir="ltr" lang="en">Q</span>؛ در نتیجه ۸ بایت برای هر نمونه. حجم نظریِ ضبط بدون سربرگ از رابطهٔ دستورکار به دست می‌آید: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mi>T</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">S=8f_sT.</annotation></semantics></math></span> برای نرخ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>s</mi></msub><mo>=</mo><mn>2.6</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">f_s=2.6\times10^6</annotation></semantics></math></span> نمونه در ثانیه و مدت تقریبی <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>2</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">T=2\ \mathrm{s}</annotation></semantics></math></span>: <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><msub><mi>f</mi><mi>s</mi></msub><mi>T</mi><mo>=</mo><mn>5</mn><mo>,</mo><mn>200</mn><mo>,</mo><mn>000</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>S</mi><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">y</mi></mrow></msub><mo>=</mo><mn>8</mn><mrow><mo form="prefix" stretchy="true">(</mo><mn>2.6</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo form="postfix" stretchy="true">)</mo></mrow><mrow><mo form="prefix" stretchy="true">(</mo><mn>2</mn><mo form="postfix" stretchy="true">)</mo></mrow><mo>=</mo><mn>41</mn><mo>,</mo><mn>600</mn><mo>,</mo><mn>000</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi></mrow><mo>=</mo><mn>41.6</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">B</mi></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">N=f_sT=5{,}200{,}000,
+\qquad
+S_{\mathrm{theory}}=8(2.6\times10^6)(2)
+=41{,}600{,}000\ \mathrm{byte}
+=41.6\ \mathrm{MB}.</annotation></semantics></math></span></p>
+<div class="table-block" id="p1-table-12">
+<div class="table-caption" id="p1-table-12-caption"><span class="evidence-number">جدول ۱۲</span><span>مقایسهٔ حجم فایل ثبت‌شده با حجم نظریِ دو ثانیه</span></div><div aria-labelledby="p1-table-12-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-12-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 53%"/>
+<col style="width: 42%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="left" dir="rtl" scope="col"><strong>مقدار</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>کمیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="left" dir="ltr">2.6 MS/s</td>
+<td data-align="right" dir="rtl">نرخ آزمون ضبط</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>2</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\approx2\ \mathrm{s}</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">مدت فعال‌بودن گزینهٔ ضبط</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr">8 byte / complex sample</td>
+<td data-align="right" dir="rtl">اندازهٔ نمونه در قالب <span class="unit-text" dir="ltr" lang="en">cf32</span></td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr">41,600,000 byte = 41.6 MB</td>
+<td data-align="right" dir="rtl">حجم نظری</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>42</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">\approx42\ \mathrm{MB}</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">حجم مشاهده‌شدهٔ فایل</td>
+</tr>
+<tr class="even">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>0.4</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">B</mi></mrow></mrow><annotation encoding="application/x-tex">\approx0.4\ \mathrm{MB}</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">تفاوت با مقدار نظری، با فرض نمایش دهدهی حجم</td>
+</tr>
+<tr class="odd">
+<td data-align="left" dir="ltr"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>0.9615</mn><mspace width="0.167em"></mspace><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">\approx0.9615\,\mathrm{\%}</annotation></semantics></math></td>
+<td data-align="right" dir="rtl">نسبت تفاوت به حجم نظری</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p1-heading-23">تفسیر نتیجهٔ آزمون</h3>
+<p>با استفاده از مقدار گرد‌شدهٔ حجم، اختلاف نسبی اسمی برابر است با <span class="formula" dir="ltr" tabindex="0"><math dir="ltr" display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>42</mn><mo>−</mo><mn>41.6</mn></mrow><mn>41.6</mn></mfrac><mo>×</mo><mn>100</mn><mo>≃</mo><mn>0.9615</mn><mspace width="0.167em"></mspace><mi mathvariant="normal">%</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{42-41.6}{41.6}\times100
+\simeq0.9615\,\mathrm{\%}.</annotation></semantics></math></span> این تفاوت کوچک با زمان‌گیری تقریبیِ دو ثانیه و گردشدن نمایش حجم سازگار است. خود مقدار نظریِ <span class="unit-text" dir="ltr" lang="en">41.6 MB</span> نیز با گردکردن به مگابایت کامل، <span class="unit-text" dir="ltr" lang="en">42 MB</span> نمایش داده می‌شود؛ بنابراین اختلاف بالا را نباید به‌تنهایی خطای ضبط یا گم‌شدن نمونه‌ها تعبیر کرد. در این محاسبات، <span dir="ltr" lang="en">MB</span> برابر <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>6</mn></msup><annotation encoding="application/x-tex">10^6</annotation></semantics></math></span> بایت در نظر گرفته شده است. تعداد دقیق بایت یا مدت دقیق ضبط از عدد گرد‌شدهٔ <span class="unit-text" dir="ltr" lang="en">42 MB</span> نتیجه نمی‌شود.</p>
+<p>الگوی استاندارد نام‌گذاریِ فایل ضبط در دستورکار به شکل زیر است:</p>
+<div class="center">
+<p><code dir="ltr">teamID_lab01_fc_fs_gain_timestamp.cf32</code></p>
+</div>
+<p>شاخهٔ ضبط در پوشهٔ <code dir="ltr">recordings</code> پیکربندی شده و اطلاعات آزمایش، تیم و تنظیم‌های دریافت را برای نام‌گذاری دریافت می‌کند.</p>
+<blockquote>
+<p><strong>نتیجهٔ اجرا.</strong> آزمون ضبط عملاً انجام شد، فایل با حجم حدود <span class="unit-text" dir="ltr" lang="en">42 MB</span> تشکیل شد و مقایسه با رابطهٔ <span dir="ltr" lang="en"><math dir="ltr" display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><msub><mi>f</mi><mi>s</mi></msub><mi>T</mi></mrow><annotation encoding="application/x-tex">8f_sT</annotation></semantics></math></span> سازگاری آن را با حدود دو ثانیه نمونه‌برداری در <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span> نشان داد.</p>
+</blockquote>
+<h2 class="chapter-title" id="p1-heading-24"><span aria-hidden="true" class="chapter-number">۱۱</span> جمع‌بندی اجرای بخش اول</h2>
+<p>مراحل مستند بخش اول را انجام دادیم و نتایج شناسایی، تنظیم و دریافت را همراه با پاسخ دو پرسش و آزمون ضبط ثبت کردیم. جدول زیر ارتباط هر فعالیت با نتیجهٔ آن را خلاصه می‌کند.</p>
+<div class="table-block" id="p1-table-13">
+<div class="table-caption" id="p1-table-13-caption"><span class="evidence-number">جدول ۱۳</span><span>ثبت انجام فعالیت‌های بخش اول</span></div><div aria-labelledby="p1-table-13-caption" class="table-scroll" role="region" tabindex="0"><table aria-labelledby="p1-table-13-caption" data-cols="2" dir="ltr">
+<colgroup>
+<col style="width: 66%"/>
+<col style="width: 28%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th data-align="right" dir="rtl" scope="col"><strong>کار انجام‌شده و نتیجه</strong></th>
+<th data-align="right" dir="rtl" scope="col"><strong>فعالیت</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-align="right" dir="rtl">آنتن روی <span class="unit-text" dir="ltr" lang="en">RX1</span>؛ پینگ و شناسایی <span dir="ltr" lang="en">IIO</span> موفق؛ مشخصات و بازه ثبت شد؛ شکل <a href="#p1-figure-1">۱</a></td>
+<td data-align="right" dir="rtl">اتصال و شناسایی</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">منبع، سه نمایشگر، کنترل‌ها و شاخهٔ ضبط ساخته و متصل شدند؛ شکل <a href="#p1-figure-2">۲</a></td>
+<td data-align="right" dir="rtl">فلوگراف پایش</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">هر پنج پارامترِ خواسته‌شده با مقدار اولیه تطبیق داشتند؛ شکل <a href="#p1-figure-3">۳</a></td>
+<td data-align="right" dir="rtl">بازخوانی دستگاه</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">طیف و آبشار زنده و مؤلفه‌های زمانی نمایش داده شدند؛ شکل <a href="#p1-figure-4">۴</a></td>
+<td data-align="right" dir="rtl">نخستین طیف</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">بهرهٔ کاری <span class="unit-text" dir="ltr" lang="en">30 dB</span> با معیار دامنه در قاب ثبت‌شده سازگار بود</td>
+<td data-align="right" dir="rtl">انتخاب بهره</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">مرکز از ۹۴۵ به ۹۴۷ مگاهرتز تغییر کرد؛ برچسب نواحی <span dir="ltr" lang="en">RF</span> مشترک تقریباً ثابت ماند؛ شکل <a href="#p1-figure-5">۵</a></td>
+<td data-align="right" dir="rtl">آزمون محور فرکانس</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">ناحیهٔ ۸۰ درصد میانی و گام <span class="unit-text" dir="ltr" lang="en">16 MHz</span> در نرخ <span class="unit-text" dir="ltr" lang="en">20 MS/s</span> محاسبه و تحلیل شدند</td>
+<td data-align="right" dir="rtl">پرسش اول</td>
+</tr>
+<tr class="even">
+<td data-align="right" dir="rtl">سه تصویر دور اول و دو دور قرائت؛ اختلاف‌ها، <span dir="ltr" lang="en">ppm</span>، مقایسه و تحلیل تکرارپذیری ارائه شدند</td>
+<td data-align="right" dir="rtl">پرسش دوم</td>
+</tr>
+<tr class="odd">
+<td data-align="right" dir="rtl">فعال‌سازی حدود دو ثانیه‌ای ضبط در <span class="unit-text" dir="ltr" lang="en">2.6 MS/s</span>؛ فایل حدود <span class="unit-text" dir="ltr" lang="en">42 MB</span> و مقایسهٔ موفق با <span class="unit-text" dir="ltr" lang="en">41.6 MB</span> نظری</td>
+<td data-align="right" dir="rtl">بند ۱۰؛ آزمون ضبط</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<h3 id="p1-heading-25">یادداشت عیب‌یابی</h3>
+<p>در یک تلاش اولیه، با وجود پاسخ پینگ، فرمان شناسایی خطای <code dir="ltr">Broken pipe (32)</code> داد. تلاش بعدیِ شناسایی موفق شد و خروجی کاری در شکل <a href="#p1-figure-1">۱</a> ثبت شده است. از این مشاهده، رفع مشکل مشخص می‌شود؛ علت یکتای رخداد اولیه از اطلاعات موجود قابل تعیین نیست.</p>
+<h3 id="p1-heading-26">نتیجه‌گیری</h3>
+<p>گیرنده تنظیم‌های اولیه را پذیرفت، نمونه‌های <span dir="ltr" lang="en">I/Q</span> و طیف زنده را نمایش داد و در آزمون ۹۴۷ مگاهرتز رفتار مورد انتظار محور <span dir="ltr" lang="en">RF</span> را نشان داد. پاسخ پرسش اول، ناحیهٔ میانی معتبر را به گام پویش مرتبط می‌کند. برای پرسش دوم، اختلاف‌های دور اول <span class="unit-text" dir="ltr" lang="en">-28</span>، <span class="unit-text" dir="ltr" lang="en">+4</span> و <span class="unit-text" dir="ltr" lang="en">+16 kHz</span> و دور دوم <span class="unit-text" dir="ltr" lang="en">+40</span>، <span class="unit-text" dir="ltr" lang="en">-4</span> و <span class="unit-text" dir="ltr" lang="en">-20 kHz</span> شدند. میانگین ظاهری همهٔ مقادیر حدود <span class="unit-text" dir="ltr" lang="en">+1.4013 ppm</span> است، اما پراکندگی و تغییر علامت‌ها اجازهٔ نسبت‌دادن یک کالیبراسیون دقیق به مرجع دستگاه را نمی‌دهد. در پایان، <strong>آزمون ضبط بند ۱۰ را انجام دادیم</strong>؛ حجم حدود <span class="unit-text" dir="ltr" lang="en">42 MB</span> با حجم نظری <span class="unit-text" dir="ltr" lang="en">41.6 MB</span> برای حدود دو ثانیه دریافت سازگار است.</p>
+<h3 id="p1-heading-27">مبنای گزارش</h3>
+<p>دستورکار «آزمایش ۱: پایش طیف»، به‌ویژه جدول ۲ در صفحهٔ ۳، روابط تئوری و پویش در صفحه‌های ۳ و ۴، جدول ۴ در صفحهٔ ۶ و بخش اول و پرسش‌های آن در صفحه‌های ۸ تا ۱۰. شکل‌های ۱ تا ۸، همان تصاویر اصلی نسخهٔ قبلی‌اند. قرائت‌های دور دوم و حجم ضبط، مقادیر گزارش‌شدهٔ همین مرحله‌اند و تصویری به مجموعه اضافه نشده است.</p>
+<section aria-labelledby="resources" class="resources"><h2 id="resources">داده‌ها و پیوست‌ها</h2><div class="file-list"><a class="file-row" download="" href="assets/p1/data/carrier-readings.csv"><span>دو دور قرائت حامل‌ها و خطای فرکانس</span><bdi dir="ltr">CSV</bdi></a><a class="file-row" download="" href="assets/p1/data/recording-check.csv"><span>محاسبات حجم ضبط بخش اول</span><bdi dir="ltr">CSV</bdi></a></div></section>
+<nav aria-label="بخش قبل و بعد" class="part-pagination"><a class="previous-link" href="index.html">نمای کلی گزارش</a><a class="next-link" href="part2.html"><span><small>بخش بعد</small><strong>آزمون کابل حلقه</strong></span><svg aria-hidden="true" fill="none" viewbox="0 0 20 20"><path d="M16 10H4m0 0 5 5m-5-5 5-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></a></nav>
+</article>
+</div>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner">
+<p>آزمایشگاه رادیو نرم‌افزار <span aria-hidden="true">·</span> آزمایش ۱، پایش طیف</p>
+<a href="#top">بازگشت به بالا <span aria-hidden="true">↑</span></a>
+</div></footer>
+<dialog aria-labelledby="image-caption" class="image-dialog" id="image-dialog">
+<div class="dialog-bar"><p id="image-caption"></p><button aria-label="بستن تصویر" autofocus="" id="close-image" type="button">×</button></div>
+<img alt="" id="dialog-image"/>
+<a href="index.html" id="original-image" rel="noopener" target="_blank">بازکردن تصویر اصلی</a>
+</dialog>
+</div></body>
+</html>

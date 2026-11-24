@@ -1,0 +1,60 @@
+{
+  "assets": [
+    {
+      "path": "figures/10pictureee.jpg",
+      "sha256": "48a0b40dc777f5507bd087b66e9ad6d82466c53a4c791654ef6e4ac02f04e8ce",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/12-remote-4345-illustrative.png",
+      "sha256": "dcd454dbeaf635a68b28af25715d71d7a4807c4c75c9c3a4c21d17eeab0babec",
+      "type": "educational reconstruction"
+    },
+    {
+      "path": "figures/1pictureee.jpg",
+      "sha256": "9598c1d13c3d17e372373fcbc6e32c46bb749e52a6a0f2026a88daf67380518f",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/2pictureee.jpg",
+      "sha256": "7ac465cb345da5967dfc482a5b0d4f7a49092cf11e78dbc240a1eade4c9a87f5",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/3pictureee.jpg",
+      "sha256": "7d09f8f3f60588212902f1740c8acd1b01b3a2e0e53796b6adea54b8feab72d3",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/4pictureee.jpg",
+      "sha256": "a4f3e90940093f7b4e64162f41b77c392cc48ea1dca3a0ad8d9e5385672b4841",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/5pictureee.jpg",
+      "sha256": "24a9f70e86f57d716681600b95dbb14303ecedc32b3f417186c908605d4c7b08",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/6pictureee.jpg",
+      "sha256": "0f72b11c2d55950249996b09920438e17eb3869e1d4af004c50d39125fa647da",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/7pictureee.jpg",
+      "sha256": "ffff5aa7c1749975caf231cab1608fbf7d86db8b4f5492fffcba49553aedd877",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/8pictureee.jpg",
+      "sha256": "84060caf524efa5cf7f7b7a492e0a5f0e75c38b9d887d524c02c31338ef4145d",
+      "type": "original laboratory screenshot"
+    },
+    {
+      "path": "figures/9pictureee.jpg",
+      "sha256": "d9cf9dc60cd3786ce36242b23329601da2b2fc77dad458042e3ab58609b1ef38",
+      "type": "original laboratory screenshot"
+    }
+  ],
+  "excluded": "11pictureee.png inventory screenshot; replaced by text index"
+}

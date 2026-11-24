@@ -1,0 +1,67 @@
+{
+  "id": "lab00-report",
+  "origin": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/",
+  "files": [
+    {
+      "path": "app.js",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/app.js",
+      "bytes": 3884,
+      "sha256": "d1e33b7a7496564e06c8c40c02a94e28baef631e1f0f1f374cd389273b698752"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/favicon.svg",
+      "bytes": 243,
+      "sha256": "b8fc11da040623e0d284eb41ebdebdf2421aff69cb5fc0d64b5c386d961f6544"
+    },
+    {
+      "path": "assets/gnuradio-about.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/gnuradio-about.png",
+      "bytes": 108198,
+      "sha256": "0ac23c66b1141efc01e009a81f50ebe46e5c21a875eb741e88d3786283b9bbfc"
+    },
+    {
+      "path": "assets/gnuradio-flowgraph.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/gnuradio-flowgraph.png",
+      "bytes": 497551,
+      "sha256": "c300aed0cdd73c0cb3439c24a05cf0357f287586eb87a5e8a98af8f16c8f4fde"
+    },
+    {
+      "path": "assets/matlab-command-window.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/matlab-command-window.png",
+      "bytes": 398883,
+      "sha256": "a34529ff05e7798f0d1b6a9996872fca78f59733d17170d7b14b213e3d6b7f73"
+    },
+    {
+      "path": "assets/python-reception-vscode.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/python-reception-vscode.png",
+      "bytes": 1859699,
+      "sha256": "9f4aed442d5747612df4b84d6d9088a55b68de495df0fe219993f888b12b3eef"
+    },
+    {
+      "path": "assets/sdrpp-interface.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/sdrpp-interface.png",
+      "bytes": 842943,
+      "sha256": "db174c5b1fab24fc5f3d4ee31b95fe60c58e86edab31ade5234843e5ad12b623"
+    },
+    {
+      "path": "assets/spectrum-analyzer.png",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/assets/spectrum-analyzer.png",
+      "bytes": 393260,
+      "sha256": "8c09eb747da75c7d6289f044c7f50094297d0d457ac063b98f6fe849683bec50"
+    },
+    {
+      "path": "index.html",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/",
+      "bytes": 33175,
+      "sha256": "c55a4e8d8b45af740a7ef6ea266318f311d580363bd4eb90a5713fa97e2ef01a"
+    },
+    {
+      "path": "styles.css",
+      "url": "https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/styles.css",
+      "bytes": 17153,
+      "sha256": "6ed81612a8d08701968671c0deecc5975f9128121e80f3237e8edd0902784d28"
+    }
+  ],
+  "errors": []
+}

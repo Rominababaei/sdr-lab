@@ -1,0 +1,9 @@
+﻿image,test,lo_shift_kHz,cursor_MHz,cursor_level_relative_dB,expected_target_MHz,cursor_error_kHz,target,evidence
+1picture.jpg,positive tone,0,434.252,-54.41,434.250,2.000,main tone,cursor annotation
+2picture.jpg,negative tone,0,433.747,-54.99,433.750,-3.000,main tone,cursor annotation
+3picture.jpg,LO +100,100,434.865,-48.90,,,off-peak cursor; not the main tone,cursor annotation
+4picture.jpg,LO +200,200,434.250,-54.27,434.250,0.000,main tone,cursor annotation
+5picture.jpg,LO -100,-100,433.849,-68.78,,,left side spur; not the main tone,cursor annotation
+6picture.jpg,DC test,100,434.101,-52.82,434.100,1.000,near RX center,cursor annotation
+7picture.jpg,DC test,100,434.247,-53.40,434.250,-3.000,main tone,cursor annotation
+8picture.jpg,DC test,100,434.105,-59.06,434.100,5.000,near RX center,cursor annotation

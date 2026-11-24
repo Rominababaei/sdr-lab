@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDR Lab 00 | Environment &amp; Toolchain Setup</title>
+<meta name="description" content="The English-language SDR Laboratory Experiment 00 report by Romina Babaei and Seyed Mohammad Mahdi Mousavi: MATLAB, GNU Radio, Ubuntu, and Python receiver results.">
+<meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#f8f8f3">
+<meta property="og:title" content="SDR Lab 00 — Environment &amp; Toolchain Setup">
+<meta property="og:description" content="Laboratory report · Romina Babaei and Seyed Mohammad Mahdi Mousavi · ADALM-Pluto setup and receive workflows.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/">
+<link rel="canonical" href="https://lab00-sdr-402111259-402111272.lunarbun37.chatgpt.site/"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="styles.css"><script src="app.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to report</a>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="#top" aria-label="SDR Lab 00 report, top"><span class="brand-mark">00</span>
+  <span>SDR LAB<span class="brand-divider">/</span><span class="brand-subtitle">Experiment report</span></span></a>
+  <div class="header-actions"><span class="submission-label"><span class="small-dot"></span>Final submission</span>
+    <button type="button" id="print-report" class="text-button">Print report <span aria-hidden="true">&#8599;</span></button></div>
+</div><div class="reading-progress" aria-hidden="true"></div></header>
+
+<div class="report-layout" id="top">
+<aside class="report-sidebar" aria-label="Report contents">
+  <div class="sidebar-label eyebrow">In this report</div>
+  <nav id="report-navigation"><a href="#overview" class="active"><span>00</span>Overview</a>
+    <a href="#matlab"><span>01</span>MATLAB</a>
+    <a href="#gnuradio"><span>02</span>GNU Radio</a>
+    <a href="#ubuntu"><span>03</span>Ubuntu</a>
+    <a href="#python"><span>04</span>Python</a>
+    <a href="#conclusion"><span>05</span>Conclusions</a></nav>
+  <div class="sidebar-footer"><span class="eyebrow">Platform</span><strong>ADALM-Pluto</strong>
+    <p>Environment setup<br>and receive tests</p></div>
+</aside>
+
+<main id="main">
+<section class="hero chapter" id="overview" aria-labelledby="report-title">
+  <div class="eyebrow hero-kicker"><span>Software Defined Radio Laboratory</span><span class="kicker-rule"></span>Experiment 00</div>
+  <h1 id="report-title">Environment &amp;<br><em>Toolchain Setup</em></h1>
+  <p class="hero-deck">A complete record of setup and reception with ADALM-Pluto in MATLAB, GNU Radio, and Python, alongside software preparation on Ubuntu.</p>
+  <div class="authors" aria-label="Report authors">
+    <div class="author"><span class="eyebrow">Prepared by</span><strong>Romina Babaei</strong><span class="student-id">Student ID <b>402111259</b></span></div>
+    <div class="author"><span class="eyebrow">Prepared by</span><strong>Seyed Mohammad Mahdi Mousavi</strong><span class="student-id">Student ID <b>402111272</b></span></div>
+  </div>
+  <div class="report-scope"><span class="eyebrow">Scope of work</span><p>The report covers Paths A–D of the course handout. Receiver settings, original screenshots, code, and result tables are recorded below. Ubuntu preparation was completed at home; its hardware-dependent tests are distinguished from the software checks.</p></div>
+  <div class="reference-heading"><h2>One receiver. Four software paths.</h2><span class="eyebrow">Reference receive configuration</span></div>
+  <dl class="key-metrics">
+    <div><dt>Center frequency</dt><dd>945 <span>MHz</span></dd></div>
+    <div><dt>Sample rate</dt><dd>2.6 <span>MS/s</span></dd></div>
+    <div><dt>I/Q frame</dt><dd>4,096 <span>samples</span></dd></div>
+    <div><dt>Manual RX gain</dt><dd>20 <span>dB</span></dd></div>
+  </dl>
+  <p class="small-copy">The SDR++ capture uses a separate FM configuration. Its displayed values are reported in Path B.</p>
+
+  <div class="intro-grid"><div><h3>Objective</h3><p>Prepare the computer for ADALM-Pluto, configure the software interfaces, acquire complex I/Q samples, and inspect the received spectrum. Each path records its setup, visible output, and test scope.</p></div>
+    <div><h3>Equipment &amp; signal path</h3><p>ADALM-Pluto, a computer, a LAN cable, USB power, and a GSM/LTE receive antenna. In the reference network workflow, LAN carries data and USB supplies power. The receiver converts the RF input into complex baseband samples for software processing.</p></div></div>
+  <h3 class="subsection-title">Network preparation</h3><p>The computer and the radio are placed in the same subnet. The values below are the handout's direct-link reference settings; a separate network-settings or ping screenshot was not supplied.</p>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Setup reference</span><span>Common network configuration</span></caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Reference value</th></tr></thead><tbody><tr><th scope="row">Device IP address</th><td><code>192.168.1.10</code></td></tr><tr><th scope="row">Computer Ethernet address</th><td><code>192.168.1.20</code></td></tr><tr><th scope="row">Subnet mask</th><td><code>255.255.255.0</code></td></tr><tr><th scope="row">IIO context URI</th><td><code>ip:192.168.1.10</code></td></tr><tr><th scope="row">Ethernet gateway and DNS</th><td>Left blank in the direct-link setup.</td></tr></tbody>
+    </table></div>
+</section>
+
+<section class="chapter" id="matlab" aria-labelledby="matlab-title">
+  <div class="chapter-heading"><span class="chapter-index">01</span><div><span class="eyebrow">Path A</span><h2 id="matlab-title">MATLAB &amp; ADALM-Pluto</h2></div><span class="status yes">Receive output documented</span></div>
+  <p class="section-lead">Install the hardware support package, select the network-connected receiver, and display its baseband spectrum.</p>
+  <h3>Setup and method</h3><p>MATLAB requires Communications Toolbox, DSP System Toolbox, and the ADALM-Pluto hardware support package. The toolbox list is checked using <code>ver</code>; the support package is installed through Add-Ons. For the network workflow, the USB-oriented setup step is deferred with <em>Set up later</em>, and <code>RadioID</code> specifies the IIO network URI.</p>
+  <p>The receive reference uses an antenna on RX1, a 945 MHz center frequency, 2.6 MS/s sampling, manual gain of 20 dB, and 4,096 samples per frame. No transmit operation is needed for this receive test.</p>
+  <div class="code-block">
+      <div class="code-toolbar"><span>MATLAB · reference receiver script</span><button class="copy-code" type="button"
+      aria-label="Copy matlab code">Copy code</button></div>
+      <pre tabindex="0"><code class="language-matlab">rx = sdrrx(&#x27;Pluto&#x27;, ...
+    &#x27;RadioID&#x27;, &#x27;ip:192.168.1.10&#x27;, ...
+    &#x27;CenterFrequency&#x27;, 945e6, ...
+    &#x27;BasebandSampleRate&#x27;, 2.6e6, ...
+    &#x27;GainSource&#x27;, &#x27;Manual&#x27;, ...
+    &#x27;Gain&#x27;, 20, ...
+    &#x27;SamplesPerFrame&#x27;, 4096, ...
+    &#x27;OutputDataType&#x27;, &#x27;double&#x27;);
+info(rx)
+sa = spectrumAnalyzer(&#x27;SampleRate&#x27;, 2.6e6);
+for k = 1:200
+    sa(rx());
+end
+release(rx);</code></pre></div>
+  <p><code>sdrrx</code> constructs the receiver, <code>info(rx)</code> requests device information, and <code>rx()</code> returns a sample frame. The Spectrum Analyzer displays the frame, and <code>release(rx)</code> releases the receiver resources after the loop.</p>
+  <div class="note"><strong>Reference code and recorded run.</strong> The handout loop uses 200 iterations. The actual analyzer capture shows <code>Updates = 800</code>; the screenshot counter is reported independently of the reference loop.</div>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 05</span><span>MATLAB receiver results</span></caption>
+      <thead><tr><th scope="col">Item</th><th scope="col">Recorded result</th></tr></thead><tbody><tr><th scope="row">Device serial number</th><td>The warning displays an empty serial string, <code>''</code>. A complete <code>info(rx)</code> result is not present in the supplied command-window capture.</td></tr><tr><th scope="row">Firmware</th><td><code>3669</code>, exactly as reported in the MATLAB warning. The same warning states that the support package was tested with firmware <code>0.35</code>.</td></tr><tr><th scope="row">Active frequency range</th><td>Not recorded. The manual lists a default range of 325 MHz to 3.8 GHz and an extended range of 70 MHz to 6 GHz; an extension was not documented for this test.</td></tr><tr><th scope="row">Was a GSM900 spectrum displayed?</th><td>A received spectrum was displayed. The baseband-only screenshot does not establish its center frequency or identify individual GSM carriers.</td></tr></tbody>
+    </table></div>
+  <figure class="evidence" id="figure-1">
+      <button type="button" class="image-open" data-image="assets/matlab-command-window.png" data-title="MATLAB command-window output"
+      data-caption="The script starts the hardware connection workflow and reports firmware string 3669. The warning states that the support package was tested with firmware 0.35." aria-label="Enlarge Figure 1: MATLAB command-window output">
+      <img src="assets/matlab-command-window.png" width="1280" height="332" loading="lazy" decoding="async" alt="The script starts the hardware connection workflow and reports firmware string 3669. The warning states that the support package was tested with firmware 0.35.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 01</span><div><strong>MATLAB command-window output</strong>
+      <p>The script starts the hardware connection workflow and reports firmware string 3669. The warning states that the support package was tested with firmware 0.35.</p></div></figcaption></figure>
+  <p>The warning is a compatibility notice and does not, by itself, indicate a program-stopping error. The value <code>0.35</code> is the support package's tested version; it is not substituted for the reported string <code>3669</code>. The repeated warning does not provide a complete device-information structure.</p>
+  <figure class="evidence" id="figure-2">
+      <button type="button" class="image-open" data-image="assets/spectrum-analyzer.png" data-title="MATLAB Spectrum Analyzer"
+      data-caption="The horizontal axis is baseband frequency. The display records a 2.600000 MHz sample rate, RBW 2.53906 kHz, VBW 44.9005 Hz, and 800 updates." aria-label="Enlarge Figure 2: MATLAB Spectrum Analyzer">
+      <img src="assets/spectrum-analyzer.png" width="1280" height="844" loading="lazy" decoding="async" alt="The horizontal axis is baseband frequency. The display records a 2.600000 MHz sample rate, RBW 2.53906 kHz, VBW 44.9005 Hz, and 800 updates.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 02</span><div><strong>MATLAB Spectrum Analyzer</strong>
+      <p>The horizontal axis is baseband frequency. The display records a 2.600000 MHz sample rate, RBW 2.53906 kHz, VBW 44.9005 Hz, and 800 updates.</p></div></figcaption></figure>
+  <h3>Reading the spectrum</h3><p>At 2.6 MS/s, the two-sided baseband window extends approximately from −1.3 to +1.3 MHz. Baseband zero is relative to the receiver's center frequency:</p>
+  <div class="equation">f<sub>RF</sub> = f<sub>c</sub> + f<sub>BB</sub></div>
+  <p>If the reference center of 945 MHz was applied, the display corresponds approximately to 943.7–946.3 MHz. The central trace is around −36 dBm on the analyzer's displayed scale and falls toward the edges. The screenshot alone does not clearly resolve individual approximately 200 kHz GSM carriers or establish the signal's protocol.</p>
+  <p class="section-summary"><strong>Path A outcome:</strong> MATLAB execution and spectrum display are documented. The full serial-number result and active RF range remain outside the recorded capture.</p>
+</section>
+
+<section class="chapter" id="gnuradio" aria-labelledby="gnuradio-title">
+  <div class="chapter-heading"><span class="chapter-index">02</span><div><span class="eyebrow">Path B</span><h2 id="gnuradio-title">GNU Radio &amp; spectrum tools</h2></div><span class="status yes">Flowgraph executed</span></div>
+  <p class="section-lead">Prepare the Windows Radioconda environment, connect a PlutoSDR source to a frequency display, and install two ready-to-use spectrum applications.</p>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 06</span><span>Ready-to-use spectrum applications</span></caption>
+      <thead><tr><th scope="col">Application</th><th scope="col">Connection note from the manual</th><th scope="col">Installed</th></tr></thead><tbody><tr><th scope="row">SDRangel</th><td>Add a PlutoSDR input and enter the device IP in its settings.</td><td><span class="status yes">Yes</span></td></tr><tr><th scope="row">SDR++</th><td>Select PlutoSDR Source. The reference network URI is <code>ip:192.168.1.10</code>.</td><td><span class="status yes">Yes</span></td></tr><tr><th scope="row">SATSAGEN</th><td>Select Pluto by IP; use its Power and Spectrum Analyzer tools.</td><td><span class="status neutral">No</span></td></tr><tr><th scope="row">SatDump</th><td>Use the PlutoSDR source by IP. The application also supports weather-satellite reception workflows.</td><td><span class="status neutral">No</span></td></tr><tr><th scope="row">SDR# (SDRSharp)</th><td>Requires an unofficial PlutoSDR plug-in; optional in the manual.</td><td><span class="status neutral">No</span></td></tr></tbody>
+    </table></div>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 07</span><span>Windows GNU Radio workflow</span></caption>
+      <thead><tr><th scope="col">Item</th><th scope="col">Recorded result</th></tr></thead><tbody><tr><th scope="row">GNU Radio version</th><td><code>3.10.12.0</code>. The About window also reports Python <code>3.12.9</code>.</td></tr><tr><th scope="row">Did the flowgraph display the GSM900 frequency region?</th><td>Yes. A spectrum was displayed around 945 MHz, inside the target GSM900 region. Individual GSM carriers cannot be identified conclusively from this capture.</td></tr><tr><th scope="row">Two selected applications</th><td>SDRangel and SDR++ were installed. The SDR++ receive display is documented below; a separate SDRangel receive screenshot was not supplied.</td></tr></tbody>
+    </table></div>
+  <h3>Software version</h3>
+  <figure class="evidence compact" id="figure-3">
+      <button type="button" class="image-open" data-image="assets/gnuradio-about.png" data-title="GNU Radio Companion version"
+      data-caption="The About window reports GNU Radio Companion 3.10.12.0 and Python 3.12.9." aria-label="Enlarge Figure 3: GNU Radio Companion version">
+      <img src="assets/gnuradio-about.png" width="855" height="509" loading="lazy" decoding="async" alt="The About window reports GNU Radio Companion 3.10.12.0 and Python 3.12.9.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 03</span><div><strong>GNU Radio Companion version</strong>
+      <p>The About window reports GNU Radio Companion 3.10.12.0 and Python 3.12.9.</p></div></figcaption></figure>
+  <h3>Flowgraph construction</h3><p>A QT GUI flowgraph was created in GNU Radio Companion. The variable <code>samp_rate</code> was set to <code>2.6e6</code>, and the output of <code>PlutoSDR Source</code> was connected to <code>QT GUI Frequency Sink</code>. Running the flowgraph opened the frequency display.</p>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Setup reference</span><span>Parameters visible in the GNU Radio capture</span></caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Displayed setting</th></tr></thead><tbody><tr><th scope="row">LO frequency</th><td>945 MHz</td></tr><tr><th scope="row">Source and variable sample rate</th><td>2.6 MS/s (<code>samp_rate = 2600000</code>)</td></tr><tr><th scope="row">RF bandwidth</th><td>2 MHz</td></tr><tr><th scope="row">Receive gain control</th><td>Manual</td></tr><tr><th scope="row">RX1 manual gain</th><td>20 dB</td></tr><tr><th scope="row">Receive buffer</th><td>32,768 samples, shown as <code>32.768k</code></td></tr><tr><th scope="row">FFT size</th><td>4,096</td></tr><tr><th scope="row">Frequency-sink center / span</th><td>945 MHz / 2.6 MHz</td></tr></tbody>
+    </table></div>
+  <p>The capture shows quadrature, RF DC correction, and baseband DC correction enabled, with filter configuration set to Auto. The source block truncates its IIO URI with an ellipsis; the handout's full reference URI is <code>ip:192.168.1.10</code>.</p>
+  <figure class="evidence" id="figure-4">
+      <button type="button" class="image-open" data-image="assets/gnuradio-flowgraph.png" data-title="The running GNU Radio flowgraph"
+      data-caption="A PlutoSDR Source feeds a QT GUI Frequency Sink. The receive spectrum is plotted around 945 MHz; the vertical scale is Relative Gain in dB." aria-label="Enlarge Figure 4: The running GNU Radio flowgraph">
+      <img src="assets/gnuradio-flowgraph.png" width="1280" height="1124" loading="lazy" decoding="async" alt="A PlutoSDR Source feeds a QT GUI Frequency Sink. The receive spectrum is plotted around 945 MHz; the vertical scale is Relative Gain in dB.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 04</span><div><strong>The running GNU Radio flowgraph</strong>
+      <p>A PlutoSDR Source feeds a QT GUI Frequency Sink. The receive spectrum is plotted around 945 MHz; the vertical scale is Relative Gain in dB.</p></div></figcaption></figure>
+  <p>The theoretical FFT-bin spacing is <code>2,600,000 / 4,096 ≈ 634.8 Hz</code>. This is bin spacing rather than a complete statement of the window-dependent effective resolution. The relative dB scale in GNU Radio must not be treated as directly equivalent to the MATLAB analyzer's displayed dBm values.</p>
+  <h3>SDR++: spectrum and waterfall</h3>
+  <figure class="evidence" id="figure-5">
+      <button type="button" class="image-open" data-image="assets/sdrpp-interface.png" data-title="SDR++ reception display"
+      data-caption="The capture shows a PlutoSDR input, a spectrum trace, and a waterfall centered near 100 MHz, with the FM Broadcast label." aria-label="Enlarge Figure 5: SDR++ reception display">
+      <img src="assets/sdrpp-interface.png" width="1280" height="758" loading="lazy" decoding="async" alt="The capture shows a PlutoSDR input, a spectrum trace, and a waterfall centered near 100 MHz, with the FM Broadcast label.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 05</span><div><strong>SDR++ reception display</strong>
+      <p>The capture shows a PlutoSDR input, a spectrum trace, and a waterfall centered near 100 MHz, with the FM Broadcast label.</p></div></figcaption></figure>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Setup reference</span><span>SDR++ settings as captured</span></caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Displayed value</th></tr></thead><tbody><tr><th scope="row">Application version</th><td><code>v1.3.2</code></td></tr><tr><th scope="row">Input source</th><td>PlutoSDR</td></tr><tr><th scope="row">Tuned frequency</th><td>100.000000 MHz</td></tr><tr><th scope="row">Selected sample rate</th><td>4.0 MHz</td></tr><tr><th scope="row">Gain mode / gain</th><td>Manual / 61 dB</td></tr><tr><th scope="row">Connection shown in the device list</th><td>USB</td></tr></tbody>
+    </table></div>
+  <p>The upper plot shows spectrum level against frequency. In the waterfall below it, the horizontal axis represents frequency, the vertical direction represents elapsed time, and color represents the displayed relative signal level.</p>
+  <div class="note"><strong>A separate captured configuration.</strong> The 100 MHz tuning and FM Broadcast label place this SDR++ example in the FM region. The device list shows USB, whereas the handout's reference workflow uses LAN. The GSM900-region result in this path comes from the 945 MHz GNU Radio flowgraph.</div>
+  <p class="section-summary"><strong>Path B outcome:</strong> The GNU Radio receive flowgraph ran and displayed a spectrum. SDRangel and SDR++ were installed, and the SDR++ display was recorded.</p>
+</section>
+
+<section class="chapter" id="ubuntu" aria-labelledby="ubuntu-title">
+  <div class="chapter-heading"><span class="chapter-index">03</span><div><span class="eyebrow">Path C</span><h2 id="ubuntu-title">Ubuntu preparation at home</h2></div><span class="status preparation">Software setup only</span></div>
+  <p class="section-lead">Although Part C was not required during the laboratory session, we installed Ubuntu at home and completed the software preparation that did not require the radio.</p>
+  <p>GNU Radio, gr-iio, and the libiio tools were installed. GNU Radio Companion was opened, and the required flowgraph blocks were checked. IIO Oscilloscope and GQRX were also checked for installation and application startup.</p>
+  <div class="code-block">
+      <div class="code-toolbar"><span>Ubuntu · installation and startup commands</span><button class="copy-code" type="button"
+      aria-label="Copy bash code">Copy code</button></div>
+      <pre tabindex="0"><code class="language-bash">sudo apt update
+sudo apt install gnuradio gr-iio libiio-utils libad9361-dev \
+    iio-oscilloscope gqrx-sdr soapysdr-module-plutosdr
+gnuradio-companion</code></pre></div>
+  <p>The Ethernet configuration was prepared for <code>192.168.1.20</code> with subnet mask <code>255.255.255.0</code> and a blank default gateway. Preparing the interface does not itself establish a radio connection: a ping response, a network IIO context, and a real receive buffer require the device.</p>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 08</span><span>Ubuntu preparation at home</span></caption>
+      <thead><tr><th scope="col">Item</th><th scope="col">Recorded result</th></tr></thead><tbody><tr><th scope="row">Ubuntu and GNU Radio versions</th><td>Ubuntu and GNU Radio were installed, and GRC was opened. The Ubuntu release and the GNU Radio version on Ubuntu were not recorded.</td></tr><tr><th scope="row">Did iio_info identify the device?</th><td>Not performed. The SDR was not available at home. Installing iio_info is separate from identifying an actual device.</td></tr><tr><th scope="row">Did GRC on Ubuntu display the received spectrum?</th><td>GRC installation and startup were checked. An SDR receive spectrum was not recorded on Ubuntu because the hardware input was not available.</td></tr><tr><th scope="row">Additional tools checked</th><td>IIO Oscilloscope and GQRX were installed and their interfaces opened. Capture and real reception were not tested without the device.</td></tr></tbody>
+    </table></div>
+  <p class="small-copy">To record the missing software release numbers on the Ubuntu computer, the relevant commands are <code>lsb_release -ds</code> and <code>gnuradio-config-info --version</code>. The Windows GNU Radio version is not used as the Ubuntu version.</p>
+  <p class="section-summary"><strong>Path C outcome:</strong> The software environment was prepared at home. Hardware identification and radio reception were not performed there because the SDR was not available.</p>
+</section>
+
+<section class="chapter" id="python" aria-labelledby="python-title">
+  <div class="chapter-heading"><span class="chapter-index">04</span><div><span class="eyebrow">Path D</span><h2 id="python-title">Python &amp; pyadi-iio reception</h2></div><span class="status yes">I/Q acquisition documented</span></div>
+  <p class="section-lead">Run the receive script from VS Code in Radioconda, acquire a 4,096-sample complex frame, and plot its FFT around 945 MHz.</p>
+  <p>The updated screenshot shows <code>spectrum_view.py</code>, device construction with <code>adi.Pluto</code>, receiver configuration, <code>sdr.rx()</code>, and the resulting spectrum. The recorded frame shape and sample rate agree with the script settings.</p>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 09</span><span>Python receiver results</span></caption>
+      <thead><tr><th scope="col">Item</th><th scope="col">Recorded result</th></tr></thead><tbody><tr><th scope="row">pyadi-iio installation and execution</th><td>Installation, loading with <code>import adi</code>, and the receive workflow using <code>adi.Pluto</code> completed successfully.</td></tr><tr><th scope="row">Python environment</th><td>Radioconda on Windows, used to run the acquisition and spectrum script.</td></tr><tr><th scope="row">Array shape and sample rate</th><td><code>x.shape = (4096,)</code><br><code>sdr.sample_rate = 2600000</code><br>Equivalent to 2.6 MS/s.</td></tr><tr><th scope="row">Was the GSM900 frequency region plotted?</th><td>Yes. The receive spectrum was plotted with a 945 MHz center frequency, in the GSM900 region. The updated script and its plot are shown in Figure 6.</td></tr></tbody>
+    </table></div>
+  <h3>Receive script</h3><p>The configured center frequency is 945 MHz, the sample rate is 2.6 MS/s, RF bandwidth is 2 MHz, receive gain is manually set to 20 dB, and the buffer contains 4,096 samples.</p>
+  <div class="code-block">
+      <div class="code-toolbar"><span>Python · acquisition and FFT</span><button class="copy-code" type="button"
+      aria-label="Copy python code">Copy code</button></div>
+      <pre tabindex="0"><code class="language-python">import adi, numpy as np, matplotlib.pyplot as plt
+
+sdr = adi.Pluto(&quot;ip:192.168.1.10&quot;)
+sdr.sample_rate = int(2.6e6)
+sdr.rx_lo = int(945e6)
+sdr.rx_rf_bandwidth = int(2e6)
+sdr.gain_control_mode_chan0 = &quot;manual&quot;
+sdr.rx_hardwaregain_chan0 = 20
+sdr.rx_buffer_size = 4096
+
+x = sdr.rx()
+print(&quot;samples:&quot;, x.shape, &quot;sample_rate:&quot;, sdr.sample_rate)
+X = np.fft.fftshift(np.fft.fft(x * np.hanning(len(x))))
+f = (sdr.rx_lo + np.fft.fftshift(
+    np.fft.fftfreq(len(x), 1/sdr.sample_rate))) / 1e6
+plt.plot(f, 20*np.log10(np.abs(X) + 1e-9))
+plt.xlabel(&quot;frequency (MHz)&quot;)
+plt.ylabel(&quot;dB&quot;)
+plt.grid(True)
+plt.show()</code></pre></div>
+  <figure class="evidence" id="figure-6">
+      <button type="button" class="image-open" data-image="assets/python-reception-vscode.png" data-title="Python receive script and spectrum"
+      data-caption="The updated original screenshot shows spectrum_view.py in VS Code and its plotted receive spectrum. Open the capture to inspect the code and graph at full resolution." aria-label="Enlarge Figure 6: Python receive script and spectrum">
+      <img src="assets/python-reception-vscode.png" width="2047" height="762" loading="lazy" decoding="async" alt="The updated original screenshot shows spectrum_view.py in VS Code and its plotted receive spectrum. Open the capture to inspect the code and graph at full resolution.">
+      <span class="image-action">View full-size <span aria-hidden="true">&#8599;</span></span></button>
+      <figcaption><span class="figure-number">Figure 06</span><div><strong>Python receive script and spectrum</strong>
+      <p>The updated original screenshot shows spectrum_view.py in VS Code and its plotted receive spectrum. Open the capture to inspect the code and graph at full resolution.</p></div></figcaption></figure>
+  <p>Successful construction of the receiver, sample acquisition, and spectrum plotting document operation of pyadi-iio and the receive chain in the selected environment. The first row of Table 9 records this installation and execution check rather than assigning an unobserved package version number.</p>
+  <h3>Sample-frame analysis</h3>
+  <div class="calculation-grid">
+    <div><span class="eyebrow">Capture duration</span><div class="calculation">T = N / f<sub>s</sub></div><strong>≈ 1.575 ms</strong><p>4,096 samples at 2.6 MS/s.</p></div>
+    <div><span class="eyebrow">FFT-bin spacing</span><div class="calculation">Δf = f<sub>s</sub> / N</div><strong>≈ 634.8 Hz</strong><p>Theoretical spacing between FFT bins.</p></div>
+  </div>
+  <p>The processing chain acquires I/Q samples, applies a Hann window, calculates the FFT, shifts the frequency bins, and places the horizontal axis around 945 MHz. Its two-sided span is approximately 943.7–946.3 MHz.</p>
+  <p>The center of the displayed spectrum is higher than its edges. The vertical quantity is <code>20 log10(|X|)</code> in dB relative to the numerical FFT magnitude. Determining absolute RF input power in dBm requires calibration; identifying modulation or individual GSM carriers requires additional analysis beyond this single-frame image.</p>
+  <p class="section-summary"><strong>Path D outcome:</strong> The receive script executed, a 4,096-sample frame and 2.6 MS/s rate were recorded, and the spectrum was plotted.</p>
+</section>
+
+<section class="chapter conclusion" id="conclusion" aria-labelledby="conclusion-title">
+  <div class="chapter-heading"><span class="chapter-index">05</span><div><span class="eyebrow">Review</span><h2 id="conclusion-title">Results &amp; conclusions</h2></div></div>
+  <div class="table-wrap"><table>
+      <caption><span class="eyebrow">Table 10</span><span>Submission and readiness summary</span></caption>
+      <thead><tr><th scope="col">Path</th><th scope="col">Status</th><th scope="col">Documented basis</th></tr></thead><tbody><tr><th scope="row">Network</th><td><span class="status neutral">Configuration recorded</span></td><td>Computer reference address: 192.168.1.20. A separate ping result is not included in the captures.</td></tr><tr><th scope="row">A · MATLAB</th><td><span class="status yes">Output recorded</span></td><td>Script execution and spectrum display are documented. The serial number is empty in the command-window image.</td></tr><tr><th scope="row">B · GNU Radio</th><td><span class="status yes">Output recorded</span></td><td>The flowgraph displayed a spectrum near 945 MHz. SDRangel and SDR++ were installed, and the SDR++ receive display is documented.</td></tr><tr><th scope="row">C · Ubuntu</th><td><span class="status preparation">Software prepared</span></td><td>The section was not required in the session. Ubuntu and its tools were installed at home; hardware-dependent tests were not performed there.</td></tr><tr><th scope="row">D · Python</th><td><span class="status yes">Completed</span></td><td>The pyadi-iio script was executed. A 4,096-sample frame, a 2,600,000 sample/s rate, and the receive spectrum are recorded.</td></tr></tbody>
+    </table></div>
+  <p class="small-copy">Instructor sign-off is reserved for presentation or assessment; no approval signature is claimed in this report.</p>
+  <h3>Conclusion</h3><p>The required software environments were prepared, and receive outputs were recorded in MATLAB, GNU Radio, and Python. Ubuntu preparation was completed without the device at home. Network settings and I/Q processing form the common basis across the workflows, while each section distinguishes the reference configuration, displayed settings, and scope of the test.</p>
+  <div class="report-closing"><span class="eyebrow">Report basis</span><p>Course handout: <em>Experiment 0 — Environment and Toolchain Setup</em>, pages 2–11, together with the team's six original software screenshots. All figure links open the supplied captures. No simulated plots are used in this report.</p></div>
+</section>
+<footer class="report-footer"><div><strong>SDR Laboratory · Experiment 00</strong><p>Romina Babaei · 402111259<br>Seyed Mohammad Mahdi Mousavi · 402111272</p></div><a href="#top">Back to top <span aria-hidden="true">↑</span></a></footer>
+</main></div>
+
+<dialog id="evidence-viewer" aria-labelledby="viewer-title">
+  <div class="viewer-header"><div><span class="eyebrow">Original capture</span><h2 id="viewer-title"></h2></div><button id="close-viewer" type="button" aria-label="Close image viewer">Close <span aria-hidden="true">×</span></button></div>
+  <div class="viewer-viewport"><img id="viewer-image" alt=""></div>
+  <div class="viewer-footer"><p id="viewer-caption"></p><div><button id="zoom-viewer" type="button" aria-pressed="false">Zoom to original</button><a id="open-original" target="_blank" rel="noopener">Open original ↗</a></div></div>
+</dialog>
+<div class="sr-only" id="copy-announcement" role="status" aria-live="polite"></div>
+</body></html>
