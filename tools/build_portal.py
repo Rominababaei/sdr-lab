@@ -17,11 +17,15 @@ NUMBERS=str.maketrans('0123456789','۰۱۲۳۴۵۶۷۸۹')
 
 def fa(value):return str(value).translate(NUMBERS)
 
+def asset_version(filename):
+    return hashlib.sha256((ROOT/'assets-src'/filename).read_bytes()).hexdigest()[:12]
+
 def fragment(markup):
     return BeautifulSoup(markup,'html.parser')
 
 def header(prefix='',current=None):
-    links=''.join(f'<li><a href="{prefix}reports/{key}/index.html"'+(' aria-current="page"' if current==key else '')+f'>{html.escape(doc["label"])} آزمایش {fa(doc["number"])}</a></li>' for key,doc in DOCS.items())
+    theme=asset_version('report-theme.css')
+    links=''.join(f'<li><a href="{prefix}reports/{key}/index.html?theme={theme}"'+(' aria-current="page"' if current==key else '')+f'>{html.escape(doc["label"])} آزمایش {fa(doc["number"])}</a></li>' for key,doc in DOCS.items())
     return f'''<header class="hub-header" id="top" data-hub-shell>
       <div class="hub-header-inner"><a class="hub-brand" href="{prefix}index.html"><img src="{prefix}assets/mark.svg" width="42" height="42" alt=""><span>آزمایشگاه رادیوی نرم‌افزار<small lang="en" dir="ltr">SOFTWARE DEFINED RADIO</small></span></a>
       <nav class="hub-top-nav" aria-label="پیمایش آزمایشگاه"><a href="{prefix}index.html#archive">آرشیو آزمایش‌ها</a><a href="{prefix}index.html#team">اعضای گروه</a><details class="hub-switch"><summary>گزارش‌ها</summary><ul>{links}</ul></details></nav></div></header>'''
@@ -40,7 +44,7 @@ def experiments():
             pdf=''
             if doc.get('pdf'):
                 pdf=f'<div class="hub-pdf-actions"><a href="{html.escape(doc["pdf"])}" target="_blank" rel="noopener">مشاهدهٔ PDF</a><a href="{html.escape(doc["pdf"])}" download>دانلود PDF</a></div>'
-            cards.append(f'''<div class="hub-document" data-type="{doc['type']}"><span class="hub-document-kind" lang="en" dir="ltr">{'PRE-LAB' if doc['type']=='prelab' else 'LAB REPORT'}</span><a class="hub-document-link" href="reports/{doc['id']}/index.html">{doc['label']}<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h4"/></svg></a>{pdf}</div>''')
+            cards.append(f'''<div class="hub-document" data-type="{doc['type']}"><span class="hub-document-kind" lang="en" dir="ltr">{'PRE-LAB' if doc['type']=='prelab' else 'LAB REPORT'}</span><a class="hub-document-link" href="reports/{doc['id']}/index.html?theme={asset_version('report-theme.css')}">{doc['label']}<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6m-6 4h6m-6 4h4"/></svg></a>{pdf}</div>''')
         blocks.append(f'''<article class="hub-experiment" data-search="{html.escape(exp['keywords'])}"><div class="hub-lab-mark" aria-hidden="true"><svg viewBox="0 0 48 48">{ICONS[exp['icon']]}</svg></div><div class="hub-experiment-info"><p class="hub-experiment-label">آزمایش {fa(exp['number'])}</p><h3 class="hub-experiment-title">{exp['title']}</h3><p class="hub-experiment-topic">{exp['topic']}</p></div><div class="hub-documents">{''.join(cards)}</div></article>''')
     return '\n'.join(blocks)
 
@@ -91,10 +95,12 @@ def build():
                         tail=value[len(original_origin):]
                         tag[attr]=posixpath.relpath(tail or 'index.html',relative.parent.as_posix())
             for asset in ('hub.css','report-theme.css'):
-                tag=doc.new_tag('link',rel='stylesheet',href=prefix+'assets/'+asset)
+                tag=doc.new_tag('link',rel='stylesheet',href=prefix+'assets/'+asset+'?v='+asset_version(asset))
                 doc.head.append(tag)
-            tag=doc.new_tag('script',src=prefix+'assets/hub.js',defer='')
+            tag=doc.new_tag('script',src=prefix+'assets/hub.js?v='+asset_version('hub.js'),defer='')
             doc.head.append(tag)
+            for tag in doc.select('meta[name="theme-color"]'):tag['content']='#12273b'
+            for tag in doc.select('link[rel="icon"]'):tag['href']=prefix+'assets/mark.svg'
             body=doc.body
             body['data-report']=key
             wrapper=doc.new_tag('div',attrs={'class':'original-report'})
